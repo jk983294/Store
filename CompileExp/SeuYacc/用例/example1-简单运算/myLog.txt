@@ -1,0 +1,87 @@
+开始初始化...
+产生式中压入了拓展表达式
+终结符表插入结束符TERMINAL
+初始化结束
+
+开始读入声明段，存储终结符...
+声明段读入完毕
+
+开始读入产生式...
+产生式读入完毕
+
+打印所有读入的信息...
+--------------产生式----------------------
+producer 0 1999:2000 
+producer 1 2000:2001 1001 2002 
+producer 2 2000:2002 
+producer 3 2001:1002 2002 
+producer 4 2001:1003 
+producer 5 2002:2001 
+--------------终态符---------------------
+EQ		1001
+I		1003
+STAR		1002
+TERMINAL		1000
+--------------非终态符--------------------
+L		2001
+R		2002
+S		2000
+--------------算符优先表--------------------
+--------------产生式优先表--------------------
+
+开始构建LR(1)文法...
+LR(1)文法构建完毕
+
+开始打印动作表
+--------------非终态的首符集--------------
+1999:1002 1003 
+2000:1002 1003 
+2001:1002 1003 
+2002:1002 1003 
+0	e	s2	s1	e	s4	s5	s3	
+1	e	s2	s1	e	s6	s7	e	
+2	r4	e	e	r4	e	e	e	
+3	e	e	e	acc	e	e	e	
+4	s8	e	e	r5	e	e	e	
+5	e	e	e	r2	e	e	e	
+6	r5	e	e	r5	e	e	e	
+7	r3	e	e	r3	e	e	e	
+8	e	s10	s9	e	s11	s12	e	
+9	e	s10	s9	e	s11	s13	e	
+10	e	e	e	r4	e	e	e	
+11	e	e	e	r5	e	e	e	
+12	e	e	e	r1	e	e	e	
+13	e	e	e	r3	e	e	e	
+
+LR(1)映射到LALR(1)
+开始合并同心状态
+同心状态合并完毕，开始构建分析表
+临时分析表，用以生成代码：
+0	e	s10	s9	e	s4	s5	s3	
+1	e	e	e	e	e	e	e	
+2	e	e	e	e	e	e	e	
+3	e	e	e	acc	e	e	e	
+4	s8	e	e	r5	e	e	e	
+5	e	e	e	r2	e	e	e	
+6	e	e	e	e	e	e	e	
+7	e	e	e	e	e	e	e	
+8	e	s10	s9	e	s11	s12	e	
+9	e	s10	s9	e	s11	s13	e	
+10	r4	e	e	r4	e	e	e	
+11	r5	e	e	r5	e	e	e	
+12	e	e	e	r1	e	e	e	
+13	r3	e	e	r3	e	e	e	
+最终分析表：
+s0	e	s10	s9	e	s4	s5	s3	
+s3	e	e	e	acc	e	e	e	
+s4	s8	e	e	r5	e	e	e	
+s5	e	e	e	r2	e	e	e	
+s8	e	s10	s9	e	s11	s12	e	
+s9	e	s10	s9	e	s11	s13	e	
+s10	r4	e	e	r4	e	e	e	
+s11	r5	e	e	r5	e	e	e	
+s12	e	e	e	r1	e	e	e	
+s13	r3	e	e	r3	e	e	e	
+
+开始生成程序...
+生成程序完成

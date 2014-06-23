@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root name="ROIS制造平台">
+	<category name="电子类">
+		<order name="计算机">
+		</order>
+		<order name="打印机">
+			<suborder name="" url=""/>
+		</order>
+	</category>
+	<category name="机械类">
+		<order name="汽车" url="" />
+		<order name="挖掘机" url="" />
+	</category>
+</root>

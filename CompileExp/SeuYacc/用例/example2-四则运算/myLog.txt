@@ -1,0 +1,208 @@
+开始初始化...
+产生式中压入了拓展表达式
+终结符表插入结束符TERMINAL
+初始化结束
+
+开始读入声明段，存储终结符...
+声明段读入完毕
+
+开始读入产生式...
+产生式读入完毕
+
+打印所有读入的信息...
+--------------产生式----------------------
+producer 0 1999:2000 
+producer 1 2000:2001 1003 2002 
+producer 2 2001:1002 
+producer 3 2002:2002 1004 2002 
+producer 4 2002:2002 1005 2002 
+producer 5 2002:2002 1006 2002 
+producer 6 2002:2002 1007 2002 
+producer 7 2002:1008 2002 1009 
+producer 8 2002:1001 
+--------------终态符---------------------
+(		1008
+)		1009
+ADD		1004
+DIV		1007
+EQ		1003
+IDENTIFIER		1002
+MUL		1006
+NUM		1001
+SUB		1005
+TERMINAL		1000
+--------------非终态符--------------------
+E		2002
+S		2000
+identifier		2001
+--------------算符优先表--------------------
+1004		1
+1005		1
+1006		2
+1007		2
+--------------产生式优先表--------------------
+3		1
+4		1
+5		2
+6		2
+
+开始构建LR(1)文法...
+行21:存在移进、规约冲突
+移进的优先级低，不处理
+行21:存在移进、规约冲突
+移进的优先级低，不处理
+行21:存在移进、规约冲突
+移进的优先级高，移进
+行21:存在移进、规约冲突
+移进的优先级高，移进
+行22:存在移进、规约冲突
+移进的优先级低，不处理
+行22:存在移进、规约冲突
+移进的优先级低，不处理
+行22:存在移进、规约冲突
+移进的优先级高，移进
+行22:存在移进、规约冲突
+移进的优先级高，移进
+行23:存在移进、规约冲突
+移进的优先级低，不处理
+行23:存在移进、规约冲突
+移进的优先级低，不处理
+行23:存在移进、规约冲突
+移进的优先级低，不处理
+行23:存在移进、规约冲突
+移进的优先级低，不处理
+行24:存在移进、规约冲突
+移进的优先级低，不处理
+行24:存在移进、规约冲突
+移进的优先级低，不处理
+行24:存在移进、规约冲突
+移进的优先级低，不处理
+行24:存在移进、规约冲突
+移进的优先级低，不处理
+行26:存在移进、规约冲突
+移进的优先级低，不处理
+行26:存在移进、规约冲突
+移进的优先级低，不处理
+行26:存在移进、规约冲突
+移进的优先级高，移进
+行26:存在移进、规约冲突
+移进的优先级高，移进
+行27:存在移进、规约冲突
+移进的优先级低，不处理
+行27:存在移进、规约冲突
+移进的优先级低，不处理
+行27:存在移进、规约冲突
+移进的优先级高，移进
+行27:存在移进、规约冲突
+移进的优先级高，移进
+行28:存在移进、规约冲突
+移进的优先级低，不处理
+行28:存在移进、规约冲突
+移进的优先级低，不处理
+行28:存在移进、规约冲突
+移进的优先级低，不处理
+行28:存在移进、规约冲突
+移进的优先级低，不处理
+行29:存在移进、规约冲突
+移进的优先级低，不处理
+行29:存在移进、规约冲突
+移进的优先级低，不处理
+行29:存在移进、规约冲突
+移进的优先级低，不处理
+行29:存在移进、规约冲突
+移进的优先级低，不处理
+LR(1)文法构建完毕
+
+开始打印动作表
+--------------非终态的首符集--------------
+1999:1002 
+2000:1002 
+2001:1002 
+2002:1001 1008 
+0	e	e	e	e	e	s1	e	e	e	e	e	s2	s3	
+1	e	e	e	e	r2	e	e	e	e	e	e	e	e	
+2	e	e	e	e	e	e	e	e	e	acc	e	e	e	
+3	e	e	e	e	s4	e	e	e	e	e	e	e	e	
+4	s6	e	e	e	e	e	e	s5	e	e	s7	e	e	
+5	e	e	r8	r8	e	e	r8	e	r8	r8	e	e	e	
+6	s9	e	e	e	e	e	e	s8	e	e	s10	e	e	
+7	e	e	s11	s14	e	e	s13	e	s12	r1	e	e	e	
+8	e	r8	r8	r8	e	e	r8	e	r8	e	e	e	e	
+9	s9	e	e	e	e	e	e	s8	e	e	s15	e	e	
+10	e	s20	s16	s19	e	e	s18	e	s17	e	e	e	e	
+11	s6	e	e	e	e	e	e	s5	e	e	s21	e	e	
+12	s6	e	e	e	e	e	e	s5	e	e	s22	e	e	
+13	s6	e	e	e	e	e	e	s5	e	e	s23	e	e	
+14	s6	e	e	e	e	e	e	s5	e	e	s24	e	e	
+15	e	s25	s16	s19	e	e	s18	e	s17	e	e	e	e	
+16	s9	e	e	e	e	e	e	s8	e	e	s26	e	e	
+17	s9	e	e	e	e	e	e	s8	e	e	s27	e	e	
+18	s9	e	e	e	e	e	e	s8	e	e	s28	e	e	
+19	s9	e	e	e	e	e	e	s8	e	e	s29	e	e	
+20	e	e	r7	r7	e	e	r7	e	r7	r7	e	e	e	
+21	e	e	r3	s14	e	e	s13	e	r3	r3	e	e	e	
+22	e	e	r4	s14	e	e	s13	e	r4	r4	e	e	e	
+23	e	e	r5	r5	e	e	r5	e	r5	r5	e	e	e	
+24	e	e	r6	r6	e	e	r6	e	r6	r6	e	e	e	
+25	e	r7	r7	r7	e	e	r7	e	r7	e	e	e	e	
+26	e	r3	r3	s19	e	e	s18	e	r3	e	e	e	e	
+27	e	r4	r4	s19	e	e	s18	e	r4	e	e	e	e	
+28	e	r5	r5	r5	e	e	r5	e	r5	e	e	e	e	
+29	e	r6	r6	r6	e	e	r6	e	r6	e	e	e	e	
+
+LR(1)映射到LALR(1)
+开始合并同心状态
+同心状态合并完毕，开始构建分析表
+临时分析表，用以生成代码：
+0	e	e	e	e	e	s1	e	e	e	e	e	s2	s3	
+1	e	e	e	e	r2	e	e	e	e	e	e	e	e	
+2	e	e	e	e	e	e	e	e	e	acc	e	e	e	
+3	e	e	e	e	s4	e	e	e	e	e	e	e	e	
+4	s6	e	e	e	e	e	e	s5	e	e	s7	e	e	
+5	e	r8	r8	r8	e	e	r8	e	r8	r8	e	e	e	
+6	s6	e	e	e	e	e	e	s5	e	e	s10	e	e	
+7	e	e	s11	s14	e	e	s13	e	s12	r1	e	e	e	
+8	e	e	e	e	e	e	e	e	e	e	e	e	e	
+9	e	e	e	e	e	e	e	e	e	e	e	e	e	
+10	e	s20	s11	s14	e	e	s13	e	s12	e	e	e	e	
+11	s6	e	e	e	e	e	e	s5	e	e	s21	e	e	
+12	s6	e	e	e	e	e	e	s5	e	e	s22	e	e	
+13	s6	e	e	e	e	e	e	s5	e	e	s23	e	e	
+14	s6	e	e	e	e	e	e	s5	e	e	s24	e	e	
+15	e	e	e	e	e	e	e	e	e	e	e	e	e	
+16	e	e	e	e	e	e	e	e	e	e	e	e	e	
+17	e	e	e	e	e	e	e	e	e	e	e	e	e	
+18	e	e	e	e	e	e	e	e	e	e	e	e	e	
+19	e	e	e	e	e	e	e	e	e	e	e	e	e	
+20	e	r7	r7	r7	e	e	r7	e	r7	r7	e	e	e	
+21	e	r3	r3	s14	e	e	s13	e	r3	r3	e	e	e	
+22	e	r4	r4	s14	e	e	s13	e	r4	r4	e	e	e	
+23	e	r5	r5	r5	e	e	r5	e	r5	r5	e	e	e	
+24	e	r6	r6	r6	e	e	r6	e	r6	r6	e	e	e	
+25	e	e	e	e	e	e	e	e	e	e	e	e	e	
+26	e	e	e	e	e	e	e	e	e	e	e	e	e	
+27	e	e	e	e	e	e	e	e	e	e	e	e	e	
+28	e	e	e	e	e	e	e	e	e	e	e	e	e	
+29	e	e	e	e	e	e	e	e	e	e	e	e	e	
+最终分析表：
+s0	e	e	e	e	e	s1	e	e	e	e	e	s2	s3	
+s1	e	e	e	e	r2	e	e	e	e	e	e	e	e	
+s2	e	e	e	e	e	e	e	e	e	acc	e	e	e	
+s3	e	e	e	e	s4	e	e	e	e	e	e	e	e	
+s4	s6	e	e	e	e	e	e	s5	e	e	s7	e	e	
+s5	e	r8	r8	r8	e	e	r8	e	r8	r8	e	e	e	
+s6	s6	e	e	e	e	e	e	s5	e	e	s10	e	e	
+s7	e	e	s11	s14	e	e	s13	e	s12	r1	e	e	e	
+s10	e	s20	s11	s14	e	e	s13	e	s12	e	e	e	e	
+s11	s6	e	e	e	e	e	e	s5	e	e	s21	e	e	
+s12	s6	e	e	e	e	e	e	s5	e	e	s22	e	e	
+s13	s6	e	e	e	e	e	e	s5	e	e	s23	e	e	
+s14	s6	e	e	e	e	e	e	s5	e	e	s24	e	e	
+s20	e	r7	r7	r7	e	e	r7	e	r7	r7	e	e	e	
+s21	e	r3	r3	s14	e	e	s13	e	r3	r3	e	e	e	
+s22	e	r4	r4	s14	e	e	s13	e	r4	r4	e	e	e	
+s23	e	r5	r5	r5	e	e	r5	e	r5	r5	e	e	e	
+s24	e	r6	r6	r6	e	e	r6	e	r6	r6	e	e	e	
+
+开始生成程序...
+生成程序完成

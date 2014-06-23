@@ -1,0 +1,11 @@
+<service name="制造CPU" id="4">
+	<param name="主频" min="1" max="4" unit="GHZ" tendency="正" type="number"/>
+	<param name="外频" min="1" max="4" unit="GHZ" tendency ="正" type="number"/>	
+	<param name="制作工艺" min="90" max="90" unit="纳米" tendency ="反" type="number"/>	
+	<qos>
+		<time min="7" max="9" unit="小时" tendency ="反" type="number"/>
+		<quality scope="很低,低,中等,高,很高" value="中等" type="enum" tendency ="正"/>
+		<cost min="1200" max="1200" unit="元每单位" tendency ="反" type="number"/>
+		<Throughput min="4000" max="6000" unit="个每30天" tendency ="正" type="number"/>
+	</qos>
+</service>

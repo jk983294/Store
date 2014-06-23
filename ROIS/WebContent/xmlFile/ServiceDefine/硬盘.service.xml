@@ -1,0 +1,16 @@
+<!-- 服务定义的xml文件 -->  
+<service name ="制造硬盘">
+	<param name ="容量" type = "text" value="" />
+	<param name ="转速" type = "text" min="" max="" />
+	<param name ="缓存" type = "text" min="" max="" />
+
+
+	<param name ="硬盘尺寸" type = "radio" value="2.5英寸" >
+		<option value="1.8英寸"/>
+		<option value="2.5英寸"/>
+		<option value="3.5英寸"/>
+	</param>
+
+
+</service>  
+

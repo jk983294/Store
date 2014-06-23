@@ -1,0 +1,265 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_WAR                 ICON    DISCARDABLE     "war.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_MYCURSOR            CURSOR  DISCARDABLE     "cursor1.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "文件"
+    BEGIN
+        POPUP "新建"
+        BEGIN
+            MENUITEM "草地类型场景",                ID_NEW_GRASSGROUND
+            MENUITEM "泥地类型场景",                ID_NEW_MUDDYGROUND
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "打开已有文件...",             ID_OPEN
+        MENUITEM "保存",                        ID_SAVE
+        MENUITEM "保存为...",                   ID_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "Exit",                        ID_EXIT
+    END
+    POPUP "编辑"
+    BEGIN
+        POPUP "地面编辑"
+        BEGIN
+            POPUP "使用草地方块"
+            BEGIN
+                MENUITEM "草地1",                       ID_EDIT_WITCHGRASS1
+                MENUITEM "草地2",                       ID_EDIT_WITCHGRASS2
+                MENUITEM "草地3",                       ID_EDIT_WITCHGRASS3
+                MENUITEM "草地4",                       ID_EDIT_WITCHGRASS4
+                MENUITEM "草地5",                       ID_EDIT_WITCHGRASS5
+            END
+            POPUP "使用泥地方块"
+            BEGIN
+                MENUITEM "泥地1",                       ID_EDIT_WITCHMUD1
+                MENUITEM "泥地2",                       ID_EDIT_WITCHMUD2
+                MENUITEM "泥地3",                       ID_EDIT_WITCHMUD3
+                MENUITEM "泥地4",                       ID_EDIT_WITCHMUD4
+                MENUITEM "泥地5",                       ID_EDIT_WITCHMUD5
+            END
+            POPUP "草地和泥地的过渡"
+            BEGIN
+                MENUITEM "过渡1",                       ID_EDIT_GRASSTOMUD1
+                MENUITEM "过渡2",                       ID_EDIT_GRASSTOMUD2
+                MENUITEM "过渡3",                       ID_EDIT_GRASSTOMUD3
+                MENUITEM "过渡4",                       ID_EDIT_GRASSTOMUD4
+                MENUITEM "过渡5",                       ID_EDIT_GRASSTOMUD5
+                MENUITEM "过渡6",                       ID_EDIT_GRASSTOMUD6
+                MENUITEM "过渡7",                       ID_EDIT_GRASSTOMUD7
+                MENUITEM "过渡8",                       ID_EDIT_GRASSTOMUD8
+                MENUITEM "过渡9",                       ID_EDIT_GRASSTOMUD9
+                MENUITEM "过渡10",                      ID_EDIT_GRASSTOMUD10
+                MENUITEM "过渡11",                      ID_EDIT_GRASSTOMUD11
+                MENUITEM "过渡12",                      ID_EDIT_GRASSTOMUD12
+                MENUITEM "过渡13",                      ID_EDIT_GRASSTOMUD13
+                MENUITEM "过渡14",                      ID_EDIT_GRASSTOMUD14
+                MENUITEM "过渡15",                      ID_EDIT_GRASSTOMUD15
+                MENUITEM "过渡16",                      ID_EDIT_GRASSTOMUD16
+                MENUITEM "过渡17",                      ID_EDIT_GRASSTOMUD17
+                MENUITEM "过渡18",                      ID_EDIT_GRASSTOMUD18
+                MENUITEM "过渡19",                      ID_EDIT_GRASSTOMUD19
+                MENUITEM "过渡20",                      ID_EDIT_GRASSTOMUD20
+            END
+        END
+        POPUP "树木编辑"
+        BEGIN
+            MENUITEM "树木1",                       ID_EDIT_TREE1
+            MENUITEM "树木2",                       ID_EDIT_TREE2
+            MENUITEM "树木3",                       ID_EDIT_TREE3
+            MENUITEM "树木4",                       ID_EDIT_TREE4
+            MENUITEM "树木5",                       ID_EDIT_TREE5
+            MENUITEM "树木6",                       ID_EDIT_TREE6
+            MENUITEM "树木7",                       ID_EDIT_TREE7
+            MENUITEM "树木8",                       ID_EDIT_TREE8
+            MENUITEM "树木9",                       ID_EDIT_TREE9
+            MENUITEM "树木10",                      ID_EDIT_TREE10
+            MENUITEM "树木11",                      ID_EDIT_TREE11
+            MENUITEM "树木12",                      ID_EDIT_TREE12
+            MENUITEM "树木13",                      ID_EDIT_TREE13
+            MENUITEM "树木14",                      ID_EDIT_TREE14
+            MENUITEM "树木15",                      ID_EDIT_TREE15
+            MENUITEM "树木16",                      ID_EDIT_TREE16
+            MENUITEM "树木17",                      ID_EDIT_TREE17
+            MENUITEM "树木18",                      ID_EDIT_TREE18
+            MENUITEM "树木19",                      ID_EDIT_TREE19
+            MENUITEM "树木20",                      ID_EDIT_TREE20
+        END
+        POPUP "设置自己的种族"
+        BEGIN
+            MENUITEM "人族",                        ID_SETMY_HUM
+            MENUITEM "兽族",                        ID_SETMY_ORC
+        END
+        POPUP "设定电脑的种族"
+        BEGIN
+            MENUITEM "人族",                        ID_SETAI_HUM
+            MENUITEM "兽族",                        ID_SETAI_ORC
+        END
+        POPUP "单位编辑"
+        BEGIN
+            POPUP "设置编辑对象"
+            BEGIN
+                MENUITEM "自己",                        ID_SET_I
+                MENUITEM "电脑",                        ID_SET_AI
+            END
+            POPUP "建筑"
+            BEGIN
+                MENUITEM "1",                           ID_SET_BUILDING1
+                MENUITEM "2",                           ID_SET_BUILDING2
+                MENUITEM "3",                           ID_SET_BUILDING3
+                MENUITEM "4",                           ID_SET_BUILDING4
+                MENUITEM "5",                           ID_SET_BUILDING5
+            END
+            POPUP "兵种"
+            BEGIN
+                MENUITEM "1",                           ID_SET_PEOPLE1
+                MENUITEM "2",                           ID_SET_PEOPLE2
+                MENUITEM "3",                           ID_SET_PEOPLE3
+                MENUITEM "4",                           ID_SET_PEOPLE4
+                MENUITEM "5",                           ID_SET_PEOPLE5
+            END
+        END
+        MENUITEM "添加金矿",                    ID_EDIT_GOLDMINE
+    END
+    POPUP "关于"
+    BEGIN
+        MENUITEM "关于...",                     ID_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SETSCENE DIALOG DISCARDABLE  0, 0, 157, 82
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "设置地图属性"
+FONT 10, "System"
+BEGIN
+    LTEXT           "输入地图宽度:",IDC_STATIC,7,9,55,8
+    LTEXT           "输入地图高度:",IDC_STATIC,7,30,51,9
+    EDITTEXT        IDC_EDITWIDTH,66,7,74,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITHIGH,66,28,74,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "OK",IDC_OK,15,52,43,16
+    PUSHBUTTON      "Canncel",IDC_CANNCEL,80,52,42,16
+END
+
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 146, 47
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于地图编辑器..."
+FONT 10, "System"
+BEGIN
+    PUSHBUTTON      "OK",IDC_OK,41,26,50,14
+    CTEXT           "CopyRight@jk",IDC_STATIC,7,7,132,16
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SETSCENE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 150
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 139
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 40
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Chinese (中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

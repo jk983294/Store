@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- defaultdir指定装饰器文件所在的路径 -->
+<decorators defaultdir="/layout">
+	<!--excludes结点则指定了哪些路径的请求不使用任何模板 -->
+	<!--/index.jsp和凡是以/login/开头的请求路径一律不使用模板 -->
+	<excludes>
+		<pattern>/entpLogin*</pattern>
+		<pattern>/entpRegister*</pattern>
+		<pattern>/regSuccess*</pattern>
+		<pattern>/test*</pattern>
+		<pattern>/admin/*</pattern>
+		<pattern>/order/*</pattern>
+		<pattern>/jsp/messageDiv*</pattern>
+		<pattern>/jsp/serviceDetail*</pattern>
+	</excludes>
+	<!--decorator结点指定了模板的位置和文件名，通过pattern来指定哪些路径引用哪个模板 -->
+	<decorator name="main" page="mode.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+</decorators>  
+ 

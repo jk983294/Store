@@ -1,0 +1,83 @@
+5 nodes are created.
+ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+ChordNode[ID=http://169.254.203.1:9000,KEY=9]
+ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+Chord ring is established.
+Finger Tables are fixed.
+=======================================================
+FingerTable: ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+-------------------------------------------------------
+Predecessor: ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+Successor: ChordNode[ID=http://169.254.203.1:9000,KEY=9]
+-------------------------------------------------------
+6	ChordNode[ID=http://169.254.203.1:9000,KEY=9]
+6	ChordNode[ID=http://169.254.203.1:9000,KEY=9]
+6	ChordNode[ID=http://169.254.203.1:9000,KEY=9]
+7	ChordNode[ID=http://169.254.203.1:9000,KEY=9]
+8	ChordNode[ID=http://169.254.203.1:9000,KEY=9]
+9	ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+12	ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+19	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+=======================================================
+=======================================================
+FingerTable: ChordNode[ID=http://169.254.203.1:9000,KEY=9]
+-------------------------------------------------------
+Predecessor: ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+Successor: ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+-------------------------------------------------------
+9	ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+9	ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+9	ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+10	ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+10	ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+12	ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+15	ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+22	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+=======================================================
+=======================================================
+FingerTable: ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+-------------------------------------------------------
+Predecessor: ChordNode[ID=http://169.254.203.1:9000,KEY=9]
+Successor: ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+-------------------------------------------------------
+11	ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+11	ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+11	ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+12	ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+12	ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+14	ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+17	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+24	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+=======================================================
+=======================================================
+FingerTable: ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+-------------------------------------------------------
+Predecessor: ChordNode[ID=http://169.254.203.1:9003,KEY=11]
+Successor: ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+-------------------------------------------------------
+13	ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+13	ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+13	ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+14	ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+15	ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+16	ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+19	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+=======================================================
+=======================================================
+FingerTable: ChordNode[ID=http://169.254.203.1:9002,KEY=17]
+-------------------------------------------------------
+Predecessor: ChordNode[ID=http://169.254.203.1:9001,KEY=13]
+Successor: ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+-------------------------------------------------------
+17	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+17	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+17	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+18	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+18	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+20	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+23	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+4	ChordNode[ID=http://169.254.203.1:9004,KEY=6]
+=======================================================

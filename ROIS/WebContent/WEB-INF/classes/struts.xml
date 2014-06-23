@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<!-- <constant name="struts.locale" value="zh_CN" /> -->
+	<!-- <constant name="struts.i18n.encoding" value="UTF-8" /> -->
+	<package name="rois" namespace="/rois" extends="struts-default">
+		<!-- 全局Result -->
+		<global-results>
+			<result name="error">/error.jsp</result>
+			<result name="login">/entpLogin.jsp</result>
+		</global-results>
+
+		<action name="registerEntp" class="action.RegisterEntpAction">
+			<result name="success">/regSuccess.jsp</result>
+			<result name="input">/entpRegister.jsp</result>
+		</action>
+		<action name="loginEntp" class="action.LoginEntpAction" method="login">
+			<result name="success">/jsp/welcome.jsp</result>
+			<result name="input">/entpLogin.jsp</result>
+		</action>
+		<action name="logout" class="action.LoginEntpAction" method="logout">
+			<result name="success" type="redirect">/entpLogin.jsp</result>
+		</action>
+
+		<action name="messageDiv" class="action.InstantMessageAction">
+			<result>/jsp/messageDiv.jsp</result>
+		</action>
+		<action name="messageBox" class="action.MessageBoxAction">
+			<result name="success">/jsp/messageBox.jsp</result>
+		</action>
+
+		<action name="displayServiceRegister" class="action.DisplayServiceRegisterAction">
+			<result name="success">/jsp/serviceRegister.jsp</result>
+			<result name="input">/jsp/serviceRegister.jsp</result>
+		</action>
+		<action name="displayServiceDetail" class="action.DisplayServiceDetailAction"
+			method="serviceDetail">
+			<result>/jsp/serviceDetail.jsp</result>
+		</action>
+		<action name="displayMyServiceDetail" class="action.DisplayServiceDetailAction"
+			method="myserviceDetail">
+			<result>/jsp/serviceDetail.jsp</result>
+		</action>
+
+		<action name="registerService" class="action.RegisterServiceAction">
+			<result name="success">/jsp/serviceRegisterResult.jsp</result>
+			<result name="input">/jsp/serviceRegisterResult.jsp</result>
+		</action>
+		<action name="viewTask" class="action.ViewTaskAction">
+			<result name="taskTable">/jsp/taskTable.jsp</result>
+			<result name="detail">/jsp/taskDetail.jsp</result>
+		</action>
+		<action name="operateTask" class="action.OperateTaskAction">
+			<result name="success" type="redirect">/rois/viewTask!taskTable.action
+			</result>
+		</action>
+	</package>
+	<package name="order" namespace="/order" extends="struts-default">
+		<action name="selectorder" class="action.SelectOrderAction">
+			<result name="success">/order/OrderFormPage.jsp</result>
+		</action>
+		<action name="submitorder" class="action.FillOrderAction">
+			<result name="success">/order/OrderConfirmPage.jsp</result>
+		</action>
+		<action name="sendorder" class="action.SubmitOrderAction">
+			<result name="success">/order/OrderResultPage.jsp</result>
+		</action>
+	</package>
+	<!-- 这里是amdin模块，测试用的 -->
+	<package name="admin" extends="struts-default">
+		<action name="adminLogin" class="action.AdminLoginAction">
+			<result name="success">/admin/administration.jsp</result>
+			<result name="input">/admin/adminLogin.jsp</result>
+		</action>
+		<action name="upload" class="action.UploadAction" method="execute">
+			<interceptor-ref name="fileUploadStack" />
+			<result name="success">/admin/uploadResult.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition  xmlns=""  name="computer">
+
+
+	<start-state name="开始">
+		<transition to="fork1"></transition>
+	</start-state>
+
+
+	<fork name="fork1">
+		<transition to="CPU" name="to CPU"></transition>
+		<transition to="硬盘" name="to 硬盘"></transition>
+		<transition to="显示屏" name="to 显示屏"></transition>
+		<transition to="主板" name="to 主板"></transition>
+	</fork>
+
+	<task-node name="主板">
+		<description>
+			制造主板
+		</description>
+		<task name="制造主板">
+			<description>
+				选择一个厂商制造主板
+			</description>
+			<controller>
+				<variable access="write" name="timecost">1</variable>
+			</controller>
+		</task>
+		<transition to="组装"></transition>
+	</task-node>
+
+	<task-node name="CPU">
+		<description>
+			制造CPU
+		</description>
+		<task name="制造CPU">
+			<description>
+				选择一个厂商制造CPU
+			</description>
+			<controller>
+				<variable access="write" name="timecost">2</variable>
+			</controller>
+		</task>
+		<transition to="组装"></transition>
+	</task-node>
+
+	<task-node name="硬盘">
+		<description>
+			制造硬盘
+		</description>
+		<task name="制造硬盘">
+			<description>
+				选择一个厂商制造硬盘
+			</description>
+			<controller>
+				<variable access="write" name="timecost">3</variable>
+			</controller>
+		</task>
+		<transition to="组装"></transition>
+	</task-node>
+
+	<task-node name="显示屏">
+		<description>
+			制造显示屏
+		</description>
+		<task name="制造显示屏">
+			<description>
+				选择一个厂商制造显示屏
+			</description>
+			<controller>
+				<variable access="write" name="timecost">4</variable>
+			</controller>
+		</task>
+		<transition to="组装"></transition>
+	</task-node>
+
+	<task-node name="组装">
+		<task name="组装">
+			<description>
+				组装一台电脑
+			</description>
+		</task>
+		<transition to="整机测试"></transition>
+	</task-node>
+
+	<task-node name="整机测试">
+		<task name="整机测试">
+			<description>
+				组装完成后，测试
+			</description>
+		</task>
+		<transition to="结束"></transition>
+	</task-node>
+
+
+	<end-state name="结束"></end-state>
+
+
+</process-definition>

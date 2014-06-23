@@ -1,0 +1,119 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Developer Studio generated include file.
+// Used by Script1.rc
+//
+#define IDD_DIALOG                      101
+#define IDD_SETSCENE                    101
+#define IDI_STUDY                       102
+#define IDR_MYMENU                      106
+#define IDC_MYCURSOR                    110
+#define IDR_MENU                        112
+#define IDD_GETSCENEIDDIALOG            114
+#define IDD_SWITCHTRAITDIALOG           114
+#define IDD_ABOUT                       115
+#define IDI_WAR                         117
+#define IDC_CLOSE                       1000
+#define IDC_EDIT                        1001
+#define IDC_EDITWIDTH                   1002
+#define IDC_EDITHIGH                    1003
+#define IDC_EDITSCENEID                 1004
+#define IDC_OK                          1005
+#define IDC_CANNCEL                     1006
+#define IDC_RADIO0                      1009
+#define IDC_RADIO1                      1010
+#define IDC_RADIO3                      1013
+#define IDC_RADIO2                      1014
+#define IDM_FILE_DIALOG                 40007
+#define df                              40008
+#define IDM_FILE_EXIT                   40011
+#define ID_NEW_GRASSGROUND              40014
+#define ID_NEW_MUDDYGROUND              40015
+#define ID_OPEN                         40016
+#define ID_EDIT_BIGTREE                 40017
+#define ID_EDIT_SMALLTREE               40018
+#define ID_EDIT_ROLEAPPEARAREA          40019
+#define ID_EDIT_SWITCHFIELD             40020
+#define ID_SAVE                         40021
+#define ID_SAVEAS                       40022
+#define ID_EXIT                         40023
+#define ID_ABOUT                        40024
+#define ID_EDIT_WITCHGRASS              40026
+#define ID_EDIT_WITCHMUD                40027
+#define ID_EDIT_WITCHGRASS1             40031
+#define ID_EDIT_WITCHGRASS3             40032
+#define ID_EDIT_WITCHGRASS2             40033
+#define ID_EDIT_WITCHGRASS4             40034
+#define ID_EDIT_WITCHGRASS5             40035
+#define ID_EDIT_WITCHMUD1               40036
+#define ID_EDIT_WITCHMUD2               40037
+#define ID_EDIT_WITCHMUD3               40038
+#define ID_EDIT_WITCHMUD4               40039
+#define ID_EDIT_WITCHMUD5               40040
+#define ID_EDIT_GRASSTOMUD1             40041
+#define ID_EDIT_GRASSTOMUD2             40042
+#define ID_EDIT_GRASSTOMUD3             40043
+#define ID_EDIT_GRASSTOMUD4             40044
+#define ID_EDIT_GRASSTOMUD5             40045
+#define ID_EDIT_GRASSTOMUD6             40046
+#define ID_EDIT_GRASSTOMUD7             40047
+#define ID_EDIT_GRASSTOMUD8             40048
+#define ID_EDIT_GRASSTOMUD9             40049
+#define ID_EDIT_GRASSTOMUD10            40050
+#define ID_EDIT_GRASSTOMUD11            40051
+#define ID_EDIT_GRASSTOMUD12            40052
+#define ID_EDIT_GRASSTOMUD13            40053
+#define ID_EDIT_GRASSTOMUD14            40054
+#define ID_EDIT_GRASSTOMUD15            40055
+#define ID_EDIT_GRASSTOMUD16            40056
+#define ID_EDIT_GRASSTOMUD17            40057
+#define ID_EDIT_GRASSTOMUD18            40058
+#define ID_EDIT_GRASSTOMUD19            40059
+#define ID_EDIT_GRASSTOMUD20            40060
+#define ID_EDIT_TREE1                   40061
+#define ID_EDIT_TREE2                   40062
+#define ID_EDIT_TREE3                   40063
+#define ID_EDIT_TREE4                   40064
+#define ID_EDIT_TREE5                   40065
+#define ID_EDIT_TREE6                   40066
+#define ID_EDIT_TREE7                   40067
+#define ID_EDIT_TREE8                   40068
+#define ID_EDIT_TREE9                   40069
+#define ID_EDIT_TREE10                  40070
+#define ID_EDIT_TREE11                  40071
+#define ID_EDIT_TREE12                  40072
+#define ID_EDIT_TREE13                  40073
+#define ID_EDIT_TREE14                  40074
+#define ID_EDIT_TREE15                  40075
+#define ID_EDIT_TREE16                  40076
+#define ID_EDIT_TREE17                  40077
+#define ID_EDIT_TREE18                  40078
+#define ID_EDIT_TREE19                  40079
+#define ID_EDIT_TREE20                  40080
+#define ID_SETMY_HUM                    40081
+#define ID_SETMY_ORC                    40082
+#define ID_SETAI_HUM                    40083
+#define ID_SETAI_ORC                    40084
+#define ID_SET_I                        40085
+#define ID_SET_AI                       40086
+#define ID_SET_BUILDING1                40087
+#define ID_SET_BUILDING2                40088
+#define ID_SET_BUILDING3                40089
+#define ID_SET_BUILDING4                40090
+#define ID_SET_PEOPLE1                  40091
+#define ID_SET_PEOPLE2                  40092
+#define ID_SET_PEOPLE3                  40093
+#define ID_SET_PEOPLE4                  40094
+#define ID_EDIT_GOLDMINE                40095
+#define ID_SET_PEOPLE5                  40096
+#define ID_SET_BUILDING5                40097
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        118
+#define _APS_NEXT_COMMAND_VALUE         40098
+#define _APS_NEXT_CONTROL_VALUE         1012
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif

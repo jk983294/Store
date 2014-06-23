@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validators>         <!-- 表明这是一个验证器 -->
+	<field name="enterprise.ename">   <!-- 声明要验证的字段 -->
+		<field-validator type="requiredstring">  <!-- 声明该字段验证器的类型为"必填的字符串" -->
+			<message>企业名不能为空</message>      <!-- 如果验证不通过时的出错信息 -->
+		</field-validator>
+	</field>
+
+	<field name="enterprise.loginName">
+		<field-validator type="requiredstring">
+			<message>登录用户名不能为空</message>
+		</field-validator>
+	</field>
+	<field name="enterprise.loginPwd">
+		<field-validator type="requiredstring">
+			<message>密码不能为空</message>
+		</field-validator>
+	</field>
+
+	<field name="repassword">
+		<field-validator type="requiredstring">
+			<message>请再次输入密码</message>
+		</field-validator>
+	</field>
+	
+	<field name="enterprise.email">
+		<field-validator type="email">
+		<message>电子邮箱格式不正确</message></field-validator>
+	</field>
+</validators>

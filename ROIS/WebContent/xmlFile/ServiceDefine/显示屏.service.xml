@@ -1,0 +1,15 @@
+<!-- 服务定义的xml文件 -->  
+<service name ="制造显示屏">
+	<param name ="点距" type = "text" min="" max="" />
+	<param name ="分辨率" type = "text" min="" max="" />
+	<param name ="大小" type = "text" min="" max="" />
+
+	<param name ="显示器的形状" type = "select">
+		<option value="球形断面显象管" /> 
+		<option value="平面直角显象管" />
+		<option value="直角显象管" />
+		<option value="柱形显象管" /> 
+	</param>
+
+</service>  
+

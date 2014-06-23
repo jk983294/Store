@@ -1,0 +1,103 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: DataBus - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Hp\LOCALS~1\Temp\RSP1447.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "../../Databus/include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "DATABUS_EXPORTS" /FR"DataBus___Win32_Debug/" /Fp"DataBus___Win32_Debug/DataBus.pch" /YX /Fo"DataBus___Win32_Debug/" /Fd"DataBus___Win32_Debug/" /FD /GZ /c 
+"C:\Documents and Settings\Hp\×ÀÃæ\20111220\DataBus\DataBus\Source\CDataFlow.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Hp\LOCALS~1\Temp\RSP1447.tmp" 
+Creating temporary file "C:\DOCUME~1\Hp\LOCALS~1\Temp\RSP1448.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib wsock32.lib ws2_32.lib /nologo /dll /incremental:yes /pdb:"DataBus___Win32_Debug/DataBus.pdb" /debug /machine:I386 /out:"../Debug/DataBus.dll" /implib:"DataBus___Win32_Debug/DataBus.lib" /pdbtype:sept 
+".\DataBus___Win32_Debug\Any.obj"
+".\DataBus___Win32_Debug\CDataArray.obj"
+".\DataBus___Win32_Debug\CDataCache.obj"
+".\DataBus___Win32_Debug\CDataChannel.obj"
+".\DataBus___Win32_Debug\CDataFlow.obj"
+".\DataBus___Win32_Debug\CFlowIn.obj"
+".\DataBus___Win32_Debug\CFlowOut.obj"
+".\DataBus___Win32_Debug\CNetworkOperator.obj"
+".\DataBus___Win32_Debug\CPeer.obj"
+".\DataBus___Win32_Debug\CReceivingArray.obj"
+".\DataBus___Win32_Debug\CSendingArray.obj"
+".\DataBus___Win32_Debug\CTCPAcceptor.obj"
+".\DataBus___Win32_Debug\CTCPConnector.obj"
+".\DataBus___Win32_Debug\CTCPReceiver.obj"
+".\DataBus___Win32_Debug\CTCPSender.obj"
+".\DataBus___Win32_Debug\CUDPReceiver.obj"
+".\DataBus___Win32_Debug\CUDPSender.obj"
+".\DataBus___Win32_Debug\Data.obj"
+".\DataBus___Win32_Debug\DataBus.obj"
+".\DataBus___Win32_Debug\DataDefine.obj"
+".\DataBus___Win32_Debug\DataDispatchor.obj"
+".\DataBus___Win32_Debug\DataHandler.obj"
+".\DataBus___Win32_Debug\DataLogics.obj"
+".\DataBus___Win32_Debug\DataReader.obj"
+".\DataBus___Win32_Debug\DataWriter.obj"
+".\DataBus___Win32_Debug\DomainParticipant.obj"
+".\DataBus___Win32_Debug\DomainParticipantFactory.obj"
+".\DataBus___Win32_Debug\Publisher.obj"
+".\DataBus___Win32_Debug\socket_utility.obj"
+".\DataBus___Win32_Debug\Subscriber.obj"
+".\DataBus___Win32_Debug\Thread.obj"
+".\DataBus___Win32_Debug\Topic.obj"
+".\DataBus___Win32_Debug\NetMonitor.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\Hp\LOCALS~1\Temp\RSP1448.tmp"
+<h3>Output Window</h3>
+Compiling...
+CDataFlow.cpp
+Linking...
+Creating temporary file "C:\DOCUME~1\Hp\LOCALS~1\Temp\RSP1449.tmp" with contents
+[
+/nologo /o"DataBus___Win32_Debug/DataBus.bsc" 
+".\DataBus___Win32_Debug\Any.sbr"
+".\DataBus___Win32_Debug\CDataArray.sbr"
+".\DataBus___Win32_Debug\CDataCache.sbr"
+".\DataBus___Win32_Debug\CDataChannel.sbr"
+".\DataBus___Win32_Debug\CDataFlow.sbr"
+".\DataBus___Win32_Debug\CFlowIn.sbr"
+".\DataBus___Win32_Debug\CFlowOut.sbr"
+".\DataBus___Win32_Debug\CNetworkOperator.sbr"
+".\DataBus___Win32_Debug\CPeer.sbr"
+".\DataBus___Win32_Debug\CReceivingArray.sbr"
+".\DataBus___Win32_Debug\CSendingArray.sbr"
+".\DataBus___Win32_Debug\CTCPAcceptor.sbr"
+".\DataBus___Win32_Debug\CTCPConnector.sbr"
+".\DataBus___Win32_Debug\CTCPReceiver.sbr"
+".\DataBus___Win32_Debug\CTCPSender.sbr"
+".\DataBus___Win32_Debug\CUDPReceiver.sbr"
+".\DataBus___Win32_Debug\CUDPSender.sbr"
+".\DataBus___Win32_Debug\Data.sbr"
+".\DataBus___Win32_Debug\DataBus.sbr"
+".\DataBus___Win32_Debug\DataDefine.sbr"
+".\DataBus___Win32_Debug\DataDispatchor.sbr"
+".\DataBus___Win32_Debug\DataHandler.sbr"
+".\DataBus___Win32_Debug\DataLogics.sbr"
+".\DataBus___Win32_Debug\DataReader.sbr"
+".\DataBus___Win32_Debug\DataWriter.sbr"
+".\DataBus___Win32_Debug\DomainParticipant.sbr"
+".\DataBus___Win32_Debug\DomainParticipantFactory.sbr"
+".\DataBus___Win32_Debug\Publisher.sbr"
+".\DataBus___Win32_Debug\socket_utility.sbr"
+".\DataBus___Win32_Debug\Subscriber.sbr"
+".\DataBus___Win32_Debug\Thread.sbr"
+".\DataBus___Win32_Debug\Topic.sbr"
+".\DataBus___Win32_Debug\NetMonitor.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\Hp\LOCALS~1\Temp\RSP1449.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+DataBus.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

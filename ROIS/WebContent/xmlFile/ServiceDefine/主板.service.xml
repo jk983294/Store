@@ -1,0 +1,11 @@
+<!-- 服务定义的xml文件 -->  
+<service name ="制造主板">
+	<param name ="SATA接口" type = "text" value=""/>
+	<param name ="外形尺寸" type = "text" value="" />
+	<param name ="USB接口数" type = "text" min="2" max=""/>
+	<param name ="显卡集成方式" type = "checkbox" value="独立显卡" >
+		<option value="独立显卡"/>
+		<option value="集成显卡"/>
+	</param>
+</service>  
+

@@ -1,0 +1,16 @@
+int main()
+{
+   int x=(20+10)*5+10;
+   int y=10;
+   int z=0;
+   int i=1;
+   if(y<10)
+   {
+      y=10;
+    }
+    while(y!=0)
+    {
+ 	z=z+y;
+        y=y-i;
+    }
+} 

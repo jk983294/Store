@@ -1,0 +1,565 @@
+开始初始化...
+产生式中压入了拓展表达式
+终结符表插入结束符TERMINAL
+初始化结束
+
+开始读入声明段，存储终结符...
+声明段读入完毕
+
+开始读入产生式...
+产生式读入完毕
+
+打印所有读入的信息...
+--------------产生式----------------------
+producer 0 1999:2000 
+producer 1 2000:2001 2002 1026 2003 1027 2004 
+producer 2 2000:2001 2002 1026 1027 2004 
+producer 3 2001:1007 
+producer 4 2001:1008 
+producer 5 2001:1009 
+producer 6 2001:1010 
+producer 7 2001:1011 
+producer 8 2001:1012 
+producer 9 2001:1013 
+producer 10 2001:1014 
+producer 11 2002:2005 
+producer 12 2005:1001 
+producer 13 2003:2001 2005 1028 2003 
+producer 14 2003:2001 2005 
+producer 15 2004:1029 2006 1030 
+producer 16 2006:2007 
+producer 17 2006:2006 2007 
+producer 18 2007:2008 
+producer 19 2007:2009 
+producer 20 2007:2010 
+producer 21 2008:2011 1031 
+producer 22 2008:2012 1031 
+producer 23 2011:2011 1022 2011 
+producer 24 2011:2011 1023 2011 
+producer 25 2011:2011 1024 2011 
+producer 26 2011:2011 1025 2011 
+producer 27 2011:1026 2011 1027 
+producer 28 2011:1021 
+producer 29 2011:2005 2013 2005 
+producer 30 2013:1022 
+producer 31 2013:1023 
+producer 32 2013:1024 
+producer 33 2013:1025 
+producer 34 2012:2001 2005 
+producer 35 2012:2001 2005 1032 2005 
+producer 36 2012:2001 2005 1032 2011 
+producer 37 2012:2005 1032 2011 
+producer 38 2009:1004 1026 2014 1027 2004 
+producer 39 2014:2005 2015 2005 
+producer 40 2014:2005 2015 1021 
+producer 41 2014:1021 2015 2005 
+producer 42 2014:1021 2015 1021 
+producer 43 2015:1015 
+producer 44 2015:1016 
+producer 45 2015:1017 
+producer 46 2015:1018 
+producer 47 2015:1020 
+producer 48 2015:1019 
+producer 49 2010:1003 1026 2014 1027 2004 
+producer 50 2010:1006 2004 1003 1026 2014 1027 1031 
+--------------终态符---------------------
+(		1026
+)		1027
+,		1028
+;		1031
+=		1032
+ADD		1022
+CHAR		1011
+DIV		1025
+DO		1006
+DOUBLE		1012
+ELSE		1005
+EQ_OP		1015
+FLOAT		1008
+FOR		1002
+GE_OP		1020
+G_OP		1017
+IDENTIFIER		1001
+IF		1004
+INT		1007
+LE_OP		1019
+LONG		1009
+L_OP		1016
+MUL		1024
+NE_OP		1018
+NUM		1021
+SHORT		1010
+SIGNED		1013
+SUB		1023
+TERMINAL		1000
+UNSIGNED		1014
+WHILE		1003
+{		1029
+}		1030
+--------------非终态符--------------------
+assign_expression		2011
+assign_statement		2008
+compound_statement		2004
+function_name		2002
+identifier		2005
+initial_expression		2012
+iteration_statement		2010
+operator		2013
+parament_list		2003
+relate_expression		2014
+relation_operator		2015
+selection_statement		2009
+source_file		2000
+statement		2007
+statement_list		2006
+type		2001
+--------------算符优先表--------------------
+1022		1
+1023		1
+1024		2
+1025		2
+--------------产生式优先表--------------------
+23		1
+24		1
+25		2
+26		2
+30		1
+31		1
+32		2
+33		2
+
+开始构建LR(1)文法...
+行85:存在移进、规约冲突
+移进的优先级低，不处理
+行85:存在移进、规约冲突
+移进的优先级低，不处理
+行85:存在移进、规约冲突
+移进的优先级高，移进
+行85:存在移进、规约冲突
+移进的优先级高，移进
+行86:存在移进、规约冲突
+移进的优先级低，不处理
+行86:存在移进、规约冲突
+移进的优先级低，不处理
+行86:存在移进、规约冲突
+移进的优先级高，移进
+行86:存在移进、规约冲突
+移进的优先级高，移进
+行87:存在移进、规约冲突
+移进的优先级低，不处理
+行87:存在移进、规约冲突
+移进的优先级低，不处理
+行87:存在移进、规约冲突
+移进的优先级低，不处理
+行87:存在移进、规约冲突
+移进的优先级低，不处理
+行88:存在移进、规约冲突
+移进的优先级低，不处理
+行88:存在移进、规约冲突
+移进的优先级低，不处理
+行88:存在移进、规约冲突
+移进的优先级低，不处理
+行88:存在移进、规约冲突
+移进的优先级低，不处理
+行104:存在移进、规约冲突
+移进的优先级低，不处理
+行104:存在移进、规约冲突
+移进的优先级低，不处理
+行104:存在移进、规约冲突
+移进的优先级高，移进
+行104:存在移进、规约冲突
+移进的优先级高，移进
+行105:存在移进、规约冲突
+移进的优先级低，不处理
+行105:存在移进、规约冲突
+移进的优先级低，不处理
+行105:存在移进、规约冲突
+移进的优先级高，移进
+行105:存在移进、规约冲突
+移进的优先级高，移进
+行106:存在移进、规约冲突
+移进的优先级低，不处理
+行106:存在移进、规约冲突
+移进的优先级低，不处理
+行106:存在移进、规约冲突
+移进的优先级低，不处理
+行106:存在移进、规约冲突
+移进的优先级低，不处理
+行107:存在移进、规约冲突
+移进的优先级低，不处理
+行107:存在移进、规约冲突
+移进的优先级低，不处理
+行107:存在移进、规约冲突
+移进的优先级低，不处理
+行107:存在移进、规约冲突
+移进的优先级低，不处理
+LR(1)文法构建完毕
+
+开始打印动作表
+--------------非终态的首符集--------------
+1999:1007 1008 1009 1010 1011 1012 1013 1014 
+2000:1007 1008 1009 1010 1011 1012 1013 1014 
+2001:1007 1008 1009 1010 1011 1012 1013 1014 
+2002:1001 
+2003:1007 1008 1009 1010 1011 1012 1013 1014 
+2004:1029 
+2005:1001 
+2006:1001 1003 1004 1006 1007 1008 1009 1010 1011 1012 1013 1014 1021 1026 
+2007:1001 1003 1004 1006 1007 1008 1009 1010 1011 1012 1013 1014 1021 1026 
+2008:1001 1007 1008 1009 1010 1011 1012 1013 1014 1021 1026 
+2009:1004 
+2010:1003 1006 
+2011:1001 1021 1026 
+2012:1001 1007 1008 1009 1010 1011 1012 1013 1014 
+2013:1022 1023 1024 1025 
+2014:1001 1021 
+2015:1015 1016 1017 1018 1019 1020 
+0	e	e	e	e	e	e	s5	e	e	s6	e	e	s2	e	e	e	e	e	s1	e	s3	e	e	e	e	s4	s7	e	e	s8	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s9	e	e	s10	
+1	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r3	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+2	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r4	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+3	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r5	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+4	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r6	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+5	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r7	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+6	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r8	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+7	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r9	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+8	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r10	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+9	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	acc	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+10	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s11	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s12	s13	e	e	e	e	e	e	e	e	e	e	e	
+11	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+12	s14	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+13	r11	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+14	e	s15	e	e	e	e	s5	e	e	s6	e	e	s2	e	e	e	e	e	s1	e	s3	e	e	e	e	s4	s7	e	e	s8	e	e	e	e	e	e	e	e	e	e	e	s17	e	e	e	e	e	e	s16	
+15	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s19	e	e	e	e	e	e	e	e	e	e	e	e	e	
+16	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s20	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s21	e	e	e	e	e	e	e	e	e	e	e	
+17	e	s22	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+18	s28	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s23	s25	s1	e	s3	e	e	e	s27	s4	s7	e	e	s8	s24	e	e	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s32	s31	s29	
+19	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r2	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+20	e	r12	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+21	e	r14	s38	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+22	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s39	e	e	e	e	e	e	e	e	e	e	e	e	e	
+23	e	e	e	e	r12	r12	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r12	e	e	e	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+24	s40	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+25	s41	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s42	e	e	e	s43	e	e	e	e	e	e	e	e	e	e	e	e	e	
+27	e	e	e	r28	e	r28	e	r28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r28	e	e	e	e	r28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+28	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s48	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s49	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s50	e	e	e	e	e	e	e	e	e	e	e	
+30	e	e	e	e	s55	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s56	e	e	e	e	e	e	e	e	
+31	s28	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s23	s25	s1	e	s3	e	e	e	s27	s4	s7	e	e	s8	s24	e	s57	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s58	e	s29	
+32	r16	e	e	e	e	e	r16	e	r16	r16	e	e	r16	e	e	e	r16	r16	r16	e	r16	e	e	e	r16	r16	r16	e	e	r16	r16	e	r16	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+33	r18	e	e	e	e	e	r18	e	r18	r18	e	e	r18	e	e	e	r18	r18	r18	e	r18	e	e	e	r18	r18	r18	e	e	r18	r18	e	r18	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+34	r19	e	e	e	e	e	r19	e	r19	r19	e	e	r19	e	e	e	r19	r19	r19	e	r19	e	e	e	r19	r19	r19	e	e	r19	r19	e	r19	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+35	r20	e	e	e	e	e	r20	e	r20	r20	e	e	r20	e	e	e	r20	r20	r20	e	r20	e	e	e	r20	r20	r20	e	e	r20	r20	e	r20	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+36	e	e	e	s63	e	s59	e	s62	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s61	e	e	e	e	s60	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+37	e	e	e	s64	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+38	e	e	e	e	e	e	s5	e	e	s6	e	e	s2	e	e	e	e	e	s1	e	s3	e	e	e	e	s4	s7	e	e	s8	e	e	e	e	e	e	e	e	e	e	e	s65	e	e	e	e	e	e	s16	
+39	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r1	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+40	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s67	e	e	e	e	e	e	e	e	e	e	e	e	s68	e	e	e	e	s69	e	e	e	e	e	e	
+41	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s67	e	e	e	e	e	e	e	e	e	e	e	e	s68	e	e	e	e	s70	e	e	e	e	e	e	
+42	s28	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s23	s25	s1	e	s3	e	e	e	s27	s4	s7	e	e	s8	s24	e	e	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s32	s71	s29	
+43	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s72	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+44	e	e	e	e	e	r12	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r12	e	e	e	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+45	e	r28	e	e	e	r28	e	r28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r28	e	e	e	e	r28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+46	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s73	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+47	e	e	e	e	e	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s74	e	e	e	e	e	e	e	e	
+48	e	s79	e	e	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+49	e	e	e	r12	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+50	e	e	e	r34	s80	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+51	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r30	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+52	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r31	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+53	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r32	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r33	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+55	s28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s27	e	e	e	e	e	e	e	e	s82	e	e	e	s81	e	e	e	e	e	e	e	e	e	e	e	
+56	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s83	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s84	e	e	e	e	e	e	e	e	e	e	e	
+57	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r15	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+58	r17	e	e	e	e	e	r17	e	r17	r17	e	e	r17	e	e	e	r17	r17	r17	e	r17	e	e	e	r17	r17	r17	e	e	r17	r17	e	r17	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+59	s28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s27	e	e	e	e	e	e	e	e	s85	e	e	e	s81	e	e	e	e	e	e	e	e	e	e	e	
+60	s28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s27	e	e	e	e	e	e	e	e	s86	e	e	e	s81	e	e	e	e	e	e	e	e	e	e	e	
+61	s28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s27	e	e	e	e	e	e	e	e	s87	e	e	e	s81	e	e	e	e	e	e	e	e	e	e	e	
+62	s28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s27	e	e	e	e	e	e	e	e	s88	e	e	e	s81	e	e	e	e	e	e	e	e	e	e	e	
+63	r21	e	e	e	e	e	r21	e	r21	r21	e	e	r21	e	e	e	r21	r21	r21	e	r21	e	e	e	r21	r21	r21	e	e	r21	r21	e	r21	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+64	r22	e	e	e	e	e	r22	e	r22	r22	e	e	r22	e	e	e	r22	r22	r22	e	r22	e	e	e	r22	r22	r22	e	e	r22	r22	e	r22	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+65	e	r13	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+66	e	e	e	e	e	e	e	e	e	e	e	r12	e	e	r12	r12	e	e	e	r12	e	r12	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+67	e	e	e	e	e	e	e	e	e	e	e	s89	e	e	s94	s91	e	e	e	s93	e	s90	e	s92	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s95	e	e	e	e	e	
+68	e	e	e	e	e	e	e	e	e	e	e	s89	e	e	s94	s91	e	e	e	s93	e	s90	e	s92	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s96	e	e	e	e	e	
+69	e	s97	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+70	e	s98	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+71	s28	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s23	s25	s1	e	s3	e	e	e	s27	s4	s7	e	e	s8	s24	e	s99	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s58	e	s29	
+72	s100	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+73	e	s101	e	e	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+74	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s102	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s103	e	e	e	e	e	e	e	e	e	e	e	
+75	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s104	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+76	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s105	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+77	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s106	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+78	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s44	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s107	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+79	e	e	e	r27	e	r27	e	r27	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r27	e	e	e	e	r27	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+80	s28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s83	e	e	e	e	e	e	e	s27	e	e	e	e	e	e	e	e	s109	e	e	e	s108	e	e	e	e	e	e	e	e	e	e	e	
+81	e	e	e	e	e	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s56	e	e	e	e	e	e	e	e	
+82	e	e	e	r37	e	s59	e	s62	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s61	e	e	e	e	s60	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+83	e	e	e	r12	e	r12	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r12	e	e	e	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+84	e	e	e	r29	e	r29	e	r29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r29	e	e	e	e	r29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+85	e	e	e	r23	e	r23	e	s62	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s61	e	e	e	e	r23	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+86	e	e	e	r24	e	r24	e	s62	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s61	e	e	e	e	r24	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+87	e	e	e	r25	e	r25	e	r25	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r25	e	e	e	e	r25	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+88	e	e	e	r26	e	r26	e	r26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r26	e	e	e	e	r26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+89	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r43	e	e	e	e	e	e	e	r43	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+90	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r44	e	e	e	e	e	e	e	r44	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+91	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r45	e	e	e	e	e	e	e	r45	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+92	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r46	e	e	e	e	e	e	e	r46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+93	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r48	e	e	e	e	e	e	e	r48	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+94	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r47	e	e	e	e	e	e	e	r47	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+95	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s110	e	e	e	e	e	e	e	s111	e	e	e	e	e	e	e	e	e	e	e	e	s112	e	e	e	e	e	e	e	e	e	e	e	
+96	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s110	e	e	e	e	e	e	e	s113	e	e	e	e	e	e	e	e	e	e	e	e	s114	e	e	e	e	e	e	e	e	e	e	e	
+97	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s115	e	e	e	s116	e	e	e	e	e	e	e	e	e	e	e	e	e	
+98	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s115	e	e	e	s117	e	e	e	e	e	e	e	e	e	e	e	e	e	
+99	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r15	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+100	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s67	e	e	e	e	e	e	e	e	e	e	e	e	s68	e	e	e	e	s118	e	e	e	e	e	e	
+101	e	r27	e	e	e	r27	e	r27	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r27	e	e	e	e	r27	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+102	e	r12	e	e	e	r12	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r12	e	e	e	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+103	e	r29	e	e	e	r29	e	r29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r29	e	e	e	e	r29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+104	e	r23	e	e	e	r23	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	r23	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+105	e	r24	e	e	e	r24	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	r24	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+106	e	r25	e	e	e	r25	e	r25	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r25	e	e	e	e	r25	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+107	e	r26	e	e	e	r26	e	r26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r26	e	e	e	e	r26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+108	e	e	e	r35	e	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s56	e	e	e	e	e	e	e	e	
+109	e	e	e	r36	e	s59	e	s62	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s61	e	e	e	e	s60	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+110	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+111	e	r42	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+112	e	r41	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+113	e	r40	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+114	e	r39	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+115	s28	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s23	s25	s1	e	s3	e	e	e	s27	s4	s7	e	e	s8	s24	e	e	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s32	s119	s29	
+116	r49	e	e	e	e	e	r49	e	r49	r49	e	e	r49	e	e	e	r49	r49	r49	e	r49	e	e	e	r49	r49	r49	e	e	r49	r49	e	r49	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+117	r38	e	e	e	e	e	r38	e	r38	r38	e	e	r38	e	e	e	r38	r38	r38	e	r38	e	e	e	r38	r38	r38	e	e	r38	r38	e	r38	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+118	e	s120	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+119	s28	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s23	s25	s1	e	s3	e	e	e	s27	s4	s7	e	e	s8	s24	e	s121	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s58	e	s29	
+120	e	e	e	s122	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+121	r15	e	e	e	e	e	r15	e	r15	r15	e	e	r15	e	e	e	r15	r15	r15	e	r15	e	e	e	r15	r15	r15	e	e	r15	r15	e	r15	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+122	r50	e	e	e	e	e	r50	e	r50	r50	e	e	r50	e	e	e	r50	r50	r50	e	r50	e	e	e	r50	r50	r50	e	e	r50	r50	e	r50	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+
+LR(1)映射到LALR(1)
+开始合并同心状态
+同心状态合并完毕，开始构建分析表
+临时分析表，用以生成代码：
+0	e	e	e	e	e	e	s5	e	e	s6	e	e	s2	e	e	e	e	e	s1	e	s3	e	e	e	e	s4	s7	e	e	s8	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s9	e	e	s10	
+1	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r3	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+2	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r4	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+3	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r5	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+4	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r6	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+5	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r7	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+6	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r8	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+7	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r9	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+8	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r10	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+9	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	acc	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+10	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s12	s13	e	e	e	e	e	e	e	e	e	e	e	
+11	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+12	s14	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+13	r11	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+14	e	s15	e	e	e	e	s5	e	e	s6	e	e	s2	e	e	e	e	e	s1	e	s3	e	e	e	e	s4	s7	e	e	s8	e	e	e	e	e	e	e	e	e	e	e	s17	e	e	e	e	e	e	s16	
+15	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s19	e	e	e	e	e	e	e	e	e	e	e	e	e	
+16	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s21	e	e	e	e	e	e	e	e	e	e	e	
+17	e	s22	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+18	s46	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s66	s25	s1	e	s3	e	e	e	s45	s4	s7	e	e	s8	s24	e	e	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s32	s31	s29	
+19	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r2	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+20	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+21	e	r14	s38	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+22	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s39	e	e	e	e	e	e	e	e	e	e	e	e	e	
+23	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+24	s40	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+25	s41	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s43	e	e	e	e	e	e	e	e	e	e	e	e	e	
+27	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s50	e	e	e	e	e	e	e	e	e	e	e	
+30	e	e	e	e	s55	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s74	e	e	e	e	e	e	e	e	
+31	s46	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s66	s25	s1	e	s3	e	e	e	s45	s4	s7	e	e	s8	s24	e	s57	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s58	e	s29	
+32	r16	e	e	e	e	e	r16	e	r16	r16	e	e	r16	e	e	e	r16	r16	r16	e	r16	e	e	e	r16	r16	r16	e	e	r16	r16	e	r16	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+33	r18	e	e	e	e	e	r18	e	r18	r18	e	e	r18	e	e	e	r18	r18	r18	e	r18	e	e	e	r18	r18	r18	e	e	r18	r18	e	r18	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+34	r19	e	e	e	e	e	r19	e	r19	r19	e	e	r19	e	e	e	r19	r19	r19	e	r19	e	e	e	r19	r19	r19	e	e	r19	r19	e	r19	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+35	r20	e	e	e	e	e	r20	e	r20	r20	e	e	r20	e	e	e	r20	r20	r20	e	r20	e	e	e	r20	r20	r20	e	e	r20	r20	e	r20	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+36	e	e	e	s63	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+37	e	e	e	s64	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+38	e	e	e	e	e	e	s5	e	e	s6	e	e	s2	e	e	e	e	e	s1	e	s3	e	e	e	e	s4	s7	e	e	s8	e	e	e	e	e	e	e	e	e	e	e	s65	e	e	e	e	e	e	s16	
+39	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r1	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+40	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s67	e	e	e	e	e	e	e	e	e	e	e	e	s68	e	e	e	e	s69	e	e	e	e	e	e	
+41	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s67	e	e	e	e	e	e	e	e	e	e	e	e	s68	e	e	e	e	s70	e	e	e	e	e	e	
+42	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+43	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s72	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+44	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+45	e	r28	e	r28	e	r28	e	r28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r28	e	e	e	e	r28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+46	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s73	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+47	e	e	e	e	e	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s74	e	e	e	e	e	e	e	e	
+48	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+49	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+50	e	e	e	r34	s80	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+51	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r30	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+52	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r31	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+53	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r32	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r33	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+55	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s82	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+56	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+57	r15	e	e	e	e	e	r15	e	r15	r15	e	e	r15	e	e	e	r15	r15	r15	e	r15	e	e	e	r15	r15	r15	e	r15	r15	r15	e	r15	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+58	r17	e	e	e	e	e	r17	e	r17	r17	e	e	r17	e	e	e	r17	r17	r17	e	r17	e	e	e	r17	r17	r17	e	e	r17	r17	e	r17	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+59	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+60	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+61	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+62	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+63	r21	e	e	e	e	e	r21	e	r21	r21	e	e	r21	e	e	e	r21	r21	r21	e	r21	e	e	e	r21	r21	r21	e	e	r21	r21	e	r21	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+64	r22	e	e	e	e	e	r22	e	r22	r22	e	e	r22	e	e	e	r22	r22	r22	e	r22	e	e	e	r22	r22	r22	e	e	r22	r22	e	r22	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+65	e	r13	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+66	r12	r12	r12	r12	r12	r12	e	r12	e	e	e	r12	e	e	r12	r12	e	e	e	r12	e	r12	r12	r12	e	e	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+67	e	e	e	e	e	e	e	e	e	e	e	s89	e	e	s94	s91	e	e	e	s93	e	s90	e	s92	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s95	e	e	e	e	e	
+68	e	e	e	e	e	e	e	e	e	e	e	s89	e	e	s94	s91	e	e	e	s93	e	s90	e	s92	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s96	e	e	e	e	e	
+69	e	s97	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+70	e	s98	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+71	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+72	s100	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+73	e	s101	e	e	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+74	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s103	e	e	e	e	e	e	e	e	e	e	e	
+75	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s104	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+76	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s105	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+77	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s106	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+78	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s107	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+79	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+80	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s109	e	e	e	s108	e	e	e	e	e	e	e	e	e	e	e	
+81	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+82	e	e	e	r37	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+83	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+84	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+85	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+86	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+87	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+88	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+89	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r43	e	e	e	e	e	e	e	r43	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+90	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r44	e	e	e	e	e	e	e	r44	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+91	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r45	e	e	e	e	e	e	e	r45	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+92	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r46	e	e	e	e	e	e	e	r46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+93	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r48	e	e	e	e	e	e	e	r48	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+94	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r47	e	e	e	e	e	e	e	r47	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+95	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s111	e	e	e	e	e	e	e	e	e	e	e	e	s112	e	e	e	e	e	e	e	e	e	e	e	
+96	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s113	e	e	e	e	e	e	e	e	e	e	e	e	s114	e	e	e	e	e	e	e	e	e	e	e	
+97	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s116	e	e	e	e	e	e	e	e	e	e	e	e	e	
+98	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s117	e	e	e	e	e	e	e	e	e	e	e	e	e	
+99	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+100	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s67	e	e	e	e	e	e	e	e	e	e	e	e	s68	e	e	e	e	s118	e	e	e	e	e	e	
+101	e	r27	e	r27	e	r27	e	r27	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r27	e	e	e	e	r27	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+102	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+103	e	r29	e	r29	e	r29	e	r29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r29	e	e	e	e	r29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+104	e	r23	e	r23	e	r23	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	r23	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+105	e	r24	e	r24	e	r24	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	r24	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+106	e	r25	e	r25	e	r25	e	r25	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r25	e	e	e	e	r25	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+107	e	r26	e	r26	e	r26	e	r26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r26	e	e	e	e	r26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+108	e	e	e	r35	e	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s74	e	e	e	e	e	e	e	e	
+109	e	e	e	r36	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+110	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+111	e	r42	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+112	e	r41	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+113	e	r40	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+114	e	r39	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+115	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+116	r49	e	e	e	e	e	r49	e	r49	r49	e	e	r49	e	e	e	r49	r49	r49	e	r49	e	e	e	r49	r49	r49	e	e	r49	r49	e	r49	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+117	r38	e	e	e	e	e	r38	e	r38	r38	e	e	r38	e	e	e	r38	r38	r38	e	r38	e	e	e	r38	r38	r38	e	e	r38	r38	e	r38	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+118	e	s120	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+119	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+120	e	e	e	s122	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+121	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+122	r50	e	e	e	e	e	r50	e	r50	r50	e	e	r50	e	e	e	r50	r50	r50	e	r50	e	e	e	r50	r50	r50	e	e	r50	r50	e	r50	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+最终分析表：
+s0	e	e	e	e	e	e	s5	e	e	s6	e	e	s2	e	e	e	e	e	s1	e	s3	e	e	e	e	s4	s7	e	e	s8	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s9	e	e	s10	
+s1	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r3	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s2	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r4	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s3	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r5	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s4	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r6	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s5	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r7	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s6	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r8	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s7	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r9	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s8	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r10	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s9	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	acc	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s10	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s12	s13	e	e	e	e	e	e	e	e	e	e	e	
+s12	s14	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s13	r11	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s14	e	s15	e	e	e	e	s5	e	e	s6	e	e	s2	e	e	e	e	e	s1	e	s3	e	e	e	e	s4	s7	e	e	s8	e	e	e	e	e	e	e	e	e	e	e	s17	e	e	e	e	e	e	s16	
+s15	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s19	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s16	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s21	e	e	e	e	e	e	e	e	e	e	e	
+s17	e	s22	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s18	s46	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s66	s25	s1	e	s3	e	e	e	s45	s4	s7	e	e	s8	s24	e	e	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s32	s31	s29	
+s19	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r2	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s21	e	r14	s38	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s22	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s39	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s24	s40	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s25	s41	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s43	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s50	e	e	e	e	e	e	e	e	e	e	e	
+s30	e	e	e	e	s55	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s74	e	e	e	e	e	e	e	e	
+s31	s46	e	e	e	e	e	s5	e	s26	s6	e	e	s2	e	e	e	s66	s25	s1	e	s3	e	e	e	s45	s4	s7	e	e	s8	s24	e	s57	s36	s33	e	e	s30	s37	s35	e	e	e	e	s34	e	s58	e	s29	
+s32	r16	e	e	e	e	e	r16	e	r16	r16	e	e	r16	e	e	e	r16	r16	r16	e	r16	e	e	e	r16	r16	r16	e	e	r16	r16	e	r16	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s33	r18	e	e	e	e	e	r18	e	r18	r18	e	e	r18	e	e	e	r18	r18	r18	e	r18	e	e	e	r18	r18	r18	e	e	r18	r18	e	r18	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s34	r19	e	e	e	e	e	r19	e	r19	r19	e	e	r19	e	e	e	r19	r19	r19	e	r19	e	e	e	r19	r19	r19	e	e	r19	r19	e	r19	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s35	r20	e	e	e	e	e	r20	e	r20	r20	e	e	r20	e	e	e	r20	r20	r20	e	r20	e	e	e	r20	r20	r20	e	e	r20	r20	e	r20	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s36	e	e	e	s63	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s37	e	e	e	s64	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s38	e	e	e	e	e	e	s5	e	e	s6	e	e	s2	e	e	e	e	e	s1	e	s3	e	e	e	e	s4	s7	e	e	s8	e	e	e	e	e	e	e	e	e	e	e	s65	e	e	e	e	e	e	s16	
+s39	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r1	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s40	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s67	e	e	e	e	e	e	e	e	e	e	e	e	s68	e	e	e	e	s69	e	e	e	e	e	e	
+s41	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s67	e	e	e	e	e	e	e	e	e	e	e	e	s68	e	e	e	e	s70	e	e	e	e	e	e	
+s43	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s72	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s45	e	r28	e	r28	e	r28	e	r28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r28	e	e	e	e	r28	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s46	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s73	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+s47	e	e	e	e	e	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s74	e	e	e	e	e	e	e	e	
+s50	e	e	e	r34	s80	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s51	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r30	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s52	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r31	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s53	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r32	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r33	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s55	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s82	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+s57	r15	e	e	e	e	e	r15	e	r15	r15	e	e	r15	e	e	e	r15	r15	r15	e	r15	e	e	e	r15	r15	r15	e	r15	r15	r15	e	r15	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s58	r17	e	e	e	e	e	r17	e	r17	r17	e	e	r17	e	e	e	r17	r17	r17	e	r17	e	e	e	r17	r17	r17	e	e	r17	r17	e	r17	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s63	r21	e	e	e	e	e	r21	e	r21	r21	e	e	r21	e	e	e	r21	r21	r21	e	r21	e	e	e	r21	r21	r21	e	e	r21	r21	e	r21	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s64	r22	e	e	e	e	e	r22	e	r22	r22	e	e	r22	e	e	e	r22	r22	r22	e	r22	e	e	e	r22	r22	r22	e	e	r22	r22	e	r22	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s65	e	r13	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s66	r12	r12	r12	r12	r12	r12	e	r12	e	e	e	r12	e	e	r12	r12	e	e	e	r12	e	r12	r12	r12	e	e	e	r12	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s67	e	e	e	e	e	e	e	e	e	e	e	s89	e	e	s94	s91	e	e	e	s93	e	s90	e	s92	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s95	e	e	e	e	e	
+s68	e	e	e	e	e	e	e	e	e	e	e	s89	e	e	s94	s91	e	e	e	s93	e	s90	e	s92	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s96	e	e	e	e	e	
+s69	e	s97	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s70	e	s98	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s72	s100	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s73	e	s101	e	e	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s74	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s103	e	e	e	e	e	e	e	e	e	e	e	
+s75	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s104	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+s76	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s105	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+s77	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s106	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+s78	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s107	e	e	e	s47	e	e	e	e	e	e	e	e	e	e	e	
+s80	s46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s45	e	e	e	e	e	e	e	e	s109	e	e	e	s108	e	e	e	e	e	e	e	e	e	e	e	
+s82	e	e	e	r37	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s89	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r43	e	e	e	e	e	e	e	r43	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s90	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r44	e	e	e	e	e	e	e	r44	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s91	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r45	e	e	e	e	e	e	e	r45	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s92	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r46	e	e	e	e	e	e	e	r46	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s93	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r48	e	e	e	e	e	e	e	r48	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s94	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r47	e	e	e	e	e	e	e	r47	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s95	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s111	e	e	e	e	e	e	e	e	e	e	e	e	s112	e	e	e	e	e	e	e	e	e	e	e	
+s96	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s113	e	e	e	e	e	e	e	e	e	e	e	e	s114	e	e	e	e	e	e	e	e	e	e	e	
+s97	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s116	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s98	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s18	e	e	e	s117	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s100	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s66	e	e	e	e	e	e	e	s67	e	e	e	e	e	e	e	e	e	e	e	e	s68	e	e	e	e	s118	e	e	e	e	e	e	
+s101	e	r27	e	r27	e	r27	e	r27	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r27	e	e	e	e	r27	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s103	e	r29	e	r29	e	r29	e	r29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r29	e	e	e	e	r29	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s104	e	r23	e	r23	e	r23	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	r23	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s105	e	r24	e	r24	e	r24	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	r24	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s106	e	r25	e	r25	e	r25	e	r25	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r25	e	e	e	e	r25	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s107	e	r26	e	r26	e	r26	e	r26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	r26	e	e	e	e	r26	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s108	e	e	e	r35	e	s51	e	s54	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s53	e	e	e	e	s52	e	e	e	e	e	e	e	e	e	e	e	e	s74	e	e	e	e	e	e	e	e	
+s109	e	e	e	r36	e	s75	e	s78	e	e	e	e	e	e	e	e	e	e	e	e	e	e	s77	e	e	e	e	s76	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s111	e	r42	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s112	e	r41	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s113	e	r40	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s114	e	r39	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s116	r49	e	e	e	e	e	r49	e	r49	r49	e	e	r49	e	e	e	r49	r49	r49	e	r49	e	e	e	r49	r49	r49	e	e	r49	r49	e	r49	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s117	r38	e	e	e	e	e	r38	e	r38	r38	e	e	r38	e	e	e	r38	r38	r38	e	r38	e	e	e	r38	r38	r38	e	e	r38	r38	e	r38	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s118	e	s120	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s120	e	e	e	s122	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+s122	r50	e	e	e	e	e	r50	e	r50	r50	e	e	r50	e	e	e	r50	r50	r50	e	r50	e	e	e	r50	r50	r50	e	e	r50	r50	e	r50	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	e	
+
+开始生成程序...
+生成程序完成
