@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+	font-family:'Arial';
+}
+
+</style>
+<script language="javascript">
+	Ext.onReady(function(){
+		var panel = new Ext.Panel({
+			title : 'Ext.core.DomQuery示例',
+			width : '350px',
+			renderTo : 'sub1',
+			html : '<div id="div0" style="height:200px;padding:5px;"><div id="div1">我是第一个Div的内容</div><div id="div2" ><div id="div3">我是第二个Div的内容</div></div></div>'
+		});
+		//获到所有的以id为div0为父节点的div
+		//(在第二节中讲述过Ext.query的使用规则,忘记了的读者可以温习一下)
+		var tarArry = Ext.query('#div0 div');
+		//选择那些不包含id为div1的节点
+		var except = Ext.core.DomQuery.filter(tarArry,"#div1",true);
+		//选择那些包含id为div1的节点
+		var include = Ext.core.DomQuery.filter(tarArry,"#div1",false);
+		//对对数组中是否包含指定id的节点进行判断
+		var isInclude = Ext.core.DomQuery.is(except,'#div0');
+		//选择以id为divo的所有div子点中的第一个节点
+		var selectNode = Ext.core.DomQuery.selectNode("#div0 div");
+		function retStr(array){
+			var str ="";
+			for(var i=0;i<array.length;i++){
+				if(i<array.length-1)
+					str+=(array[i].id+";");
+				else
+					str+=array[i].id;
+			}
+			return str;
+		}
+		Ext.Msg.alert('返回结果',"不包含id为'div1'的所有div的id为:"+retStr(except)+
+				"<br>包含id为div1的所有div的id为:"+retStr(include)+
+				"<br>通过Ext.core.DomHelper.is(except,'#div0')的返回结果"+isInclude+
+				",<br>表示"+retStr(except)+"是否包含id为div0的节点:"+
+				"<br>在id为div0的第一个子节点的id是:"+selectNode.id);
+	});
+</script>
+</head>
+<body>
+	<div id="sub1"></div>
+</body>
+</html>

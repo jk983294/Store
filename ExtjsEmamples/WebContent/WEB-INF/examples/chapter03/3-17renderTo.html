@@ -1,0 +1,26 @@
+<HTML>
+ <HEAD>
+  <TITLE>renderTo的用法</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		var ProgressBar = new Ext.ProgressBar({
+			text:'使用renderTo为进度条定位',//进度条上显示的文字
+			width:300,//设定进度条的宽度
+			//以id为ProgressBar1的div作为进度条组件的容器
+			renderTo:'ProgressBar1'
+			//renderTo:document.getElementById('ProgressBar1')
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY>
+	<div id='ProgressBar1'></div>
+	<table id='ProgressBar2'></table>
+	<table><tr id='ProgressBar3'></tr></table>
+	<table><tr><td  id='ProgressBar4'></td></tr></table>
+ </BODY>
+</HTML>

@@ -1,0 +1,64 @@
+<HTML>
+ <HEAD>
+  <TITLE>将更多组件加入菜单</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <STYLE TYPE="text/css">
+    .userManagerIcon { background-image: url(images/userManager.gif) !important; }
+	.newIcon { background-image: url(images/new.gif) !important; }
+	.openIcon {	background-image: url(images/open.gif) !important; }
+	.saveIcon {	background-image: url(images/save.gif) !important; }
+  </STYLE>
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+
+		var Toolbar = new Ext.toolbar.Toolbar({//创建工具栏
+			renderTo:'toolbar',
+			width:300
+		});
+
+		var fileMenu = new Ext.menu.Menu({//文件创建菜单
+			items : [
+			     {
+					xtype : 'textfield',//创建表单字段
+					hideLabel: true,
+					width : 100
+				},{
+					text:"颜色选择", 
+					menu : new Ext.menu.ColorPicker()
+				},
+				{xtype: 'datepicker'},//添加日期选择器组件
+				{
+					xtype: 'buttongroup',//添加按钮组组件
+					columns: 3,
+					title: '按钮组',
+					items: [{
+						text: '用户管理',
+						scale: 'large',
+						colspan : 3,
+						width : 170,
+						iconCls: 'userManagerIcon',
+						iconAlign: 'top'
+					},{		//belong to buttongroup
+						text: '新建', iconCls: 'newIcon'
+					},{		//belong to buttongroup
+						text: '打开', iconCls: 'openIcon'
+					},{		//belong to buttongroup
+						text: '保存', iconCls: 'saveIcon'
+					}]
+				}
+			]
+		});
+
+		Toolbar.add(
+			{text : '文件',	menu : fileMenu}//将菜单加入工具栏
+		);
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+ 	<div id='toolbar'></div>
+ </BODY>
+</HTML>

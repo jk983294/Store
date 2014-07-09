@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+	font-family:'Arial';
+}
+</style>
+<script language="javascript">
+	Ext.onReady(function(){
+		var panel = new Ext.Panel({
+			title:"判断对象是否为空示例",
+			renderTo:'sub1',
+			id:'panel1',
+			width:'300px',
+			html:"<div id='div1' property1='pro1'"+
+				" style='height:200px;padding:5px;font-size:11pt;font-family:'Arial'>"+
+				"</div>"
+		});
+		//判断对象是否为空
+		//当判断字符串时如果第二个参数不不同时结果也会不同
+		//第二个参数表示'是否允许字符串为空'
+		Ext.Msg.alert('提示',"我们已经实例化的panel是否为空?"+Ext.isEmpty(panel)+
+						"<br>Ext.isEmpty('',true)的值:"+Ext.isEmpty("",true)+"<br>Ext.isEmpty('',false)的值"+Ext.isEmpty("",false));
+	});
+</script>
+</head>
+<body>
+	<div id="sub1"></div>
+</body>
+</html>

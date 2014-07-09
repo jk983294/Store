@@ -1,0 +1,36 @@
+<HTML>
+ <HEAD>
+  <TITLE>使用add方法加入多种元素的复杂工具栏</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		var toolbar = new Ext.toolbar.Toolbar({//创建工具栏
+			renderTo:'toolbar',
+			width:500
+		});
+		toolbar.add(
+			{text:'新建'},
+			{text:'打开'},
+			{text:'编辑'},
+			{text:'保存'}, //加入按钮
+			'-',                          //加入工具栏分隔符
+			{     //加入表单元素
+				xtype:'textfield',
+				hideLabel : true,
+				width:150
+			},
+			'->',                        //加入一个充满工具栏的空白元素
+			'<a href=#>超连接</div>',    //加入一个Element元素
+			{xtype: 'tbspacer', width: 50},//加入一个空白元素，宽度为50像素
+			'静态文本'                   //加入一个简单字符串
+		);
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+ 	<div id='toolbar'></div>
+ </BODY>
+</HTML>

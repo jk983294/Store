@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+}
+</style>
+<script language="javascript">
+	Ext.onReady(function(){
+		var panel = new Ext.Panel({
+			title:"示例",
+			renderTo:'sub1',
+			width:'300px',
+			html:"<div id='div1' property1='pro1' style='height:200px'><div id='01'property1='pro1' >我的id是sub3</div><div id='02'></div></div>"
+		});
+		//选择元素为div其id为div1的节点的数组
+		var el = Ext.query("#div1");
+		//选择元素为div的且这些div具备属性为property1其值为pro1的节点的数组
+		var targetD = Ext.query('div[property1=pro1]');
+		if(el.length>0 || targetD.length>0){
+			Ext.Msg.alert('提示',"取得了"+el.length+"个div的id为'div1'的节点<br>"+
+			"取得了"+targetD.length+"个类型为div<br>具备属性property1且其值为'pro1'的节点");
+		}
+	});
+</script>
+</head>
+<body>
+	<div id="sub1"></div>
+</body>
+</html>

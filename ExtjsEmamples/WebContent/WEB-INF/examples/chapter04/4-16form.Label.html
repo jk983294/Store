@@ -1,0 +1,31 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.form.Label示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		Ext.create('Ext.form.Panel',{
+			title:'Ext.form.Label示例',
+			width : 200,
+			frame : true,
+			renderTo: Ext.getBody(),
+			bodyPadding: 5,
+			items:[ {
+		        xtype: 'label',
+		        forId: 'userName',//关联inputId为userName的表单字段
+		        text: '用户名'
+		    },{
+				name:'userName',
+				xtype : 'textfield',
+				inputId : 'userName',
+				hideLabel : true //隐藏字段标签
+			}]
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

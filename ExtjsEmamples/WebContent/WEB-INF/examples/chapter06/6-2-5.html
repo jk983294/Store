@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+	font-family:'Arial';
+}
+</style>
+<script language="javascript">
+	Ext.onReady(function(){
+		var panel = new Ext.Panel({
+			title:"示例",
+			renderTo:'sub1',
+			id:'panel1',
+			width:'300px',
+			html:"<div id='div1' property1='pro1'"+
+				" style='height:200px;padding:5px;font-size:11pt;font-family:'Arial'>"+
+				"实例化了一个id为'panel1'的panel组件</div>"
+		});
+		//获得id为'panel1'的组件
+		var comp = Ext.getCmp('panel1');
+		Ext.Msg.alert('提示',"取得的id为'panel1'的组件的类型为"+comp.getXType());
+	});
+</script>
+</head>
+<body>
+	<div id="sub1"></div>
+</body>
+</html>

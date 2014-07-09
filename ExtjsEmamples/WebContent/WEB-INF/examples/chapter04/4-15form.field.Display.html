@@ -1,0 +1,28 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.form.field.Display示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		Ext.create('Ext.form.Panel',{
+			title:'Ext.form.field.Display示例',
+			width : 200,
+			frame : true,
+			renderTo: Ext.getBody(),
+			bodyPadding: 5,
+			items:[{
+				fieldLabel:'展示字段',
+				xtype : 'displayfield',
+				value : '<b>ExtJS4登场</b>',
+				labelWidth : 70,//标签宽度
+				labelSeparator :'：'//分隔符
+			}]
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

@@ -1,0 +1,53 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.form.FieldSet示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		Ext.create('Ext.form.Panel',{
+			title:'Ext.form.FieldSet示例',
+			labelWidth : 40,//标签宽度
+			width : 220,
+			frame : true,
+			renderTo: Ext.getBody(),
+			bodyPadding: 5,
+			items:[{
+				title:'产品信息',
+				xtype : 'fieldset',
+				collapsible : true,//显示切换展开收缩状态的切换按钮
+				bodyPadding: 5,
+				defaults:{//统一设置表单字段默认属性
+					labelSeparator :'：',//分隔符
+					labelWidth : 50,//标签宽度
+					width : 160//字段宽度
+				},
+				defaultType: 'textfield',//设置表单字段的默认类型
+				items:[{
+					fieldLabel:'产地'
+				},{
+					fieldLabel:'售价'
+				}]
+			},{
+				title:'产品描述',
+				xtype : 'fieldset',
+				bodyPadding: 5,
+				checkboxToggle : true,//显示切换展开收缩状态的复选框
+				checkboxName : 'description',//提交数据时复选框对应的name
+				labelSeparator :'：',//分隔符
+				items:[{
+					fieldLabel:'简介',
+					labelSeparator :'：',//分隔符
+					labelWidth : 50,//标签宽度
+					width : 160,//字段宽度
+					xtype : 'textarea'
+				}]
+			}]
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

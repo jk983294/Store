@@ -1,0 +1,49 @@
+<HTML>
+ <HEAD>
+  <TITLE>标准模式的表单数据提交</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		Ext.QuickTips.init();//初始化提示;
+		var downloadForm = Ext.create('Ext.form.Panel',{
+			title:'表单提交示例',
+			width : 230,
+			frame : true,
+			standardSubmit : true,//使用Ext.form.action.StandardSubmit提交数据
+			fieldDefaults:{//统一设置表单字段默认属性
+				labelSeparator :'：',//分隔符
+				labelWidth : 50,//标签宽度
+				msgTarget : 'side',
+				width : 200
+			},
+			renderTo: Ext.getBody(),
+			bodyPadding: 5,
+			defaultType: 'textfield',//设置表单字段的默认类型
+			items:[{
+				fieldLabel:'文件名',
+				name : 'fileName',
+				allowBlank : false
+			}],
+			buttons:[{
+				text : '文件下载',
+				handler : downFile
+			}]
+		});
+		function downFile(){//提交表单
+			downloadForm.getForm().submit({
+				clientValidation:true,//进行客户端验证
+				url : 'downloadServer.jsp',//请求的url地址
+				method:'GET',//请求方式
+				failure:function(form,action){//加载失败的处理函数
+					Ext.Msg.alert('提示','文件下载失败！');
+				}
+			});
+		}
+	});
+  </script>
+ </HEAD>
+ <BODY  STYLE="margin: 10px"></BODY>
+</HTML>

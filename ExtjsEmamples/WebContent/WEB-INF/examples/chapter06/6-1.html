@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+.special-css{
+	font-size:11pt;
+	color:#CC0000;
+	padding:5px;
+
+}
+td{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+
+}
+.click-css{
+	font-size:11pt;
+	color:green;
+	padding:5px;
+
+}
+.focus-css{
+	font-size:11pt;
+	color:yellow;
+	padding:5px;
+
+}
+.mouseover-css{
+	font-size:11pt;
+	color:blue;
+	padding:5px;
+
+}
+</style>
+<script language="javascript">
+Ext.onReady(function(){
+	var el = Ext.get("the-id");
+	var appendEl = Ext.get("the-id-append");
+	function fn1(){
+		Ext.Msg.alert("提示","您在id为'the_id'的Element上按下了ctrl+c键");
+	}
+	el.addCls("special-css");//为元素添加样式表
+	appendEl.addCls("special-css");
+	appendEl.setWidth(240);
+	appendEl.setWidth(240, true);
+	el.focus();//将焦点移到el元素上
+	el.addClsOnFocus("focus-css");//为得到和失去焦点添加和移除css类
+	el.addClsOnOver("mouseover-css");//为鼠标移入移出事件添加和移除css类
+	el.addClsOnClick("click-css");//为点击事件添加和移除css类
+	el.setWidth(240);//将元素的宽度设为100相素
+	el.setWidth(240, true);//将元素的宽度设为100并带有动画效果
+	el.addKeyMap({key : "c",ctrl : true,fn:fn1,scope:el});//绑定el元素当键盘按下ctrl+c键时将呼叫fn函数
+	el.addKeyListener({key:"g",ctrl:true},fn1,el);//和上面的addKeyMap的功能相同，只是参数的传递方式不同 
+});
+
+function callAppend(){
+	Ext.Msg.alert("提示",Ext.get("the-id-append").getComputedWidth());
+	Ext.get("the-id").appendTo(Ext.get("the-id-append"));//将the-id追加到the-id-append元素
+	
+}
+</script>
+</head>
+<body>
+<table border="0" cellspacing="3" cellpadding="3"><tr><td></td></tr></table>
+	<table border="0" cellspacing="1" cellpadding="3" align="center" width="240" height="180" bgcolor="#3399CC">
+		<tr>
+			<td bgcolor="#F3FAF9">测试样例</td>
+		</tr>
+		<tr>
+			<td bgcolor="#FBFFFF">
+				<div id="the-id">　　通过取得Element id为“the_id”的div并为该Div绑定一些事件，如：为鼠标移过该Div时改变样式表等</div>
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellspacing="0" cellpadding="0" align="center" width="240" height="40">
+	<tr><td align="left">
+		<input type="button" value="点击查看追加效果" id="bt1" onclick="callAppend()">
+	</td></tr>
+	</table>
+	<table border="0" cellspacing="1" cellpadding="3" align="center" width="240" height="180" bgcolor="#3399CC">
+		<tr>
+			<td bgcolor="#F3FAF9">追加元素</td>
+		</tr>
+		<tr>
+			<td bgcolor="#FBFFFF">
+				<div id="the-id-append">　　被追加的元素</div>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

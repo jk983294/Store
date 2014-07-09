@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+}
+</style>
+<script language="javascript">
+	Ext.onReady(function(){
+		var person = {name : 'Tom', age: 24};//定义一个json对象
+		var panel = new Ext.Panel({
+			title:"示例",
+			renderTo:'sub1',
+			width:'300px',
+			html:"<div id='div1' style='height:200px'>将对象进行转换成字符串</div>"
+		});
+		var el = Ext.select(["div1"],true);
+		el.on("click",function tes(){
+			Ext.Msg.alert("提示",Ext.encode(person));//打印将对象转变成字符串
+		});
+	});
+</script>
+</head>
+<body>
+				<dir id="sub1"></div>
+</body>
+</html>

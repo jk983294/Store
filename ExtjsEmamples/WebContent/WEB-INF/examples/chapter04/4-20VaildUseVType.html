@@ -1,0 +1,42 @@
+<HTML>
+ <HEAD>
+  <TITLE>vtype示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		Ext.QuickTips.init();//初始化提示;
+		Ext.create('Ext.form.Panel',{
+			title:'vtype示例',
+			width : 300,
+			frame : true,
+			renderTo: Ext.getBody(),
+			bodyPadding: 5,
+			defaultType: 'textfield',//设置表单字段的默认类型
+			fieldDefaults:{//统一设置表单字段默认属性
+				labelSeparator :'：',//分隔符
+				labelWidth : 80,//标签宽度
+				width : 270,//字段宽度
+				msgTarget : 'side'
+			},
+			items:[{
+				fieldLabel:'电子邮件',
+				vtype:'email'
+			},{
+				fieldLabel:'网址',
+				vtype:'url'
+			},{
+				fieldLabel:'字母',
+				vtype:'alpha'
+			},{
+				fieldLabel:'字母和数字',
+				vtype:'alphanum'
+			}]
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>
