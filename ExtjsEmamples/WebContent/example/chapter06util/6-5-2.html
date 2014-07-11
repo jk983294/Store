@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+	font-family:'Arial';
+}
+</style>
+<script language="javascript">
+	Ext.onReady(function(){
+		var panel = new Ext.Panel({
+			title : 'Ext.util.CSS示例',
+			width : '260px',
+			renderTo : 'sub1',
+			html : '<div style="height:160px;padding:5px;" class="myclass">我是内容部分</div>'
+		});
+		//通过传递一个样式表描述文本创建一个指定的样式表和id为the绑定在一起
+		Ext.util.CSS.createStyleSheet(".myclass{color:blue}","the");
+		var cssObj = Ext.util.CSS.getRule(".myclass",true);
+		Ext.Msg.alert('获取的信息','创建样式表<br>获取myclass样式表中规则的字体颜色:'+cssObj.style.color);
+	});
+</script>
+</head>
+<body>
+	<div id="sub1"></div>
+</body>
+</html>

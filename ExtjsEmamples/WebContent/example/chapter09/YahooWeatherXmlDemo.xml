@@ -1,0 +1,51 @@
+  <?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+- <rss version="2.0" xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+- <channel>
+  <title>Yahoo! Weather - Beijing, CH</title> 
+  <link>http://us.rd.yahoo.com/dailynews/rss/weather/Beijing__CH/*http://weather.yahoo.com/forecast/CHXX0008_c.html</link> 
+  <description>Yahoo! Weather for Beijing, CH</description> 
+  <language>en-us</language> 
+  <lastBuildDate>Sat, 31 May 2008 12:00 pm CST</lastBuildDate> 
+  <ttl>60</ttl> 
+  <yweather:location city="Beijing" region="" country="CH" /> 
+  <yweather:units temperature="C" distance="km" pressure="mb" speed="kph" /> 
+  <yweather:wind chill="24" direction="160" speed="6.44" /> 
+  <yweather:atmosphere humidity="34" visibility="9.99" pressure="0" rising="2" /> 
+  <yweather:astronomy sunrise="4:49 am" sunset="7:37 pm" /> 
+- <image>
+  <title>Yahoo! Weather</title> 
+  <width>142</width> 
+  <height>18</height> 
+  <link>http://weather.yahoo.com</link> 
+  <url>http://l.yimg.com/us.yimg.com/i/us/nws/th/main_142b.gif</url> 
+  </image>
+- <item>
+  <title>Conditions for Beijing, CH at 12:00 pm CST</title> 
+  <geo:lat>39.93</geo:lat> 
+  <geo:long>116.28</geo:long> 
+  <link>http://us.rd.yahoo.com/dailynews/rss/weather/Beijing__CH/*http://weather.yahoo.com/forecast/CHXX0008_c.html</link> 
+  <pubDate>Sat, 31 May 2008 12:00 pm CST</pubDate> 
+  <yweather:condition text="Fair" code="34" temp="24" date="Sat, 31 May 2008 12:00 pm CST" /> 
+- <description>
+- <![CDATA[ 
+<img src="http://l.yimg.com/us.yimg.com/i/us/we/52/34.gif"/><br />
+<b>Current Conditions:</b><br />
+Fair, 24 C<BR />
+<BR /><b>Forecast:</b><BR />
+Sat - Partly Cloudy. High: 31 Low: 19<br />
+Sun - Mostly Sunny. High: 28 Low: 18<br />
+<br />
+<a href="http://us.rd.yahoo.com/dailynews/rss/weather/Beijing__CH/*http://weather.yahoo.com/forecast/CHXX0008_c.html">Full Forecast at Yahoo! Weather</a><BR/>
+(provided by The Weather Channel)<br/>
+
+
+  ]]> 
+  </description>
+  <yweather:forecast day="Sat" date="31 May 2008" low="19" high="31" text="Partly Cloudy" code="30" /> 
+  <yweather:forecast day="Sun" date="1 Jun 2008" low="18" high="28" text="Mostly Sunny" code="34" /> 
+  <guid isPermaLink="false">CHXX0008_2008_05_31_12_00_CST</guid> 
+  </item>
+  </channel>
+  </rss>
+- <!--  api3.weather.sp1.yahoo.com compressed/chunked Fri May 30 21:13:08 PDT 2008 
+  --> 

@@ -1,0 +1,96 @@
+<HTML>
+ <HEAD>
+  <TITLE>天气预报查询</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//得到元素的更新器
+		var loader = Ext.get('weather').getLoader();
+		//自定义渲染器
+		function weatherRender(loader,response,request){
+			//解码响应字符串，得到对应的json对象
+			var weaObj = Ext.JSON.decode(response.responseText);
+			//利用工具类Ext.DomHelper的overwrite方法生成表格并以覆盖方式更新元素el
+			var dom = Ext.core.DomHelper.markup({
+				tag:'table',children:[
+					{tag:'tr',children:[
+						{tag:'td',html:'日期：'},
+						{tag:'td',html:weaObj.date}
+					]},
+					{tag:'tr',children:[
+						{tag:'td',html:'风速：'},
+						{tag:'td',html:weaObj.windSpeed}
+					]},
+					{tag:'tr',children:[
+						{tag:'td',html:'湿度：'},
+						{tag:'td',html:weaObj.humidity}
+					]},
+					{tag:'tr',children:[
+						{tag:'td',html:'最高气温：'},
+						{tag:'td',html:weaObj.maxTemp}
+					]},
+					{tag:'tr',children:[
+						{tag:'td',html:'最底气温：'},
+						{tag:'td',html:weaObj.minTemp}
+					]}
+				]
+			});
+			//获得要更新的目标元素
+			var target = loader.getTarget();
+			//更新目标元素的innerHTML
+			target.update(dom);
+			//注意，渲染成功后要返回true。
+			return true;
+		}
+		//绑定change事件
+		Ext.get('citySelect').on('change',function(e,sel){
+			var cityCode = sel.options[sel.selectedIndex].value;
+			var cityName = sel.options[sel.selectedIndex].text;
+			//调用更新函数,并将选中城市的编码出入更新函数中
+			updateWeather(cityCode,cityName);
+		});
+		//定义更新函数
+		function updateWeather(cityCode,cityName){
+			loader.load({//调用加载器的load方法，更新页面元素
+				url : 'weatherServer.jsp',
+				params : {cityCode:cityCode},
+				//自定义渲染函数
+				renderer : weatherRender,
+				failure : function(){
+					Ext.get('cityName').update("读取 "+cityName+" 天气信息失败!");
+				},
+				success : function(){
+					Ext.get('cityName').update(cityName);
+				}
+			});
+		}
+		//默认读取北京的天气情况
+		updateWeather('CHXX0008','北京');
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+	<table border=1 cellPadding=0 cellSpacing=0 width=300>
+		<tr>
+			<td width=30%>
+				<select name="citySelect" style="width:100%">
+					<option value="CHXX0008" selected="selected">北京</option>
+					<option value="CHXX0116">上海</option> 
+					<option value="CHXX0037">广州</option>
+					<option value="CHXX0099">南京</option>
+					<option value="CHXX0049">香港</option> 
+					<option value="CHXX0138">武汉</option> 
+				</select>
+			</td>
+			<td width=80%>天气情况：<span id='cityName'/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td height=130><div id='weather'></div></td>
+		</tr>
+	</table>
+ </BODY>
+</HTML>

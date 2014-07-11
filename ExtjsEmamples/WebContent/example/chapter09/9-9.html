@@ -1,0 +1,113 @@
+<HTML>
+ <HEAD>
+  <TITLE>多级联动菜单</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//将下拉框id顺序存入数组中，以便通过遍历数组级联更新
+		var lists = ['s1','s2','s3']
+		//为下拉框绑定change事件的处理函数
+		Ext.select('select').on('change',function(e,select){
+			//取得下拉框中选中的值
+			var value = select.options[select.selectedIndex].value;
+			//取得下拉框id
+			var id = select.id;
+			//通过循环的到下拉框id在lists数组中的索引位置
+			for(var i = 0 ; i < lists.length ; i++){
+				if(lists[i] == id){
+					var index = i;
+				}
+			}
+			//取得相邻下拉框id在lists数组中的索引
+			var nextIndex = index + 1;
+			if(nextIndex >= lists.length){
+				nextIndex = lists.length - 1;
+			}
+			//移除相邻下拉框及后续下拉框的值
+			remove(nextIndex);
+			//为相邻下拉框及后续下拉框加载新值
+			getList(nextIndex,value);
+		});
+
+		//通过Ajax方式为下拉框加载数据，
+		function getList(index,value) {
+			Ext.Ajax.request({
+				url : 'bookServer.jsp',//请求的服务器地址
+				params : {
+					target : lists[index],
+					value : value
+				},
+				callback : function(options,success,response){
+					if(success){
+						//取得要更新的下拉框
+						var select = Ext.get(lists[index]);
+						//执行返回字符串，得到数组对象
+						var array = eval(response.responseText);
+						//记录数组中的第一各种，该值将作为下级下拉框的默认取值条件
+						var firstValue;
+						for(var i=0 ; i < array.length ; i++){
+							var o = array[i];
+							if(i == 0){
+								firstValue = o.value;
+							}
+							//向下拉框中追加条目
+							select.appendChild(createOption(o.value,o.name));
+						}
+						//如果不是最后一个下拉框则继续加载相邻下拉框的数据
+						if(++index < lists.length){
+							getList(index,firstValue);
+						}
+					}
+				}
+			})
+		}
+		//根据传入的value和text创建选项
+		function createOption(value, text) {
+			 var opt = document.createElement("option"); 
+			 opt.setAttribute("value", value);
+			 opt.appendChild(document.createTextNode(text));
+			 return opt;
+		}
+		//级联删除下拉框及子下拉框的值
+		function remove(index){
+			for(var i = index ; i < lists.length ; i++){
+				var select = Ext.get(lists[i]).dom;
+				while(select.length>0){
+				  select.options.remove(select.length-1)
+				}
+			}
+		}
+		//默认加载值为1的教学类列表
+		getList(1,"1");
+		//默认列表s1的教学类被选中
+		Ext.get('s1').dom.selectedIndex = 0;
+	})
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+ <table>
+ <tr>
+	<td width=150>书籍类别</td>
+	<td width=150>书籍分组</td>
+	<td width=150>图书目录</td>
+ </tr>
+ <tr>
+	<td>
+		<select id = 's1' style="width:100%">
+			<option value="1">教学类</option>
+			<option value="2">技术类</option>
+		</select>
+	</td>
+	<td>
+		<select id = 's2' style="width:100%"></select>
+	</td>
+	<td>
+		<select id = 's3'style="width:100%"></select>
+	</td>
+ </tr>
+ </table>
+ </BODY>
+</HTML>

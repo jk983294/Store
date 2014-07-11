@@ -1,0 +1,50 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.form.CheckboxGroup和Ext.form.RadioGroup组件示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		new Ext.form.Panel({
+			title:'CheckboxGroup和RadioGroup组件示例',
+			bodyStyle:'padding:5 5 5 5',//表单边距
+			frame : true,
+			height:140,
+			width:270,
+			renderTo :'form',
+			defaults:{//统一设置表单字段默认属性
+				labelSeparator :'：',//分隔符
+				labelWidth : 50,//标签宽度
+				width : 200,//字段宽度
+				labelAlign : 'left'//标签对齐方式
+			},
+			items:[{
+				xtype : 'radiogroup',
+				fieldLabel : '性别',
+				columns : 2,//2列
+				items: [
+					{boxLabel : '男',name: 'sex', inputValue: 'male'},
+					{boxLabel : '女',name: 'sex', inputValue: 'female'}
+				]
+			},{
+				xtype : 'checkboxgroup',
+				fieldLabel : '爱好',
+				columns : 3,//3列
+				items: [
+					{boxLabel : '游泳',name: 'swim'},
+					{boxLabel : '散步',name: 'walk'},
+					{boxLabel : '阅读',name: 'read'},
+					{boxLabel : '游戏',name: 'game'},
+					{boxLabel : '电影',name: 'movie'}
+				]
+			}]
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+ 	<div id='form'></div>
+ </BODY>
+</HTML>

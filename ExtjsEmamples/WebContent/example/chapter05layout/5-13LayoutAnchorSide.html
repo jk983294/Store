@@ -1,0 +1,32 @@
+<HTML>
+ <HEAD>
+  <TITLE>参考边（Sides）定位</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		Ext.create('Ext.panel.Panel',{
+			layout : 'anchor',
+			title:'Ext.layout.container.Anchor布局示例',
+			autoScroll : true,//自动显示滚动条
+			frame:false,//渲染面板
+			height : 150,
+			width : 300,
+			renderTo: Ext.getBody(),
+			defaults : {//设置默认属性
+				bodyStyle:'background-color:#FFFFFF;padding:15px'//设置面板体的背景色
+			},
+			items: [{
+				anchor : 'r b',//相对于父容器的右边和底边的差值进行定位
+				width : 200,
+				height : 100,
+				title : '子面板'
+			}]
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

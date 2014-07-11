@@ -1,0 +1,44 @@
+<HTML>
+ <HEAD>
+  <TITLE>模型间的多对一关系</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//注册分类数据模型Category
+		Ext.regModel('Category', {
+		    fields: [//定义模型字段
+	             {name: 'type', type: 'string'},//产品类型名称
+	             {name: 'id', type: 'int'}//产品类型id
+		    ],
+		    proxy: {
+		    	type : 'ajax', 
+		        url : 'CategoryServer.jsp'
+		    }
+		});
+		//注册产品数据模型Product
+		Ext.regModel('Product', {
+		    fields: [//定义模型字段
+	             {name: 'id', type: 'int'},//产品id
+	             {name: 'title', type: 'string'},//产品名称
+	             {name: 'category_id', type: 'int'}//用户id
+		    ],
+		    belongsTo : 'Category'
+		});
+		//创建product实例
+		var product = new Product({
+		    id: 100,
+		    category_id: 1,
+		    title: '产品1'
+		});
+		product.getCategory(function(category, operation){
+			//获取类型名称
+			alert(category.get('type'));
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

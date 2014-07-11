@@ -1,0 +1,34 @@
+<HTML>
+ <HEAD>
+  <TITLE>在模型中通过代理加载数据</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//注册用户数据模型User
+		Ext.regModel('User', {
+		    fields: [//定义模型字段
+	             {name: 'name', type: 'string'},
+	             {name: 'age', type: 'int'},
+	             {name: 'id', type: 'int'}
+		    ],
+		    //配置数据代理
+		    proxy: {
+		    	type : 'ajax',
+		        url : 'userServer.jsp'
+		    }
+		});
+		var user = Ext.ModelManager.getModel('User');
+		//通过代理读取数据
+		user.load(1, {
+		    success: function(rec) {
+		    	alert(rec.get('name'));
+		    }
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

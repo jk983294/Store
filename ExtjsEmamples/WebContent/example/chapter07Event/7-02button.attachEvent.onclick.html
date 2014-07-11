@@ -1,0 +1,20 @@
+<html>
+ <head>
+  <title>标准的事件绑定方式(2)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ </head>
+ <body>
+  <input type='button' id='btn' value='ok'>
+ </body>
+<script language="JavaScript">
+	function hello1(){ 
+		alert('hello1');
+	}
+	function hello2(){
+		alert('hello2');
+	}
+	var button = document.getElementById('btn');
+	button.attachEvent('onclick',hello1);//该方法适用于IE浏览器
+	button.attachEvent('onclick',hello2);
+</script>
+</html>

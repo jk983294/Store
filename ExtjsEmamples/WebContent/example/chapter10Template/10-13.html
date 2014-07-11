@@ -1,0 +1,108 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.view.View示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		Ext.QuickTips.init();//初始化提示
+		var inputForm = Ext.create('Ext.form.Panel',{
+			bodyPadding: 5,
+			width : 490,
+			flex : 2,
+			fieldDefaults:{//统一设置表单字段默认属性
+				labelSeparator :'：',//分隔符
+				labelWidth : 60,//标签宽度
+				width : 150,//字段宽度
+				msgTarget : 'side',
+				allowBlank : false,
+				labelAlign : 'right'
+			},
+			layout: {//设置容器字段布局
+	            type: 'hbox',
+	            align: 'middle'//垂直居中
+	        },
+			defaultType: 'textfield',//设置表单字段的默认类型
+			items:[{
+				fieldLabel:'产品名称',
+				name : 'productName'
+			},{
+				fieldLabel:'数量',
+				xtype : 'numberfield',
+				name : 'productNum'
+			},{
+				fieldLabel:'金额',
+				xtype : 'numberfield',
+				name : 'productPrice'
+			}],
+			fbar : [{
+				text : '添加',
+				handler : function(){
+					if(inputForm.getForm().isValid()){
+						var data = inputForm.getForm().getValues();
+						var product = Ext.ModelMgr.create(data, 'ProductInfo');
+						productStore.add(product);
+						inputForm.getForm().reset();
+					}
+				}
+			}]
+		});
+		//创建数据模型
+		Ext.regModel('ProductInfo', {
+		    fields: ['productName','productNum','productPrice']
+		});
+		//创建产品数据源
+		var productStore = Ext.create('Ext.data.Store',{
+			autoLoad : true,
+			data : [],
+			model : 'ProductInfo',
+			proxy: {
+		        type: 'memory',
+		        reader: {
+		            type: 'json',
+		            root: 'datas'
+		        }
+		    }
+		});
+		//定义模板
+		var productTpl = new Ext.XTemplate(
+			'<table border=1 cellspacing=0 cellpadding=0 width=100%>',
+			'<tr><td width=160>产品名称</td><td width=75>数量</td><td width=75>金额</td></tr>',
+			'<tpl for=".">',
+			'<tr><td>{productName}</td><td>{productNum}</td><td>{productPrice}</td></tr>',
+			'</tpl>',
+			'</table>'
+		);
+		//产品数据视图
+		var productView = Ext.create('Ext.view.View',{
+	        store: productStore,
+	        tpl: productTpl,
+	        deferEmptyText : false,
+	        itemSelector:'div.thumb-wrap',
+	        emptyText: '请录入商品'
+	    });
+		//产品面板
+		var productViewPanel = Ext.create('Ext.panel.Panel',{
+			autoScroll:true,
+			width : 490,
+			flex : 3,
+			layout : 'fit',
+		    bodyStyle:'background-color:#FFFFFF',
+		    items: productView
+		});
+		Ext.create('Ext.panel.Panel',{
+		    renderTo: document.body,
+		    frame:true,
+		    width : 500,
+		    height: 200,
+		    layout:'vbox',
+		    title:'产品录入',
+		    items: [inputForm, productViewPanel]
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

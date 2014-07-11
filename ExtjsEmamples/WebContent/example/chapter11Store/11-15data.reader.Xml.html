@@ -1,0 +1,35 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.data.reader.Xml示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//定义用户User模型
+		Ext.regModel("User", {
+		    fields: [ 'id', 'name' ],
+		    proxy: {
+		        type: 'ajax',
+		        url : 'xmlServer.jsp',
+		        reader: {
+		            type: 'xml',//Ext.data.reader.Xml解析器
+		            record: 'user'
+		        }
+		    }
+		});
+		
+		var user = Ext.ModelManager.getModel('User');
+		//通过代理读取数据
+		user.load(1, {
+		    success: function(rec) {
+		    	alert("XML读取器示例：\n" + 
+		    		  "用户姓名："+rec.get('name'));
+		    }
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

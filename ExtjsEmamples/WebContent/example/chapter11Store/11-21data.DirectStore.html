@@ -1,0 +1,40 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.data.DirectStore示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript" src="/ExtJS4-Examples/data/api.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//注册api
+		Ext.Direct.addProvider(
+			Ext.data.app.REMOTING_API
+		);
+		//定义用户User模型
+		Ext.regModel("User", {
+		    fields: ['name', 'age' ]
+		});
+		//创建ArrayStore数据集对象
+		var myStore = new Ext.data.DirectStore({
+			autoLoad: true,
+		    model: 'User',
+	        api : {
+	        	read : DataAction.readAllData//读取数据的远程方法
+	        }
+		});
+		//遍历Store中的记录
+		myStore.on('load',function(store , records, success){
+			var msg = ['遍历DirectStore中的记录：'];
+			for(var i = 0 ; i < records.length; i++){
+				var rec = records[i];
+				msg.push('姓名:'+rec.get('name')+' 年龄:'+rec.get('age'));
+			}
+			alert(msg.join('\n'));
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

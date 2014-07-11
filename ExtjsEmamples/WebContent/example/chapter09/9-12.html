@@ -1,0 +1,112 @@
+<HTML>
+ <HEAD>
+  <TITLE>计算器</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		var calPanel = new Ext.panel.Panel({
+			title:'计算器',
+			renderTo: Ext.getBody(),
+			bodyPadding: 5,
+			width : 270,
+			layout : {
+				type : 'table',
+				columns : 5 //设置表格布局默认列数为4列
+			},
+			frame : true,
+			tbar : [
+				'公式：',
+				new Ext.form.field.Text({
+					id:'expression',
+					readOnly : true,
+					style:'text-align:right'
+				}),
+				'=',
+				new Ext.form.field.Text({
+					id:'result',
+					width : 60
+				})
+			],
+			defaultType : 'button',
+			defaults  : {
+				minWidth : 50,
+				handler:btnClick
+			},
+			items : [
+				{text:'1',symbol:'1'},
+				{text:'2',symbol:'2'},
+				{text:'3',symbol:'3'},
+				{text:'〔',symbol:'('},
+				{text:'〕',symbol:')'},
+				{text:'4',symbol:'4'},
+				{text:'5',symbol:'5'},
+				{text:'6',symbol:'6'},
+				{text:'＋',symbol:'+'},
+				{text:'－',symbol:'-'},
+				{text:'7',symbol:'7'},
+				{text:'8',symbol:'8'},
+				{text:'9',symbol:'9'},
+				{text:'×',symbol:'*'},
+				{text:'÷',symbol:'/'},
+				{text:'0',symbol:'0'},
+				{text:'．',symbol:'.'},
+				{text:'＝',symbol:'='},
+				{text:'C',symbol:'clear'},
+				{text:'←',symbol:'back'}
+			]
+		})
+		//取得id为expression的组件引用
+		var expression = Ext.getCmp('expression');
+		//取得id为result的组件引用
+		var result = Ext.getCmp('result');
+		//按钮单击事件的处理函数
+		function btnClick(btn){
+			var oldValue = expression.getValue();
+			if(btn.symbol == 'back'){
+				//取消最后一次输入的字符
+				oldValue = oldValue.substring(0,oldValue.length - 1);
+			}else if(btn.symbol == 'clear') {
+				//清空表达式和结果
+				oldValue = '';
+				result.setValue('');
+			}else if(btn.symbol == '='){
+				//计算表达式
+				calculate();
+			}else if(btn.symbol == '.'){
+				if(oldValue.indexOf('.') != -1){
+					return;
+				}
+			}else {
+				//累计表达式字符串
+				oldValue += btn.symbol;
+			}
+			expression.setValue(oldValue);
+		}
+		//计算表达式函数
+		function calculate() {
+			var str = expression.getValue();
+			//判断表达式是否为空
+			if(!Ext.isEmpty(str)){
+				//将表达式发送到服务器进行计算
+				Ext.Ajax.request({
+					url :'calculateServer.jsp',//请求的服务器地址
+					params : {Exp : str},//请求参数
+					callback : function(options,success,response){//回调函数
+						if(success){//计算成功
+							result.setRawValue(response.responseText)
+						}else{//计算失败
+							result.setRawValue('error')
+						}
+					}
+				})
+			}
+		}
+	})
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+ </BODY>
+</HTML>

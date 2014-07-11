@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+	font-family:'Arial';
+}
+.myclass{
+	color:blue;
+}
+</style>
+<script language="javascript">
+	Ext.onReady(function(){
+		var panel = new Ext.Panel({
+			title : 'Ext.core.DomHelper示例',
+			width : '220px',
+			renderTo : 'sub1',
+			buttons : [{
+				text : 'text',
+				handler : function(){
+					//给指定的div1替换新的html
+					Ext.core.DomHelper.overwrite(document.getElementById("div1"),"我是新替换的Html文本");
+				}
+			}],
+			html : '<div style="height:160px;padding:5px;"><div id="div1" >我是原来的Div的内容</div></div>'
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<div id="sub1"></div>
+</body>
+</html>

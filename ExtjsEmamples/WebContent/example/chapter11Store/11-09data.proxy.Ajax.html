@@ -1,0 +1,41 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.data.proxy.Ajax示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//创建数据模型
+		Ext.regModel('Person', {
+		    fields: ['name','age']
+		});
+		//创建Ajax代理
+		var ajaxProxy = new Ext.data.proxy.Ajax({
+			url : 'personServer.jsp',
+			model: 'Person',
+		    reader: 'json'
+		});
+		//创建请求参数对象
+		var operation = new Ext.data.Operation({
+		    action: 'read'//设置请求动作为read
+		});
+		//读取数据
+		ajaxProxy.doRequest(operation,callBack);
+		//doRequest方法的回调函数
+		function callBack(operation){
+			//获取原始响应数据
+			var responseText = operation.response.responseText;
+			//获得记录总数
+			var totalRecords = operation.resultSet.totalRecords;
+			//获得记录数组
+			var records = operation.resultSet.records;
+			
+			alert('使用Ajax代理读取远程数据，记录总是：'+totalRecords);
+		}
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

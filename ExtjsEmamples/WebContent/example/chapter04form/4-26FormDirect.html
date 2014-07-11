@@ -1,0 +1,77 @@
+<HTML>
+ <HEAD>
+  <TITLE>在表单中使用Direct技术</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript" src="/ExtJS4-Examples/form/api.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		Ext.QuickTips.init();//初始化提示;
+		//注册api
+		Ext.Direct.addProvider(
+			Ext.form.app.REMOTING_API
+		);
+		var productForm = Ext.create('Ext.form.Panel',{
+			title:'在表单中使用Direct技术',
+			width : 300,
+			frame : true,
+			fieldDefaults:{//统一设置表单字段默认属性
+				labelSeparator :'：',//分隔符
+				labelWidth : 80,//标签宽度
+				width : 270,//字段宽度
+				msgTarget : 'under'
+			},
+			api: {
+		        load: FormAction.loadProductServer,//加载数据的远程方法
+		        submit: FormAction.submitProductServer//提交数据的远程方法
+		    },
+		  	paramOrder: ['productId'],
+		    renderTo: Ext.getBody(),
+			bodyPadding: 5,
+			defaultType: 'textfield',//设置表单字段的默认类型
+			items:[{
+				fieldLabel:'产品名称',
+				name : 'productName'
+			},{
+				fieldLabel:'产品简介',
+				name : 'introduction',
+				xtype : 'textarea'
+			}],
+			buttons:[{
+				text : '数据加载',
+				handler : loadData
+			},{
+				text : '数据提交',
+				handler : submitData
+			}]
+		});
+		//表单数据加载
+		function loadData(){
+			productForm.form.load({
+				params:{productId:'001'},//以产品id作为参数
+				success:function(form,action){//加载成功的处理函数
+					Ext.Msg.alert('提示','表单数据加载成功');
+				},
+				failure:function(form,action){//加载失败的处理函数
+					Ext.Msg.alert('提示','表单数据加载失败<br>失败原因：'+action.result.errorMessage);
+				}
+			});
+		}
+		//表单数据提交
+		function submitData(){
+			productForm.form.submit({
+				success:function(form,action){//加载成功的处理函数
+					Ext.Msg.alert('提示','表单数据提交成功');
+				},
+				failure:function(form,action){//加载失败的处理函数
+					Ext.Msg.alert('提示','表单数据提交失败<br>失败原因：'+action.result.errorMessage);
+				}
+			});
+		}
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

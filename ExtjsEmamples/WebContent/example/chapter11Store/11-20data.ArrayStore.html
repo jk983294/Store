@@ -1,0 +1,31 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.data.ArrayStore示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//定义用户User模型
+		Ext.regModel("User", {
+		    fields: ['name', 'age' ],
+		    proxy: 'memory'
+		});
+		//创建ArrayStore数据集对象
+		var myStore = new Ext.data.ArrayStore({
+			autoLoad: true,
+			data : [['张三',20],['李四',30]],//数组数据
+		    model: 'User'
+		});
+		//遍历Store中的记录
+		var msg = ['遍历ArrayStore中的记录：'];
+		myStore.each(function(rec){
+			msg.push('姓名:'+rec.get('name')+' 年龄:'+rec.get('age'));
+		});
+		alert(msg.join('\n'));
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

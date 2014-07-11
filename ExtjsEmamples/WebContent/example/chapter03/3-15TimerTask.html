@@ -1,0 +1,35 @@
+<HTML>
+ <HEAD>
+  <TITLE>通过调用updateText方法定时更新提示信息</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		var msgBox = Ext.MessageBox.show({
+			title:'提示',
+			msg:'动态跟新的信息文字',
+			modal:true,
+			buttons:Ext.Msg.OK,
+			fn:function(){
+				//停止定时任务
+				Ext.TaskManager.stop(task);
+			}
+		})
+		//Ext.TaskManager是一个功能类，用来定时执行程序，
+		//在这里我们使用它来定时触发提示信息的更新。
+		var task = {
+			run:function(){
+				msgBox.updateText('会动的时间：'+Ext.util.Format.date(new Date(),'Y-m-d g:i:s A'));
+			},
+			interval:1000
+		}
+		Ext.TaskManager.start(task);
+	});
+  </script>
+ </HEAD>
+ <BODY>
+  
+ </BODY>
+</HTML>

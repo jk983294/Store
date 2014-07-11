@@ -1,0 +1,44 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.data.proxy.Memory示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//创建数据模型
+		Ext.regModel('User', {
+		    fields: ['id','name','age']
+		});
+		
+		//定义内存数据变量
+		var userData = {
+		    users : [
+	            { id: 1, name: '张三', age: 20 },
+	            { id: 2, name: '李四', age: 30 },
+	            { id: 3, name: '王五', age: 40 }
+	        ]
+		};	
+		
+		//创建memory代理
+		var memoryProxy = new Ext.data.proxy.Memory({
+			model : 'User',
+			reader: {
+	            root: 'users'
+	        },
+			data : userData
+		}); 		
+		
+		//读取数据
+		memoryProxy.read(new Ext.data.Operation(), callBack)
+		//数据读取之后的回调函数
+		function callBack(result){ 		//load方法的回调函数
+			var totalRecords = result.resultSet.total;
+			alert('读取内存数据，记录总是：'+totalRecords);
+		}
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

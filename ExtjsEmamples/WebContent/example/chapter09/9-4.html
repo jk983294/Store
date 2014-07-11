@@ -1,0 +1,41 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.Ajax. request提交json数据</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	function login(){
+		var requestConfig = {
+			url :'loginServerJson.jsp',         //请求的服务器地址
+			jsonData : getJson(),           //发送json对象
+			callback : function(options,success,response){     //回调函数
+				var msg = ["请求是否成功：" ,success,"\n",
+						   "服务器返回值：",response.responseText];
+				alert(msg.join(''));
+			}
+		}
+		Ext.Ajax.request(requestConfig);                  //发送请求
+	}
+	//生成json对象
+	function getJson(){
+		var name = document.forms['loginForm'].userName.value;  //获取表单中的用户名信息
+		var pwd = document.forms['loginForm'].password.value;   //获取表单中的密码信息
+		var jsonObj = {   //创建包含用户名信息和密码信息的JSON对象
+			userName : name,
+			password : pwd
+		}
+		return jsonObj;  //将JSON对象返回
+	}
+  </script>
+ </HEAD>
+ <BODY>
+ <br>
+ <form id='loginForm'>
+	用户名：<input name = 'userName' type='text'>
+	密  码：<input name = 'password' type='password'>
+	<input type='button' value='登陆' onclick='login()'>
+ </form>
+ </BODY>
+</HTML>

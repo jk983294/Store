@@ -1,0 +1,32 @@
+<HTML>
+ <HEAD>
+  <TITLE>提交表单更新页面元素示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//得到元素的加载器对象（Ext.ElementLoader）
+		var loader = Ext.get('loginMsg').getLoader();
+		
+		Ext.get('loginBtn').on('click',login);
+		function login(){
+			//提交表单，在回调函数中更新页面元素
+			loader.load({
+				form : 'loginForm',//要提交的表单
+				url : 'loginServer.jsp'
+			});
+		}
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+	<form id='loginForm'>
+	用户名：<input name = 'userName' type='text'>
+	密     码：<input name = 'password' type='password'>
+	<input type='button' value='登陆' id='loginBtn'>
+	</form>
+	状  态：<span id='loginMsg'></span>
+ </BODY>
+</HTML>

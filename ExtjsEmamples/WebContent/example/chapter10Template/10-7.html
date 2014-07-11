@@ -1,0 +1,34 @@
+<HTML>
+ <HEAD>
+  <TITLE>数组索引与简单数学运算</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//定义模板，数组索引与简单数学运算
+		var tpl = new Ext.XTemplate(
+			'<table border=1 cellpadding=0 cellspacing = 0>',
+			'<tr><td>序号</td><td width=90 >姓名</td><td width=90 >工资</td></tr>',
+			'<tpl for=".">',
+			'<tr><td>{#}</td><td>{name}</td><td>{wage * .9}</td></tr>',
+			'</tpl>',
+			'</table>'
+		);
+		//定义模板数据
+		var tplData = [
+				{name : '张三',wage : 1000},
+				{name : '李四',wage : 1200},
+				{name : '王五',wage : 900},
+				{name : '赵六',wage : 1500}
+			]
+		//模板值和模板进行组合并将新生成的节点插入到id为'tpl-table'的元素中
+		tpl.append('tpl-table',tplData);
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+	<div id='tpl-table'/>
+ </BODY>
+</HTML>

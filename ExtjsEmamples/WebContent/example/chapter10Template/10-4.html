@@ -1,0 +1,42 @@
+<HTML>
+ <HEAD>
+  <TITLE>使用自定义格式化函数解析多层json对象</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//定义模板，并指定模板数据的格式化函数
+		var tpl = new Ext.Template(
+			'<table border=1 cellpadding=0 cellspacing = 0>',
+			'<tr><td width=90 >姓名</td>',
+			'<td width=120>{name}</td></tr>',
+			'<tr><td width=90 >年龄</td>',
+			'<td width=120>{age}</td></tr>',
+			'<tr><td width=90 >身高</td>',
+			'<td width=120>{stature:this.parseJson}</td></tr>',
+			'</table>'
+		);
+		//定义模板数据
+		var tplData = {
+			name : 'tom',
+			age : 24,
+			stature : {
+				num : 170,
+				unit : 'cm'
+			}
+		}
+		//通过自定义格式化函数解析json对象
+		tpl.parseJson = function(json){
+			return json.num + json.unit;
+		}
+		//模板值和模板进行组合并将新生成的节点插入到id为'tpl-table'的元素中
+		tpl.append('tpl-table',tplData);
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+	<div id='tpl-table'/>
+ </BODY>
+</HTML>

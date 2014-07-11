@@ -1,0 +1,42 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.data.proxy.LocalStorage示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//创建数据模型
+		Ext.regModel('User', {
+		    fields: ['id','name','age'],
+		    proxy: {
+		        type: 'localstorage',//使用Ext.data.proxy.LocalStorage代理
+		        id  : 'User-Searches'//代理数据的唯一标志
+		    }
+		});
+		
+		var store = new Ext.data.Store({
+		    model: "User"
+		});
+		
+		//添加数据
+		store.add({name: '张三', age: 20});
+		store.add({name: '李四', age: 30});
+		
+		//保存数据
+		store.sync();
+		//读取数据
+		store.load();
+		
+		var msg = [];
+		store.each(function(rec){
+			msg.push(rec.get('id')+' '+rec.get('name')+' '+rec.get('age'));
+		});
+		
+		alert(msg.join('\n'));
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

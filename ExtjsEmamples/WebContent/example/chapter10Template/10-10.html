@@ -1,0 +1,56 @@
+<HTML>
+ <HEAD>
+  <TITLE>在模板中执行任意代码</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style type="text/css">
+	.even { background-color: #CCFFFF; }
+	.odd { background-color: #FFFFFF; }
+	.title {text-align: center;}
+  </style>
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//定义模板，在模板中执行任意代码
+		var tpl = new Ext.XTemplate(
+			'<table border=1 cellpadding=0 cellspacing = 0 class=title>',
+			'<tr><td>序号</td><td width=90 >姓名</td><td width=90 >工资</td><td width=90 >奖金</td></tr>',
+			'<tpl for="emps">',
+			'<tr class="{[xindex % 2 == 0 ? "even" : "odd"]}">',
+			'<td>{[xindex]}</td><td>{[values.name]}</td>',
+			'<td>{[values.wage * parent.per]}</td>',
+			'<td>{[Math.round(values.wage * parent.per / xcount)]}</td></tr>',
+			'</tpl>',
+			'<tr><td>发薪时间</td><td colspan=3>{[fm.date(new Date,"Y年m月d日")]}</td></tr>',
+			'<tr><td>工资总计</td><td colspan=3>{[this.avgWage(values)]}</td></tr>',
+			'</table>'
+		);
+		//模板的自定义格式化函数，用于计算工资总计
+		tpl.avgWage = function (o) {
+			var sum = 0;
+			var length = o.emps.length;
+			for(var i = 0 ; i <length ; i++){
+				sum += o.emps[i].wage;
+			}
+			return sum * o.per;
+		}
+		//定义模板数据，per表示发薪比例，wage表示标准工资
+		var tplData = {
+			per : 0.9,
+			emps : [
+				{name : '张三',wage : 1000},
+				{name : '李四',wage : 1200},
+				{name : '王五',wage : 900},
+				{name : '赵六',wage : 1500}
+			]
+		}
+		//模板值和模板进行组合并将新生成的节点插入到id为'tpl-table'的元素中
+		tpl.append('tpl-table',tplData);
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+	<div id='tpl-table'/>
+ </BODY>
+</HTML>

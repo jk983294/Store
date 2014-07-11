@@ -1,0 +1,30 @@
+<HTML>
+ <HEAD>
+  <TITLE>创建Ext.data.Model数据实体模型</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//注册用户数据模型User
+		Ext.regModel('User', {
+		    fields: [//定义模型字段
+		        {name: 'name',  type: 'string'},
+		        {name: 'age',   type: 'int'},
+		        {name: 'phone', type: 'string'}
+		    ]
+		});
+		//创建User模型的实体对象
+		var user = Ext.ModelMgr.create({
+		    name : 'tom',
+		    age  : 24,
+		    phone: '555-555-5555'
+		}, 'User');
+		//获取员工姓名
+		alert(user.get('name'));
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

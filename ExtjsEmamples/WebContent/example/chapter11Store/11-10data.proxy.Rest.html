@@ -1,0 +1,34 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.data.proxy.Rest示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//创建数据模型
+		Ext.regModel('Person', {
+		    fields: ['id','name','age'],
+		    proxy: {
+		        type: 'rest',//使用Ext.data.proxy.Rest代理
+		        url : '/persons'
+		    }
+		});
+		
+		var person1 = Ext.ModelManager.create({name: '张三', age: 20}, 'Person');
+		person1.save();//由于是新建数据未指定id，因此执行create方法。
+		
+		var person2 = Ext.ModelManager.create({id:200,name: '李四', age: 20}, 'Person');
+		person2.save();//由于指定id为200，因此执行update方法。
+		
+		var person3 = Ext.ModelManager.getModel('Person');
+		person3.load(300)//调用read方法,读取id为300的数据。
+		
+		var person4 = Ext.ModelManager.create({id:400,name: '王五', age: 20}, 'Person');
+		person4.destroy();//由于指定id为400，因此执行destroy方法。
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

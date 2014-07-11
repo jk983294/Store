@@ -1,0 +1,22 @@
+<HTML>
+ <HEAD>
+  <TITLE>多次设置信息提示框按钮文字</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//'ok'
+		Ext.MessageBox.msgButtons[0].setText('确认按钮');//第一次设置
+		Ext.MessageBox.alert('提示','提示信息一',function(){
+			Ext.MessageBox.msgButtons[0].setText('新的确认按钮');//第二次设置
+			Ext.MessageBox.alert('提示','提示信息二');
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY>
+  
+ </BODY>
+</HTML>

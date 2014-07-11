@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+ <HEAD>
+  <TITLE>简单的Ext.Ajax. request示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+  	Ext.onReady(function(){
+  		var requestConfig = {
+			url :'loginServer.jsp',//请求的服务器地址
+			params : {userName : 'tom',password : '123'},//请求参数
+			customer : '自定义属性',//附加属性
+			callback : function(options,success,response){//回调函数
+				var msg = ["请求是否成功：" ,success,"\n",
+							"服务器返回值：",response.responseText,
+							"本地自定义属性：",options.customer];
+				alert(msg.join(''));
+			}
+		}
+		Ext.Ajax.request(requestConfig);//发送请求
+  	});
+  </script>
+ </HEAD>
+ <BODY></BODY>
+</HTML>

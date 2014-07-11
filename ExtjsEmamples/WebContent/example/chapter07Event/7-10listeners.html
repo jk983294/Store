@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+ <HEAD>
+  <TITLE>Ext.EventObject示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/src/core/src/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+<BODY>
+	<input id='buttonTest' type='button' value='click'>
+</BODY>
+<script type="text/javascript">
+	var btn = Ext.get('buttonTest');
+	btn.addListener('click',handler);//为click事件绑定处理函数
+	function handler(e){//事件处理函数
+		//获取事件发生时的x坐标
+		var x = e.getPageX();
+		//获取事件发生时的y坐标
+		var y = e.getPageY();
+		var msg = '事件发生坐标 : x='+x+' y='+y;
+		alert(Ext.EventManager.getPageXY(e));
+		alert(msg);
+	}
+</script>
+</HTML>

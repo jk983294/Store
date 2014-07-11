@@ -1,0 +1,27 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.Template.append方法举例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		var tpl = new Ext.Template(//定义模板
+			'<table  border=1 cellpadding=0 cellspacing = 0>',
+			'<tr><td width=90>姓名</td><td width=90>{0}</td></tr>',
+			'<tr><td>年龄</td><td>{1}</td></tr>',
+			'<tr><td>性别</td><td>{2}</td></tr>',
+			'</table>'
+		)
+		//模板值和模板进行组合并将新生成的节点插入到id为'tpl-table'的元素中
+		tpl.append('tpl-table',['小王',25,'男']);
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+	<div id='tpl-table'>
+		<div>员工信息</div>
+	</div>
+ </BODY>
+</HTML>

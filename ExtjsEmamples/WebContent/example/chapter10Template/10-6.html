@@ -1,0 +1,37 @@
+<HTML>
+ <HEAD>
+  <TITLE>使用parent在子模板中访问父对象</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//定义模板，使用parent在子模板中访问父对象
+		var tpl = new Ext.XTemplate(
+			'<table border=1 cellpadding=0 cellspacing = 0>',
+			'<tr><td width=90 >姓名</td><td width=90 >年龄</td><td width=90 >公司</td></tr>',
+			'<tpl for="emps">',
+			'<tr><td>{name}</td><td>{age}</td><td>{parent.companyName}</td></tr>',
+			'</tpl>',
+			'</table>'
+		);
+		//定义模板数据
+		var tplData = {
+			companyName : 'ACB公司',
+			emps:[
+				{name:'张三',age:20},
+				{name:'李四',age:25},
+				{name:'王五',age:27},
+				{name:'赵六',age:26}
+			]
+		}
+		//模板值和模板进行组合并将新生成的节点插入到id为'tpl-table'的元素中
+		tpl.append('tpl-table',tplData);
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+	<div id='tpl-table'/>
+ </BODY>
+</HTML>

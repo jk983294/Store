@@ -1,0 +1,32 @@
+<HTML>
+ <HEAD>
+  <TITLE>addListener绑定处理函数示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+        //继承自Ext.util.Observable
+		var Person = Ext.extend(Ext.util.Observable,{
+			constructor : function(name){
+			   this.name = name;
+			   this.say = function(){
+					this.fireEvent('onSay',this.name);//激发自定义事件
+			   }
+			   this.addEvents({//加入自定义事件
+				  "onSay" : true
+			   });
+			}
+		});
+		var per = new Person('tom');//创建对象
+		
+		//为自定义事件绑定处理函数
+		per.addListener('onSay',function(name){
+			alert("I'am " + name);
+		});
+  </script>
+ </HEAD>
+ <BODY>
+	<input type='button' value='say' onclick='per.say()'>
+ </BODY>
+</HTML>

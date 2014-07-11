@@ -1,0 +1,48 @@
+<HTML>
+ <HEAD>
+  <TITLE>读取复杂的JSON数据</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//JSON格式的用户及订单信息
+		var userData = {
+			"users": [{
+				"searchDate" : "2011-04-24",//查询时间
+				"role" : "admin",//查询人角色
+				"info" : {
+					"id": 123,
+					"name": "张三"
+				}
+			}]
+		}
+		//定义用户User模型
+		Ext.regModel("User", {
+		    fields: [ 'id', 'name' ]
+		});
+		
+		//创建memory代理
+		var memoryProxy = new Ext.data.proxy.Memory({
+			model : 'User',
+			reader: {
+	            type: 'json',//Ext.data.reader.Json读取器
+	            root: 'users',
+	            record : 'info'//定位有效数据的位置
+	        },
+			data : userData
+		}); 
+		//读取数据
+		memoryProxy.read(new Ext.data.Operation(), callBack)
+		//数据读取之后的回调函数
+		function callBack(result){
+			//获取第一个用户信息
+			var user = result.resultSet.records[0];
+			alert('姓名：'+user.get('name'));
+		}
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

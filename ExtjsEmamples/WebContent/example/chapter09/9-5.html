@@ -1,0 +1,32 @@
+<HTML>
+ <HEAD>
+  <TITLE>简单的Ext.ElementLoader示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//得到元素的加载器对象（Ext.ElementLoader）
+		var loader = Ext.get('content-div').getLoader();
+		var btns = Ext.select('input');//选择页面中的所有input组件
+		btns.addListener('click',function(e,btn){//成批绑定click事件
+			var contentUrl = '9-5-'+btn.value+'.html';
+			load(contentUrl);//调用加载函数
+		});
+		//定义更新函数
+		function load(contentUrl){
+			loader.load({//调用元素加载器的load方法，更新页面元素
+				url : contentUrl,
+				loadMask : '正在加载数据请稍后...'
+			});
+		}
+	})
+  </script>
+ </HEAD>
+ <BODY style="margin=10 10 10 10;">
+	<div id="content-div" style="width:200px; height:100px; border:2px solid #ccc"></div>
+	<input type=button value='page1'>
+	<input type=button value='page2'>
+ </BODY>
+</HTML>

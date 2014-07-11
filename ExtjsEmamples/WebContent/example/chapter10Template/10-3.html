@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+ <HEAD>
+  <TITLE>在模板中使用格式化函数</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//定义模板，并指定模板数据的格式化函数
+		var tpl = new Ext.Template([
+			'<table border=1 cellpadding=0 cellspacing = 0>',
+			'<tr><td width=90>员工姓名</td>',
+			//{userName:capitalize}使用标准字符串格式化函数，字符串首字母大写
+			'<td width=120>{userName:capitalize}</td></tr>',
+			'<tr><td width=90>工作日期</td>',
+			//{WorkDate:this.cusFormat()}使用自定义格式化函数
+			'<td width=120>{WorkDate:this.cusFormat()}</td></tr>',
+			'</table>'
+		]);
+		//定义模板数据
+		var tplData = {
+			userName : 'tom',
+			WorkDate : new Date(2002,7,1)
+		}
+		//模板的自定义格式化函数
+		tpl.cusFormat = function(date,o){
+			return Ext.Date.format(date,'Y年m月d');
+		}
+		//模板值和模板进行组合并将新生成的节点插入到id为'tpl-table'的元素中
+		tpl.append('tpl-table',tplData);
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+	<div id='tpl-table'/>
+ </BODY>
+</HTML>

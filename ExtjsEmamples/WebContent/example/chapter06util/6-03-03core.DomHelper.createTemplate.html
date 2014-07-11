@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+	font-family:'Arial';
+}
+.myclass{
+	color:blue;
+}
+</style>
+<script language="javascript">
+	Ext.onReady(function(){
+		var panel = new Ext.Panel({
+			title : 'Ext.core.DomHelper示例',
+			width : '280px',
+			renderTo : 'sub1',
+			html : '<div id="div1" style="height:160px;padding:5px">原文本</div>'
+		});
+		//首先通过DomHelper.createTemplate创建一套模板
+		var test = Ext.core.DomHelper.createTemplate('<div name="{id}">'+
+			'<span class="{cls}">{name:trim} {value:ellipsis(10)}<br>第二行文本</span>'+
+			'</div>');
+		//通过定义的模板替换模板中的变量,然后追加在div的id为div1的div里面进行展现
+		test.append(Ext.get("div1"),{id: 'myid', cls: 'myclass', name: 'foo', value: 'bar'},true);
+	});
+</script>
+</head>
+<body>
+	<div id="sub1"></div>
+</body>
+</html>

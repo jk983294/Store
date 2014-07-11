@@ -1,0 +1,39 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.data.proxy.Direct示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript" src="/ExtJS4-Examples/data/api.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//注册api
+		Ext.Direct.addProvider(
+			Ext.data.app.REMOTING_API
+		);
+		//创建数据模型
+		Ext.regModel('Person', {
+		    fields: ['id','name','age'],
+		    proxy: {
+		        type: 'direct',//使用Ext.data.proxy.JsonP代理
+		        paramOrder: ['id'],//指定参数顺序
+		        api : {
+		        	read : DataAction.readData//读取数据的远程方法
+		        }
+		    }
+		});
+		var person = Ext.ModelManager.getModel('Person');
+		//跨域读取数据
+		person.load(1,{
+			success: function(rec) {
+		    	alert('Ext.data.proxy.Direct示例'+
+		    		  '\n姓名：'+rec.get('name')+
+		    		  '\n年龄：'+rec.get('age'));
+		    }
+		});
+	});
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

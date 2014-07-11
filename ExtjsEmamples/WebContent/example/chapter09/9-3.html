@@ -1,0 +1,47 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.Ajax. request提交xml数据</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	function login(){
+		var requestConfig = {
+			url :'loginServerXml.jsp',           //请求的服务器地址
+			xmlData : getXml(),                //发送xml文档对象
+			callback : function(options,success,response){   //回调函数
+				var msg = ["请求是否成功：" ,success,"\n",
+						   "服务器返回值：",response.responseText];
+				alert(msg.join(''));
+			}
+		}
+		Ext.Ajax.request(requestConfig);//发送请求
+	}
+	function getXml(){	//生成xml文档对象
+		var name = document.forms['loginForm'].userName.value;  //获取表单中的用户名信息
+ 		var pwd = document.forms['loginForm'].password.value;   //获取表单中的密码信息
+		var dom = new ActiveXObject("msxml2.DOMDocument");  //创建dom对象
+		var header = dom.createProcessingInstruction("xml", "version='1.0'");  //创建xml文件头
+		dom.appendChild(header);           //将xml文件头添加到dom中
+		var root = dom.createElement("loginInfo");  //创建根节点loginInfo
+		var userName = dom.createElement("userName");  //创建userName节点
+		userName.text = name;                         //为userName节点赋值
+		var password = dom.createElement("password");   //创建password节点
+		password.text = pwd;                          //为password节点赋值
+		root.appendChild(userName);                  //将userName节点添加到根节点中
+		root.appendChild(password);                  //将password节点添加到根节点中
+		dom.appendChild(root);                      //将根节点添加到dom中
+		return dom;                                //返回dom对象
+	}
+  </script>
+ </HEAD>
+ <BODY>
+ <br>
+ <form id='loginForm'>
+	用户名：<input name = 'userName' type='text'>
+	密  码：<input name = 'password' type='password'>
+	<input type='button' value='登陆' onclick='login()'>
+ </form>
+ </BODY>
+</HTML>

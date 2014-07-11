@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+<script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+<script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+	font-size:11pt;
+	color:black;
+	padding:5px;
+	font-family:'Arial';
+}
+</style>
+<script language="javascript">
+	Ext.onReady(function(){
+		var panel = new Ext.Panel({
+			title : 'Ext.core.DomHelper示例',
+			width : '280px',
+			renderTo : 'sub1',
+			html : '<div id="div1" style="height:160px;padding:5px">原文本</div>'
+		});
+		//给id为div1的元素指定一个样式表
+		//其样式表的形式可以是直接用文本,如:font-size:18px
+		//也可以用文本表示的对象,如:{font-size:18px;}
+		Ext.core.DomHelper.applyStyles(Ext.get("div1"),"font-size:18px;color:green;font-weight:bold;");
+		var str = Ext.get("div1").dom.outerHTML;
+		//由于Ext.Msg.alert会展示alert里的html
+		//所以我们特意用文本框来展示应用了样式表后的div效果字符串
+		Ext.Msg.alert('DomHelper示例','<textarea rows="6" cols="35">'+str+'</textarea>');
+	});
+</script>
+</head>
+<body>
+	<div id="sub1"></div>
+</body>
+</html>

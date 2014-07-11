@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+ <HEAD>
+  <TITLE>Ext.EventManager应用举例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/src/core/src/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+		Ext.onReady(function(){
+			Ext.EventManager.addListener('btn','click',handler);//绑定处理函数
+			function handler(){//事件处理函数
+				alert('hello');
+			}
+		});
+  </script>
+ </HEAD>
+ <BODY>
+	<input type='button' value='say' id='btn'>
+ </BODY>
+</HTML>

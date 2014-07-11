@@ -1,0 +1,31 @@
+<HTML>
+ <HEAD>
+  <TITLE>Ext.Ajax. request异步提交表单示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+ <script type="text/javascript">
+	function login(){
+		var requestConfig = {
+			url :'loginServer.jsp',//请求的服务器地址
+			form : 'loginForm',//指定要提交的表单id
+			callback : function(options,success,response){//回调函数
+				var msg = ["请求是否成功：" ,success,"\n",
+						   "服务器返回值：",response.responseText];
+				alert(msg.join(''));
+			}
+		}
+		Ext.Ajax.request(requestConfig);//发送请求
+	}
+  </script>
+ <BODY>
+ <br>
+ <form id='loginForm'>
+	用户名：<input name = 'userName' type='text'>
+	密  码：<input name = 'password' type='password'>
+	<input type='button' value='登陆' onclick='login()'>
+ </form>
+ </BODY>
+</HTML>

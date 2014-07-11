@@ -1,0 +1,41 @@
+<HTML>
+ <HEAD>
+  <TITLE>自动定时更新页面元素示例</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+  <script type="text/javascript">
+	Ext.onReady(function(){
+		//得到元素的加载器对象（Ext.ElementLoader）
+		var loader = Ext.get('serverTime').getLoader();
+
+		Ext.get('startAutoBtn').on('click',startAutoUpdate);
+		Ext.get('stopAutoBtn').on('click',stopAutoUpdate);
+
+		function startAutoUpdate(){
+			//开始定时自动刷新
+			loader.startAutoRefresh(1000,{
+				url : 'timeServer.jsp'
+			});
+		}
+		function stopAutoUpdate(){
+			//停止定时自动刷新
+			loader.stopAutoRefresh();
+		}
+	})
+  </script>
+ </HEAD>
+ <BODY STYLE="margin: 10px">
+	<div id="content-div" style="width:200px; height:100px; border:2px solid #ccc">
+		<table>
+			<tr><td width=150>服务器时间：</td></tr>
+			<tr><td><div id='serverTime'/></td></tr>
+			<tr><td colspan=2>
+			<input type=button value='启动自动更新' id='startAutoBtn'>
+			<input type=button value='终止自动更新' id='stopAutoBtn'>
+			</td></tr>
+		</table>
+	</div>
+ </BODY>
+</HTML>
