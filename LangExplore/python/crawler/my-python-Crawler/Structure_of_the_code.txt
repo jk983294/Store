@@ -1,0 +1,20 @@
+The System consist of 9 files:
+
+
+main.py		=	Takes the Input and calls the Engin to start the process. After The Engin returns, main.py stores name of all URLs in a file called url_names.txt in directory URLs.
+engin.py		=	Has a member store of class Store which is the URL repository. Also has a variable called max that contains maximum no of urls to be crawled.
+storehouse.py	=	A simple collection of items or list used to store unique items with the function append.
+change_dir.py	=	A class that changes to the asked directory (if not there it gets created) and has a function to return back to the parent Directory
+validator.py	=	A data structure that stores a url, and a boolean parameter called val which is updated to true or false according to wether url is Good Or Bad(returns Error). Also has a static member that is a collecction of urls which acts as cache.
+url_downloader.py	=	Downolad urls from a given url
+img_downloader.py	=	Downloads images from a given url
+text_downloader.py	= 	Downloads text from a given url
+video_Downloader	=	Downloads video from a given url // ( Not working )
+
+Discription of the Crawling process
+
+The main.py class takes inputs (The starting url and the max no of urls upto which the crawler needs to crawl).
+The main .py with these inputs creats an object of Engin.
+
+Engin initializes itself with the given url and max value.
+It creates objects of img_downloader, url_downloader, text_downloader and video_downloader that do their part with the urls.
