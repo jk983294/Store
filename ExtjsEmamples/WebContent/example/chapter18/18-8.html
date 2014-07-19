@@ -1,0 +1,68 @@
+<HTML>
+ <HEAD>
+  <TITLE>图表示例：雷达图</TITLE>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+	Ext.onReady(function(){
+		var dataStore = new Ext.data.JsonStore({
+			fields:['target', 'realValue', 'avgValue'],
+			data: [
+				{target : '收益性', realValue : 10, avgValue : 21},
+				{target : '生产性', realValue : 11, avgValue : 8},
+				{target : '流动性', realValue : 10, avgValue : 30},
+				{target : '安全性', realValue : 59, avgValue : 25},
+				{target : '成长性', realValue : 21, avgValue : 12}
+			]
+		});
+		Ext.create('Ext.panel.Panel', {
+			title : '某企业经营状况分析表',
+			width: 400,
+			height: 400,
+			renderTo: Ext.getBody(),
+			layout: 'fit',
+			items : [{
+				xtype : 'chart',
+				store : dataStore,
+				animate: true,//是否启用动画效果
+				theme: 'Category2',
+				legend: {
+					position: 'bottom' //图例位置
+				},
+				axes: [{
+					type: 'Radial',//Ext.chart.axis.Radial雷达坐标轴
+					position: 'radial',
+					fields: ['target']
+				}],
+				series : [{
+				    type: 'radar',//雷达图
+					xField: 'target',//x轴字段
+					yField: 'realValue',//y轴字段
+					showInLegend: true,//是否显示在图里当中
+					showMarkers: true,
+					title : '实际值',
+					style: {
+						'stroke-width': 2,
+						fill: 'none'
+					}
+				},{
+				    type: 'radar',
+					xField: 'target',//x轴字段
+					yField: 'avgValue',//y轴字段
+					showInLegend: true,//是否显示在图里当中
+					showMarkers: true,
+					title : '行业平均值',
+					style: {
+						'stroke-width': 2,
+						fill: 'none'
+					}
+				}]
+			}]
+		});
+	});
+</SCRIPT>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

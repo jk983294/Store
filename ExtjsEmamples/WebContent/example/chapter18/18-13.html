@@ -1,0 +1,89 @@
+<HTML>
+ <HEAD>
+  <TITLE>图表示例：表格与图表</TITLE>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+Ext.onReady(function(){
+
+	//定义表格数据源
+	var gridDataStore = Ext.create('Ext.data.JsonStore',{
+		fields:['year', 'car', 'house', 'food'],
+		data: [
+			{year : '2007年', car : 10, food : 10, house : 30, culture : 5},
+			{year : '2008年', car : 11, food : 12, house : 50, culture : 8},
+			{year : '2009年', car : 12, food : 13, house : 100, culture : 10},
+			{year : '2010年', car : 12, food : 13, house : 200, culture : 8}
+		]
+	});
+
+	//创建商品表格
+	var goodsGrid = Ext.create('Ext.grid.Panel',{
+			store: gridDataStore,
+			columnLines: true,
+			columnWidth : .5,
+			height: 400,
+			columns: [
+				{ header : '年份', dataIndex: 'year', width : 60},
+				{ header : '汽车', dataIndex: 'car', width : 60},
+				{ header : '住房', dataIndex: 'house', width : 60},
+				{ header : '食品', dataIndex: 'food', width : 60 },
+				{ header : '文化', dataIndex: 'culture', width : 60 }
+			],
+			title: '产品销售利润统计表'
+	});
+
+	//响应表格的行选中事件
+	goodsGrid.getSelectionModel().on('select',function(sm, record, rowIndex ){
+		//图表数据源加载数据
+		chartDataStore.loadData([
+			{goods : '汽车', gain : record.get('car')},
+			{goods : '住房', gain : record.get('house')},
+			{goods : '食品', gain : record.get('food')},
+			{goods : '文化', gain : record.get('culture')}
+		]);
+	});
+	
+	//定义图表数据源
+	var chartDataStore =  Ext.create('Ext.data.JsonStore',{
+		fields:['goods', 'gain'],//商品及利润字段
+		data: []
+	});
+
+	//创建商品图表
+	var goodsChart = Ext.create('Ext.chart.Chart',{
+		store : chartDataStore,
+		animate: true,//是否启用动画效果
+		legend: {
+			position: 'bottom' //图例位置
+		},
+		height: 400,
+		columnWidth : .5,
+		series : [{
+			type : 'pie',//图表序列类型
+			field : 'gain',//对应饼状图角度的字段名
+			showInLegend : true,//是否显示在图例当中
+			label : {
+				field : 'goods',//标签字段名
+				contrast : true,
+				display : 'middle',//标签显现方式
+				font : '18px "Lucida Grande"'//字体
+			}
+		}]
+	});
+
+	//创建主面板
+	Ext.create('Ext.panel.Panel', {
+		width: 600,
+		height: 400,
+		renderTo: Ext.getBody(),
+		layout: 'column',
+		items : [goodsGrid,goodsChart]
+	});
+});
+</SCRIPT>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

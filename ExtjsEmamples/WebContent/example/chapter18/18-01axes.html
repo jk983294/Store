@@ -1,0 +1,70 @@
+<HTML>
+ <HEAD>
+  <TITLE>图表示例：坐标轴</TITLE>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+	Ext.onReady(function(){
+		var dataStore = new Ext.data.JsonStore({
+			fields:['name', 'percentage'],
+			data: [
+				{name :'小于30岁', percentage : 2},
+				{name :'30-40岁', percentage : 4},
+				{name :'40-50岁', percentage : 3},
+				{name :'50岁以上', percentage : 3}
+			]
+		});
+		Ext.create('Ext.panel.Panel', {
+			title : '员工年龄分布图',
+			width: 400,
+			height: 400,
+			renderTo: Ext.getBody(),
+			layout: 'fit',
+			items : [{
+				xtype : 'chart',
+				store : dataStore,
+				axes: [{
+					type: 'Numeric',//配置坐标轴类型为数值坐标
+					dashSize : 10,//坐标轴前导线条长度，默认为3
+					position: 'left',//配置坐标在左侧
+					fields: ['percentage'],//指定坐标对应的字段
+					title: '百分比',//配置坐标轴标题
+					grid: {
+						//奇数行
+						odd : {
+							opacity: 1,//不透明
+							fill: '#FFFF99',//表格内的填充色
+							stroke: '#FF3300',//表格线颜色
+							'stroke-width': 0.5//表格线宽度
+						},
+						//偶数行
+						even : {
+							opacity: 0,//透明
+							stroke: '#6600CC',//表格线颜色
+							'stroke-width': 0.5//表格线宽度
+						}
+					},
+					majorTickSteps : 10,//主区间数
+					minorTickSteps : 3//副区间数
+				}, {
+					type: 'Category',//配置坐标轴类型为目录坐标
+					position: 'bottom',//配置坐标在底部
+					fields: ['name'],//指定坐标对应的字段
+					grid : true,//启用表格
+					title: '年龄段'//配置坐标轴标题
+				}],
+				series : [{
+				    type: 'line',
+					axis: 'left',
+					xField: 'name',//横轴字段
+					yField: 'percentage'//纵轴字段
+				}]
+			}]
+		});
+	});
+</SCRIPT>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

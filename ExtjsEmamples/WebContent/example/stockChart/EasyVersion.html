@@ -1,0 +1,107 @@
+<HTML>
+ <HEAD>
+  <TITLE>statitics</TITLE>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <!--  -->
+  <link rel="stylesheet" type="text/css" href="ext-all.css" />
+  <script type="text/javascript" src="ext-all.js"></script>
+ </HEAD>
+ <script type="text/javascript" >
+Ext.require([
+             'Ext.window.Window',
+             'Ext.chart.*'
+]);
+function generateMockStockData(){
+	"use strict";
+	return {
+		fields: ['time', 'value'],
+		data: (function(){ //basic fake stock data generation..
+			var points = [];
+			var nextTime = new Date(2011,9,10,8,0,0); //8 o'clock (October, not September!)..
+			var previousClose = 100;
+			var nextValue = previousClose; // previous close stock value
+			var trendUp = Math.random() > 0.5;
+			var numPoints = Math.random() > 0.5 ? 200 : 255; //just to show what it's like when finished or part way through the day..
+			
+			for(var i = 0; i < numPoints; i++){
+				//update the date and value for next time..
+				nextTime = Ext.Date.add(nextTime, Ext.Date.MINUTE, 2);
+				var diff = Math.random() * nextValue * (i === 0 ? 0.02 : 0.001); //max 0.01% or 2% on open..
+				nextValue += trendUp ? diff : -diff;
+				nextValue += nextValue * (Math.random() > 0.5 ? 0.002 * Math.random() : -0.002 * Math.random()); //add some random noise..
+				nextValue = Math.round(nextValue*100)/100; //basic method to try to make it 2 dp..
+				if(Math.random() > 0.95) trendUp = !trendUp; //flip trend..  
+
+				//add the point (displayed as "H:i" -> % change)
+				points.push({
+					time: Ext.Date.format(nextTime, "H:i"),
+					value: ((2*previousClose - nextValue)/previousClose * 100 - 100).toFixed(2) * 1
+				});
+			}
+			return points;
+		})(),
+		stockName: "Mock Mega Corp."
+	};
+}         
+Ext.onReady(function(){        
+    //format of the data given to the chart..
+    var dataDateFormat = "H:i";
+
+    //Converts times in the "dataDateFormat" to values..
+    function convertTimeToValue(timeStr){
+        var time = Ext.Date.parse(timeStr, dataDateFormat);
+        time.setFullYear(1970,0,1); //prevents problems with large numbers..
+        return time.getTime();
+    }
+
+    //Create charts and add them to the page..
+    Ext.each(Ext.query('div.chartHolder'), function(rootDiv){
+		//Get some fake data and convert the dates to values..
+		var mockRawData = generateMockStockData();
+		Ext.Array.each(mockRawData.data, function(point, i){
+			point.time = convertTimeToValue(point.time);
+		});
+	
+		//define the Ext chart...
+		var chart = Ext.create('Ext.chart.Chart', {
+		    store: Ext.create('Ext.data.JsonStore', mockRawData),
+		    shadow: false,
+		    legend: false, //we'll roll our own..
+		    axes: [{
+		        type: 'Numeric',
+		        fields: ['value'],
+		        position: 'left',
+		        minorTickSteps: 0,
+		        grid: true
+		    }, {
+			type: 'Numeric',
+			position: 'bottom',
+			fields: ['time'],
+			minorTickSteps: 0,
+			grid: true
+	            }],
+//		    theme: "DailyStockChart",
+		    series: [{
+		        type: 'line',
+		        axis: ['left', 'bottom'],
+		        xField: 'time',
+		        yField: 'value',
+		        showMarkers: false
+		    }]
+	        });
+	
+	        //Add the chart to the page..  
+	        Ext.create('Ext.container.Container', {
+		    layout: 'fit', 
+		    width: 450,
+		    height: 300,
+		    renderTo: rootDiv,
+		    items: chart
+	        });
+    });
+});
+</script>
+ <BODY >
+ <div class="chartHolder"></div>
+ </BODY>
+</HTML>

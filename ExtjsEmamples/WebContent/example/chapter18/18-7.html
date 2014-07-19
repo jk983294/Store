@@ -1,0 +1,61 @@
+<HTML>
+ <HEAD>
+  <TITLE>图表示例：面积图</TITLE>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+	Ext.onReady(function(){
+		var dataStore = new Ext.data.JsonStore({
+			fields:['car', 'food', 'house', 'culture', 'year'],
+			data: [
+				{car : 10, food : 10, house : 30, culture : 5, year : 2007},
+				{car : 11, food : 12, house : 50, culture : 8, year : 2008},
+				{car : 12, food : 13, house : 100, culture : 10, year : 2009},
+				{car : 12, food : 13, house : 200, culture : 8, year : 2010},
+				{car : 20, food : 20, house : 100, culture : 10, year : 2011}
+			]
+		});
+		Ext.create('Ext.panel.Panel', {
+			title : '产品销售利润分布图',
+			width: 400,
+			height: 400,
+			renderTo: Ext.getBody(),
+			layout: 'fit',
+			items : [{
+				xtype : 'chart',
+				store : dataStore,
+				animate: true,//是否启用动画效果
+				legend: {
+					position: 'bottom' //图例位置
+				},
+				axes: [{
+					type: 'Numeric',
+					minimum: 0,
+					maximum : 60,
+					position: 'left',
+					fields: ['car', 'food', 'house', 'culture'],
+					title: '利润（单位万元）'
+				}, {
+					type: 'Category',
+					position: 'bottom',
+					fields: ['year'],
+					title: '年份'
+				}],
+				series : [{
+				    type: 'area',
+					highlight: true,
+					axis: 'left',
+					xField: 'year',//x轴字段
+					yField: ['car', 'food', 'house', 'culture'],//y轴字段
+					title : ['汽车','食品', '住房', '文化'],//配置图例字段说明
+					showInLegend: true//是否显示在图里当中
+				}]
+			}]
+		});
+	});
+</SCRIPT>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

@@ -1,0 +1,68 @@
+<HTML>
+ <HEAD>
+  <TITLE>图表示例：图表主题</TITLE>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+	Ext.onReady(function(){
+		var dataStore = new Ext.data.JsonStore({
+			fields:['ageRange', 'proportion', 'growing'],
+			data: [
+				{ageRange :'小于30岁', proportion : 10, growing : 35},
+				{ageRange :'30-40岁', proportion : 40, growing : 30},
+				{ageRange :'40-50岁', proportion : 30,growing : 30},
+				{ageRange :'50岁以上', proportion : 20, growing : 30}
+			]
+		});
+		Ext.create('Ext.panel.Panel', {
+			title : '员工年龄分布图',
+			width: 400,
+			height: 400,
+			renderTo: Ext.getBody(),
+			layout: 'fit',
+			items : [{
+				xtype : 'chart',
+				store : dataStore,
+				//theme: 'Base',//基本主题
+				//theme: 'Blue',//蓝色主题
+				theme: 'Category1',//彩色主题1
+				axes: [{
+					type: 'Numeric',
+					position: 'left',
+					minimum : 0,//数轴最小值
+					maximum : 60,//数轴最大值
+					fields: ['proportion','growing'],//同时展示2个数据
+					title: '百分比'
+				}, {
+					type: 'Category',
+					position: 'bottom',
+					fields: ['ageRange'],
+					title: '年龄段'
+				}],
+				legend : {
+					position : 'bottom' //图例位置
+				},
+				series : [{
+				    type: 'column',
+					axis: 'left',
+					xField: 'ageRange',//x轴字段
+					yField: ['proportion','growing'],//y轴字段
+					title : ['人员比例','增长速度'],//配置图例字段说明
+					label : {
+						field : ['proportion','growing'],//标签字段名
+						display : 'outside',//标签显现方式
+						font : '18px "Lucida Grande"',//字体
+						renderer : function(v){//自定义标签渲染函数
+							return v + '%';
+						}
+					}
+				}]
+			}]
+		});
+	});
+</SCRIPT>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

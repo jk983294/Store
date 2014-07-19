@@ -1,0 +1,70 @@
+<HTML>
+ <HEAD>
+  <TITLE>图表示例：饼状图（指定扇形区域半径）</TITLE>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+	Ext.onReady(function(){
+		var dataStore = new Ext.data.JsonStore({
+			fields:['age', 'percentage', 'growing'],
+			data: [
+				{age :'小于30岁', percentage : 10, growing : 35},
+				{age :'30-40岁', percentage : 40, growing : 30},
+				{age :'40-50岁', percentage : 30,growing : 30},
+				{age :'50岁以上', percentage : 20, growing : 30}
+			]
+		});
+		Ext.create('Ext.panel.Panel', {
+			title : '员工年龄分布图',
+			width : 400,
+			height : 400,
+			renderTo: Ext.getBody(),
+			layout : 'fit',
+			items : [{
+				xtype : 'chart',
+				store : dataStore,
+				animate : true,//是否启用动画效果
+				legend : {
+					position : 'bottom' //图例位置
+				},
+				shadow : true,
+				series : [{
+					type : 'pie',//图表序列类型
+					field : 'percentage',//对应饼状图角度的字段名
+					showInLegend : true,//是否显示在图例当中
+					colorSet : ['#FFFF00','#669900','#FF6699','#66CCCC'],//颜色配置
+					lengthField : 'growing',//扇形区长度字段
+					label : {
+						field : 'age',//标签字段名
+						contrast : true,
+						color : '#FFFF00',
+						renderer : function(v){//自定义标签渲染函数
+							return "["+v+"]";
+						},
+						display : 'middle',//标签显现方式
+						font : '18px "Lucida Grande"'//字体
+					},
+					highlight : {
+						segment : {
+							margin: 10 //空白区域宽度
+						}
+					},
+					tips : {
+						trackMouse : true, //是否启用鼠标跟踪
+						width : 50,
+						height : 28,
+						renderer : function(storeItem) {//自定义渲染函数
+							var title =  storeItem.get('percentage') + '%';
+							this.setTitle(title);
+						}
+					}
+				}]
+			}]
+		});
+	});
+</SCRIPT>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

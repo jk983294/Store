@@ -1,0 +1,55 @@
+<HTML>
+ <HEAD>
+  <TITLE>图表示例：仪表图</TITLE>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+	Ext.onReady(function(){
+		var dataStore = new Ext.data.JsonStore({
+			fields:['realValue'],
+			data : [{realValue:20}]
+		});
+		Ext.create('Ext.panel.Panel', {
+			title : '数据仪表',
+			width: 280,
+			height: 200,
+			renderTo: Ext.getBody(),
+			layout: 'fit',
+			items : [{
+			    xtype: 'chart',
+			    store: dataStore,
+			    animate: {
+	                easing: 'elasticIn',
+	                duration: 1000
+	            },
+			    axes: [{
+			        type: 'gauge',//Ext.chart.axis.Gauge仪表坐标轴
+			        position: 'gauge',
+			        minimum: 0,//仪表盘的最大值
+			        maximum: 100,//仪表盘的最小值
+			        steps: 10,//仪表盘的步长
+			        margin: -10//仪表盘数据刻度边距
+			    }],
+			    series: [{
+			        type: 'gauge',
+			        angleField : 'realValue',
+			        donut: 50,//仪表盘中心空白的半径
+			        colorSet: ['#F49D10', '#ddd']
+			    }]
+			}],
+			buttons : [{
+				text : '生成随机数据',
+				handler : function(){
+					dataStore.loadData([{
+						realValue : Math.random() * 100
+					}]);
+				}
+			}]
+		});
+	});
+</SCRIPT>
+ <BODY STYLE="margin: 10px"></BODY>
+</HTML>

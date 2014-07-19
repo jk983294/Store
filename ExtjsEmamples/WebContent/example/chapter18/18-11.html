@@ -1,0 +1,155 @@
+<HTML>
+ <HEAD>
+  <TITLE>图表示例：自定义图表主题</TITLE>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="../../ext-4.0/resources/css/ext-all.css" />
+  <script type="text/javascript" src="../../ext-4.0/bootstrap.js"></script>
+  <script type="text/javascript" src="../../ext-4.0/locale/ext-lang-zh_CN.js"></script>
+ </HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+//创建自定义图表主题类Ext.chart.theme.Cust
+Ext.define('Ext.chart.theme.Cust', {
+
+	//扩展基本主题
+    extend : 'Ext.chart.theme.Base',
+
+	constructor: function(config) {
+		Ext.chart.theme.Base.prototype.constructor.call(this, Ext.apply({
+			
+			//统一定义坐标轴样式
+			axis: {
+                stroke: '#444',//指定坐标轴轴线颜色
+                'stroke-width': 1//0表示无轴线，1表示有轴线
+            },
+
+			//定义左侧坐标标签样式
+			axisLabelLeft: {
+                fill: '#FF0000',//指定标签字体填充颜色
+                font: '12px "Lucida Grande", sans-serif',
+                padding: 3,//指定标签距离坐标轴的间距
+                renderer: function(v) { return v; }//标签渲染函数
+            },
+			//axisLabelTop:{}顶部左边标签样式
+			//axisLabelRight:{}顶部左边标签样式
+			//axisLabelBottom:{}顶部左边标签样式
+
+			//自定义底部坐标标题样式
+			axisTitleBottom: {
+                font: 'bold 18px "Lucida Grande", sans-serif',//指定坐标轴标题字体
+                fill: '#6600CC'//指定坐标轴标题文字填充色
+            },
+			//axisTitleTop:{}顶部坐标标题样式
+			//axisTitleRight:{}右侧坐标标题样式
+			//axisTitleLeft:{}左侧坐标标题样式
+
+			//统一定义图表序列边线样式
+			series: {
+                'stroke-width': 0//0表示无边线，1表示有边线
+            },
+
+			//按顺序自定义图表序列颜色，colorSet属性会覆盖该主题
+			colors: [ "#FF0000", "#FFFF00"],
+
+			//按顺序定义图表序列填充染色，colors 优先级高于seriesThemes
+			seriesThemes: [{
+                fill: "#66FF00",//fill 优先级高于stroke
+				stroke:"#FF3300"
+            }, {
+                fill: "#66FFFF",
+				stroke:"#FF33FF"
+            }],
+
+			//统一自定义图表节点标志样式，markerCfg:属性会覆盖该主题
+			marker: {
+                stroke: '#FFFF00',//指定标志边线颜色
+                fill: '#660000',//指定标志填充色
+                radius: 10//指定标志半径
+            },
+			//按顺序自定义图表节点标志样式，markerCfg:属性会覆盖该主题
+			//markerThemes的优先级高于marker中的配置
+			markerThemes: [{
+                fill: "#115fa6",//指定标志填充色
+                type: 'circle' //指定标志类型
+            }, {
+                fill: "#94ae0a",
+                type: 'cross'
+            }, {
+                type: 'plus'
+            }]
+		}, config));
+	}
+});
+
+Ext.onReady(function(){
+	var dataStore = new Ext.data.JsonStore({
+		fields:['ageRange', 'proportion', 'growing'],
+		data: [
+			{ageRange :'小于30岁', proportion : 10, growing : 35, sex : 5},
+			{ageRange :'30-40岁', proportion : 40, growing : 30, sex : 7},
+			{ageRange :'40-50岁', proportion : 30,growing : 30, sex : 10},
+			{ageRange :'50岁以上', proportion : 20, growing : 30, sex : 50}
+		]
+	});
+
+	Ext.create('Ext.panel.Panel', {
+		title : '员工年龄分布图',
+		width: 400,
+		height: 400,
+		renderTo: Ext.getBody(),
+		layout: 'fit',
+		items : [{
+			xtype : 'chart',
+			store : dataStore,
+			theme: 'Cust',
+			animate: true,//是否启用动画效果
+			legend: {
+				position: 'bottom' //图例位置
+			},
+			shadow: true,
+			axes: [{
+				type: 'Numeric',
+				position: 'left',
+				minimum : 0,//数轴最小值
+				maximum : 60,//数轴最大值
+				fields: ['proportion','growing'],
+				title: '百分比'
+			}, {
+				type: 'Category',
+				position: 'bottom',
+				fields: ['ageRange'],
+				title: '年龄段'
+			}],
+			series : [{
+				type: 'line',
+				fill: true,//配置是否填充折线与坐标轴之间的空间
+				axis: 'left',
+				xField: 'ageRange',//x轴字段
+				yField: 'proportion',//y轴字段
+				title : '人员比例',//配置图例字段说明
+				selectionTolerance : 100,//鼠标到图表序列出发事件的偏移距离
+				showInLegend: true,//是否显示在图例当中
+				smooth: true,//是否平滑曲线
+				showMarkers : true//配置是否显示折线节点标志
+			},{
+				type: 'line',
+				axis: 'left',
+				fill: true,
+				xField: 'ageRange',//x轴字段
+				yField: 'growing',//y轴字段
+				title : '增长速度',//配置图例字段说明
+				showInLegend: true//是否显示在图例当中
+			},{
+				type: 'line',
+				axis: 'left',
+				fill: true,
+				xField: 'ageRange',//x轴字段
+				yField: 'sex',//y轴字段
+				title : '性别',//配置图例字段说明
+				showInLegend: true//是否显示在图例当中
+			}]
+		}]
+	});
+});
+</SCRIPT>
+ <BODY STYLE="margin: 10px"><div id="container"></div></BODY>
+</HTML>
