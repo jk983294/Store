@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+ 
+	<context:component-scan base-package="com.victor.midas.services" />
+ 
+	<bean id="stockdao" class="com.victor.midas.dao.StockDao" />
+	
+	<!--  logger
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/props/log4j.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>6000</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+        org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>  -->
+ 
+</beans>

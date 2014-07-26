@@ -4,7 +4,9 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import org.slf4j.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.victor.midas.dao.StockDao;
 import com.victor.midas.model.Welcome;
  
 
@@ -12,6 +14,9 @@ import com.victor.midas.model.Welcome;
 public class HelloRest {
 	
 	final Logger logger = LoggerFactory.getLogger(HelloRest.class);
+	
+	@Autowired
+	StockDao stockdao;
 	
 	 @GET
 	 @Produces(MediaType.TEXT_PLAIN)
