@@ -12,6 +12,9 @@ public class Record {
 	private Date date;
 	
 	
+	public Record(){
+		super();
+	}
 	
 	public Record(double start, double end, double max, double min, int volume,
 			double total, Date date) {
