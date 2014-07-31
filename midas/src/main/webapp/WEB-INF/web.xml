@@ -11,7 +11,20 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list> 
   	
-  	
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:/com/victor/midas/script/log4j.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>1800000</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+        org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>
+   
 	<context-param>
 		<param-name>
 			contextConfigLocation

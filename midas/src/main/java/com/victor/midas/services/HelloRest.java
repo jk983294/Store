@@ -3,7 +3,9 @@ package com.victor.midas.services;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import org.slf4j.*;
+
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.victor.midas.dao.StockDao;
@@ -13,9 +15,7 @@ import com.victor.midas.model.Welcome;
 @Path("helloworld")
 public class HelloRest {
 	
-	final Logger logger = LoggerFactory.getLogger(HelloRest.class);
-	
-	
+	private final Logger logger = Logger.getLogger(HelloRest.class);
 	
 	 @GET
 	 @Produces(MediaType.TEXT_PLAIN)

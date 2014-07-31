@@ -7,17 +7,21 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.mongodb.core.*;
 import org.springframework.data.mongodb.core.index.Index;
 import org.springframework.data.mongodb.core.query.*;
-
+import org.apache.log4j.Logger;
 import com.victor.midas.model.*;
 
 public class StockDao {
 	private final String STOCKS_COLLECTION = "stocks"; 
+	
+	private final Logger logger = Logger.getLogger(StockDao.class);
+	
 	
 	@Autowired  
     MongoTemplate mongoTemplate; 
 	
 	public void createCollection(){
 		if (!mongoTemplate.collectionExists(STOCKS_COLLECTION)) {
+			logger.info("mongoTemplate create collection");
             mongoTemplate.createCollection(STOCKS_COLLECTION);
             IndexOperations io = mongoTemplate.indexOps(STOCKS_COLLECTION);
             Index index =new Index();

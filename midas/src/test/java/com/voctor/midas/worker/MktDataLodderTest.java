@@ -10,7 +10,7 @@ public class MktDataLodderTest {
 		Stock stock = mLoader.fromFile("D:/MktData/RawData/SZ/SZ000001.TXT");
 		System.out.println(stock.toString());
 		
-		mLoader.fromDirectory("D:/MktData/RawDataSmallSetForTest");
+		mLoader.fromDirectory("D:/MktData/RawDataSmallSetForTest","SZ");
 	}
 
 }
