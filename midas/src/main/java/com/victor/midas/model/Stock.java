@@ -10,6 +10,7 @@ public class Stock {
 	private String name;
 	
 	private String desp;
+	private Record latest;
 	private ArrayList<Record> records;
 
 	
@@ -39,12 +40,22 @@ public class Stock {
 	public void setRecords(ArrayList<Record> records) {
 		this.records = records;
 	}
+	
+	public Record getLatest() {
+		return latest;
+	}
+
+	public void setLatest(Record latest) {
+		this.latest = latest;
+	}
 
 	@Override
 	public String toString() {
-		return "Stock [name=" + name + ", desp=" + desp + ", records="
-				+ records + "]";
+		return "Stock [name=" + name + ", desp=" + desp + ", latest=" + latest
+				+ "]";
 	}
+
+	
 	
 	
 }

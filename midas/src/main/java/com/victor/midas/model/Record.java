@@ -10,7 +10,7 @@ public class Record {
 	private int volume;				
 	private double total;			// total = volume * end
 	private Date date;
-	
+	private double change;
 	
 	public Record(){
 		super();
@@ -70,12 +70,22 @@ public class Record {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public double getChange() {
+		return change;
+	}
+
+	public void setChange(double change) {
+		this.change = change;
+	}
+
 	@Override
 	public String toString() {
 		return "Record [start=" + start + ", end=" + end + ", max=" + max
 				+ ", min=" + min + ", volume=" + volume + ", total=" + total
-				+ ", date=" + date + "]";
+				+ ", date=" + date + ", change=" + change + "]";
 	}
+
+	
 	
 	
 	

@@ -66,7 +66,11 @@ public class MktDataLoader {
 		if((line = br.readLine()) != null){
 			String arr[] = line.split(" ");
 			stock.setName(arr[0]);
-			stock.setDesp(arr[1]);
+			String desp = "";
+			for (int i = 1; i < arr.length-1; i++) {
+				desp += arr[i];
+			}
+			stock.setDesp(desp);
 			line = br.readLine();			//remove desp line
 			while((line = br.readLine()) != null){
 				if(line.length() > 20){
