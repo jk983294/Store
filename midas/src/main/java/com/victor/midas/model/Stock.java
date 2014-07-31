@@ -2,7 +2,12 @@ package com.victor.midas.model;
 
 import java.util.ArrayList;
 
+import org.springframework.data.annotation.*;
+
 public class Stock {
+	
+	@Id
+	private String id;
 	private String name;
 	private String desp;
 	private ArrayList<Record> records;
@@ -16,6 +21,14 @@ public class Stock {
 		records.add(record);
 	}
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}

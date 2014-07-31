@@ -15,8 +15,7 @@ public class HelloRest {
 	
 	final Logger logger = LoggerFactory.getLogger(HelloRest.class);
 	
-	@Autowired
-	StockDao stockdao;
+	
 	
 	 @GET
 	 @Produces(MediaType.TEXT_PLAIN)

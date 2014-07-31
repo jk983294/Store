@@ -1,13 +1,21 @@
-<!DOCTYPE web-app PUBLIC
-	 "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-	 "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
+<?xml version="1.0" encoding="UTF-8"?>  
+<web-app 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"  version="2.5">
+	
 	<display-name>Archetype Created Web Application</display-name>
+	
+	<welcome-file-list>  
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list> 
   	
   	
 	<context-param>
-		<param-name>contextConfigLocation</param-name>
+		<param-name>
+			contextConfigLocation
+		</param-name>
 		<param-value>/WEB-INF/midas-content.xml</param-value>
 	</context-param>
  
@@ -21,8 +29,8 @@
 		<servlet-name>jersey-serlvet</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
-		     <param-name>jersey.config.server.provider.packages</param-name>
-		     <param-value>com.victor.midas.services</param-value>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.victor.midas.services</param-value>
 		</init-param>
 		<init-param>
 			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
@@ -31,10 +39,10 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-    <servlet-mapping>
-        <servlet-name>jersey-serlvet</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
-    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
 	
 
 </web-app>

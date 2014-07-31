@@ -5,33 +5,50 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-		   <list>
-			  <value>/WEB-INF/local.properties</value>
-			  <value>/WEB-INF/db.properties</value>
-			</list>
-		</property>
-	</bean>
- 
+	 
+	<context:annotation-config />
 	<context:component-scan base-package="com.victor.midas.services" />
+	<context:component-scan base-package="com.victor.midas.worker" />
+	<context:component-scan base-package="com.victor.midas.dao" />
+    
+    
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+            	<value>classpath:/com/victor/midas/script/local.properties</value>              
+            </list>
+        </property>
+    </bean> 
+    
+
+    
+	
+	 
  
+	
+	
+	<!-- Loads MongoDB configuraton -->  
+    <import resource="mongo-config.xml"/>
 	<bean id="stockdao" class="com.victor.midas.dao.StockDao" />
 	
+	<!-- worker -->  
+	<bean id="mktloader" class="com.victor.midas.worker.MktDataLoader" />
+	
+	
+	
 	<!--  logger
-	<context-param>
-		<param-name>log4jConfigLocation</param-name>
-		<param-value>/WEB-INF/props/log4j.properties</param-value>
-	</context-param>
-	<context-param>
-		<param-name>log4jRefreshInterval</param-name>
-		<param-value>6000</param-value>
-	</context-param>
-	<listener>
-		<listener-class>
-        org.springframework.web.util.Log4jConfigListener
-		</listener-class>
-	</listener>  -->
+		<context-param>
+			<param-name>log4jConfigLocation</param-name>
+			<param-value>/WEB-INF/props/log4j.properties</param-value>
+		</context-param>
+		<context-param>
+			<param-name>log4jRefreshInterval</param-name>
+			<param-value>6000</param-value>
+		</context-param>
+		<listener>
+			<listener-class>
+			org.springframework.web.util.Log4jConfigListener
+			</listener-class>
+		</listener>  -->
  
 </beans>

@@ -3,16 +3,47 @@ package com.victor.midas.worker;
 import java.io.*;
 import java.sql.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
+import com.victor.midas.dao.StockDao;
 import com.victor.midas.model.*;
 
 /**
  * load data from file system
  */
 public class MktDataLoader {
-	@Value("#{StockDirPath}")
-	private String stockdirpath;
+	@Value("${MktDataLoader.TestStockDirPath}")
+	String stockdirpath;
+	
+	@Autowired
+	StockDao stockdao;
+	
+	public void saveAllFromStockDirPath() throws Exception{
+		System.out.println("load raw stocks to mongodb from dir : " + stockdirpath);
+		System.out.println("load raw stocks to mongodb from dir : " + stockdao);
+		stockdao.createCollection();
+		fromDirectory(stockdirpath);
+	}
+	
+	
+	public void fromDirectory(String dir) throws Exception{
+		File root = new File(dir);
+		File[] files = root.listFiles();
+		for(File file:files){     
+			if(file.isDirectory()){
+				//µÝ¹éµ÷ÓÃ
+				fromDirectory(file.getAbsolutePath());
+			}else{
+				String fileName = file.getAbsolutePath();
+				if(fileName.endsWith(".TXT")||fileName.endsWith(".txt")){
+					Stock stock = fromFile(file.getAbsolutePath());
+					System.out.println(stock.getName());
+					stockdao.saveStock(stock);
+				}				
+			}   
+		}
+	}
 	
 	/**
 	 * read mkdata from file
@@ -60,11 +91,5 @@ public class MktDataLoader {
 		record.setVolume(Integer.valueOf(arr[5]));
 		record.setTotal(Double.valueOf(arr[6]));
 		return record;
-	}
-	
-	public static void main(String[] args) {
-		MktDataLoader mLoader = new MktDataLoader();
-		Stock stock = mLoader.fromFile("D:/MktData/RawData/SZ/SZ000001.TXT");
-		System.out.println(stock.toString());
 	}
 }
