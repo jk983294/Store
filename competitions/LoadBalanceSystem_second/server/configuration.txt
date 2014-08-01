@@ -1,0 +1,9 @@
+client_udp_port	11100
+server_udp_port	11101
+LB_id	1
+server_support_count	3
+server_id	2	server_port	11102	load_weight	1
+server_id	3	server_port	11103	load_weight	3
+server_id	4	server_port	11104	load_weight	6
+load_balance_algorithm	0
+session_keep_method	1
