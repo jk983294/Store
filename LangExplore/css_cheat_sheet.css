@@ -1,0 +1,83 @@
+﻿<link rel="stylesheet" type="text/css" href="mystyle.css" />
+
+//选择器
+h2, p {color:gray;}																				/*group selector   */
+* {color:red;}																						/* wild card selector */
+h2 strong {  color: blue;  }																	/*descendant selector   */
+h1 > strong {color:red;}																	/*child selector only affect first h1 element  */
+h1 + p {margin-top:50px;}																/* adjacent sibling selector, only choose p element*/
+#red {color:red;}																				/*id selector  */
+.center {text-align: center}																/*class selector  */
+.important.warning {background:silver;}										/*multi-class selector  <p class="important warning">important warning.</p>*/
+[title=hello] { color:red; }																	/*attribute selector 			[attribute$=value] end with value  */
+
+//背景
+p {background-color: gray; padding: 20px;}								/*background  padding is for color area extension   */
+body {background-image: url(/i/eg_bg_04.gif); background-repeat: repeat-y;}
+background-position:center;     background-position:50% 50%;
+
+//文字
+p {text-indent: 5em;}
+p {text-indent: -5em; padding-left: 5em;}
+h2 {text-align:left}
+p.spread {word-spacing: 30px;}														/*space between words  */
+h1 {letter-spacing: -0.5em}																/*space between letters  */
+h1 {text-transform: uppercase}														/*lowercase   capitalize  */
+a {text-decoration: none;}																/*underline overline line-through blink  */
+p {white-space: normal;}																	/*discard excess white space  */
+p {white-space: pre;}																		/*keep white space and \n  */
+p {white-space: nowrap }																	/*prevent \n  */
+p {white-space: pre-line;}																/*keep \n no white-space  */
+p {white-space: pre-wrap;}																/*keep white-space no \n  */
+
+//字体
+p {font-family: "sans serif";}															/*more than one word need ""  */
+body {font-family: sans-serif;}
+p.normal {font-style:normal;}															/*italic oblique   */
+p {font-variant:small-caps;}															/*small capitalize  */
+p.thick {font-weight:bold;}
+p.thicker {font-weight:900;}															/*100~900  */
+h1 {font-size:60px;}
+h1 {font-size:3.75em;} 																		/* 60px/16=3.75em */
+
+//链接
+a:link {color:#FF0000;}																		/* 未被访问的链接 */
+a:visited {color:#00FF00;}																/* 已被访问的链接 */
+a:hover {color:#FF00FF;}																	/* 鼠标指针移动到链接上 */
+a:active {color:#0000FF;}																	/* 正在被点击的链接 */
+
+//列表
+ul.circle {list-style-type:circle;}														/*   square  upper-roman  lower-alpha */
+ul li {list-style-image : url(ulli.gif)}
+
+//表格
+table, th, td  {  border: 1px solid blue; }											/* double line border*/
+table { border-collapse:collapse; }													/* single line border*/
+table { width:100%; }
+th { height:50px; background-color:green;}
+td { text-align:right;  vertical-align:bottom; padding:15px;}		/* right bottom*/
+
+//外框
+p.dotted {outline-style: dotted}														/* dashed solid double*/
+
+//框模型
+#box {
+  border-style: solid; border-left-style: none;
+  width: 70px;																					/* box width*/
+  margin: 10px;																					/* out space padding*/
+  padding: 5px;																					/* inner space padding like : padding-top padding-right padding-bottom padding-left*/
+}
+
+//定位
+#box_relative { position: relative; left: 30px; top: 20px; }			/* position: absolute;   float: left;*/
+
+CSS3
+div
+{
+border:2px solid;
+border-radius:25px;																			/* 圆角*/
+box-shadow: 10px 10px 5px #888888;											/* 边框阴影*/
+border-image:url(border.png) 30 30 round;								/* 边框图片*/
+background-size:63px 100px;														/* 背景图片的尺寸*/
+background-origin:content-box;													/* content-box, padding-box, border-box*/
+}
