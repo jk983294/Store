@@ -1,31 +1,73 @@
 <!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="midas_style.css">
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="jk">
 
-<body>
+    <title>Midas</title>
 
-	<div id="container">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="css/mytheme.css" rel="stylesheet">
+<link href="css/jquery.dataTables.min.css" rel="stylesheet">
 
-		<div id="header">
-			<h1>Main Title of Web Page</h1>
-		</div>
+    <script src="js_lib/jquery-1.11.1.min.js"></script>
+<script src="js_lib/bootstrap.min.js"></script>
+<script src="js_lib/typeahead0.10.4.js"></script>
+<script src="js_lib/jquery.dataTables.min.js"></script>
+<script src="js/myutil.js"></script>
+<script src="js/midas.js"></script>
 
-		<div id="menu">
-			<h2>Menu</h2>
-			<ul>
-				<li>HTML</li>
-				<li>CSS</li>
-				<li>JavaScript</li>
-			</ul>
-		</div>
+  </head>
 
-		<div id="content">Content goes here</div>
+  <body>
 
-		<div id="footer">Copyright W3School.com.cn</div>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+      	<div class="row">
+      	</div>
+        <div class="navbar-header">
+          <a class="navbar-brand" >MIDAS</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Help</a></li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
 
-	</div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1 sidebar">
+          <ul class="nav nav-sidebar">
+          	<li class="active"><a href="#Index">Index</a></li>
+            <li><a href="#Overview">Overview</a></li>           
+            <li><a href="#Analytics">Analytics</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-11 col-md-offset-1 main">	
+          <div class="type2search">
+            <input class="typeahead col-lg-10 col-lg-offset-1"  type="text" placeholder="Have a try " ><br/> 
+          </div>
 
-</body>
+          <div class="content">
+          	<div class="content_placehold">
+          		<table id="stockstable" class="cell-border hover" ></table>
+          	</div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
 </html>
