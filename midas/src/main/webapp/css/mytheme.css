@@ -1,3 +1,4 @@
+
 body {
 	padding-top: 70px;
 	padding-bottom: 30px;
@@ -41,7 +42,12 @@ body {
 .navbar-fixed-top {
 	border: 0;
 }
-
+.navicon {
+	max-height: 32px;
+    max-width: 18%; 
+    overflow: visible;
+  padding: 0;
+}
 /*
  * Sidebar
  */
@@ -160,7 +166,7 @@ body {
 /*
  * Stock Overview
  */
-div.content_placehold {
+div.Overview_Content {
 	width: 100%;
 }
 
@@ -171,3 +177,12 @@ div.content_placehold {
 #stockstable tr.down {
 	color: red;
 }
+
+.btn-lg {
+    padding: 18px 28px;
+    font-size: 22px;
+    width: 200px;
+    height:130px;
+    line-height: normal;
+    border-radius: 8px;
+    }

@@ -8,17 +8,8 @@
     <meta name="author" content="jk">
 
     <title>Midas</title>
+    <script src="js/bootup.js"></script>
 
-<!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/bootstrap-theme.min.css" rel="stylesheet">
-<link href="css/mytheme.css" rel="stylesheet">
-<link href="css/jquery.dataTables.min.css" rel="stylesheet">
-
-    <script src="js_lib/jquery-1.11.1.min.js"></script>
-<script src="js_lib/bootstrap.min.js"></script>
-<script src="js_lib/typeahead0.10.4.js"></script>
-<script src="js_lib/jquery.dataTables.min.js"></script>
 <script src="js/myutil.js"></script>
 <script src="js/midas.js"></script>
 
@@ -28,16 +19,20 @@
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
-      	<div class="row">
-      	</div>
         <div class="navbar-header">
-          <a class="navbar-brand" >MIDAS</a>
+        	<a class="navbar-brand navicon">
+            	<img class="img-responsive" src="./icons/midas-touch.png">
+        	</a>
+          <a class="navbar-brand" >&nbsp;   MIDAS</a>
         </div>
         
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Help</a></li>
-          </ul>
+            <div class="type2search navbar-left">
+            <input class="typeahead col-lg-10 col-lg-offset-1"  type="text" placeholder="Have a try " ><br/> 
+          	</div>
+	          <ul class="nav navbar-nav navbar-right">
+	            <li><a href="#">Help</a></li>
+	          </ul>
           
         </div>
       </div>
@@ -45,24 +40,39 @@
 
     <div class="container-fluid">
       <div class="row">
+      
         <div class="col-md-1 sidebar">
           <ul class="nav nav-sidebar">
-          	<li class="active"><a href="#Index">Index</a></li>
-            <li><a href="#Overview">Overview</a></li>           
-            <li><a href="#Analytics">Analytics</a></li>
+          	<li class="active" id="Index"><a href="#Index">Index</a></li>
+            <li id="Overview"><a href="#Overview">Overview</a></li>           
+            <li id="Analytics"><a href="#Analytics">Analytics</a></li>
+            <li id="Comparison"><a href="#Comparison">Comparison</a></li>
+            <li id="Admin"><a href="#Admin">Admin</a></li>
           </ul>
         </div>
         
         <div class="col-md-11 col-md-offset-1 main">	
-          <div class="type2search">
-            <input class="typeahead col-lg-10 col-lg-offset-1"  type="text" placeholder="Have a try " ><br/> 
-          </div>
 
           <div class="content">
-          	<div class="content_placehold">
+          	<div id="Index_Content"></div>
+          	<div id="Overview_Content">
           		<table id="stockstable" class="cell-border hover" ></table>
-          	</div>
-            
+          	</div>       
+            <div id="Analytics_Content"></div>
+            <div id="Admin_Content">
+            	<h1 class="page-header">Dashboard</h1>
+            	<div class="row placeholders">
+		            <div class="col-md-3 placeholder">
+		              <button type="button" class="btn btn-lg btn-primary">Load Data</button>
+		            </div>
+		            <div class="col-md-3 placeholder">
+		              <button type="button" class="btn btn-lg btn-success">Test</button>
+		            </div>
+		            <div class="col-md-3 placeholder">
+		              <button type="button" class="btn btn-lg btn-danger">Delete Data</button>
+		            </div>
+		        </div>
+            </div>
           </div>
         </div>
       </div>

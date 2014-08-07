@@ -1,21 +1,41 @@
 $(document).ready(function() {
-			var stocks = new Object();
-			getStockOverView(stocks);
-			window.onhashchange=onHashChange;
-			
-			$('.typeahead').typeahead({
-						hint : true,
-						highlight : true
-					}, {
-						name : 'states',
-						displayKey : 'value',
-						source : substringMatcher(states)
-					});
-		});
+	init_states();
+	var stocks = new Object();
+	getStockOverView(stocks);			
+	
+	window.onhashchange=onHashChange;
+	$('.typeahead').typeahead({
+				hint : true,
+				highlight : true
+			}, {
+				name : 'states',
+				displayKey : 'value',
+				source : substringMatcher(states)
+			});
+});
+
+stateMgr = {
+	menu : ["Index","Overview","Analytics","Comparison","Admin"],
+	targetlocation : "Index"
+};
+
+function init_states(){
+	for(var i =0; i <stateMgr.menu.length; i++ ){
+		$("#"+stateMgr.menu[i]).removeClass("active");
+		$("#"+stateMgr.menu[i]+"_Content").hide();
+	}
+	if(window.location.hash && window.location.hash.length > 1) {
+		onHashChange();
+	}	
+}
 function onHashChange(){
-	console.log(window.location.hash);
-//	var number=obj[window.location.hash.substring(1)] || '';//substring(1)用来减去地址栏的地址中的#号
-//	alert("change "+number);
+//	console.log("old "+stateMgr.targetlocation);
+	$("#"+stateMgr.targetlocation).removeClass("active");
+	$("#"+stateMgr.targetlocation+"_Content").hide();
+	stateMgr.targetlocation = urlafterHash(window.location.hash);
+//	console.log("new "+stateMgr.targetlocation);
+	$("#"+stateMgr.targetlocation).addClass("active");
+	$("#"+stateMgr.targetlocation+"_Content").show();
 }
 function getStockOverView(stocks) {
 	var url_stockoverview = urlWithOutHash(window.location.href) + "rest/stocks";
@@ -46,7 +66,7 @@ function getStockOverView(stocks) {
 						            else if( data.latest.change  < 0 )  $(row).addClass( 'down' );
 						        }
 							});
-					$('#stockstable tbody').on('click', 'tr', function () {
+					$('#stockstable tbody').on('dblclick', 'tr', function () {
 				        var name = $('td', this).eq(0).text();
 				        alert( 'You clicked on '+name+'\'s row' );
 				    } );

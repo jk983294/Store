@@ -22,3 +22,6 @@ Date.prototype.Format = function (fmt) { //author: meizz
 function urlWithOutHash(url){
 	return url.substr(0,url.indexOf('#'));
 }
+function urlafterHash(url){
+	return url.substring(url.indexOf('#')+1,url.length);
+}
