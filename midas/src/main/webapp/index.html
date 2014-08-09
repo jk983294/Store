@@ -9,9 +9,7 @@
 
     <title>Midas</title>
     <script src="js/bootup.js"></script>
-
-<script src="js/myutil.js"></script>
-<script src="js/midas.js"></script>
+	<script src="js/midas.js"></script>
 
   </head>
 
@@ -54,7 +52,16 @@
         <div class="col-md-11 col-md-offset-1 main">	
 
           <div class="content">
-          	<div id="Index_Content"></div>
+          
+          	<div id="Index_Content">
+          		<div class="index-container">
+					<div id="detailIndex" class="index-placeholder"></div>
+				</div>		
+				<div class="index-container" style="height:150px;">
+					<div id="overviewIndex" class="index-placeholder"></div>
+				</div>
+          	</div>
+          	
           	<div id="Overview_Content">
           		<table id="stockstable" class="cell-border hover" ></table>
           	</div>       

@@ -25,3 +25,14 @@ function urlWithOutHash(url){
 function urlafterHash(url){
 	return url.substring(url.indexOf('#')+1,url.length);
 }
+
+function extractProperty(data, property){
+	var properties = new Array();
+	for(var i = 0, len = data.length; i < len; i++ ) properties.push(data[i][property]);
+	return properties;
+}
+function merge2Array(p1, p2){
+	var properties = new Array();
+	for(var i = 0, len = p1.length; i < len; i++ ) properties.push( [ p1[i] , p2[i] ] );
+	return properties;
+}

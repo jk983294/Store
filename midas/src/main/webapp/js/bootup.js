@@ -1,6 +1,7 @@
 (function() {
 	var jsLibs = [
-        	"jquery-1.11.1","bootstrap", "typeahead0.10.4","jquery.dataTables"
+        	"jquery-1.11.1","bootstrap", "typeahead0.10.4","jquery.dataTables","mediator",
+        	"jquery.flot","jquery.flot.selection","jquery.flot.time"
         ],
         cssFiles = [
         	"bootstrap.min","bootstrap-theme.min","jquery.dataTables.min","mytheme"
@@ -52,6 +53,17 @@
 	    css.type = 'text/css';
 	    head.appendChild(css);
 	}
-    
+
+	//load user defined 
+	document.write('<script type="text/javascript" src="js/util/myutil.js"></script>');
+	document.write('<script type="text/javascript" src="js/controller/layoutController.js"></script>');
+	document.write('<script type="text/javascript" src="js/controller/indexController.js"></script>');
+	document.write('<script type="text/javascript" src="js/controller/overviewController.js"></script>');
+	document.write('<script type="text/javascript" src="js/controller/analyticsController.js"></script>');
+	document.write('<script type="text/javascript" src="js/controller/comparisonController.js"></script>');
+	document.write('<script type="text/javascript" src="js/controller/adminController.js"></script>');
+    document.write('<script type="text/javascript" src="js/global/stateMgr.js"></script>');
+    document.write('<script type="text/javascript" src="js/global/msgBus.js"></script>');
+    document.write('<script type="text/javascript" src="js/global/controller.js"></script>');
 
 })();
