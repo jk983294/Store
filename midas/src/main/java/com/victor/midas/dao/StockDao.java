@@ -68,6 +68,12 @@ public class StockDao {
 		return mongoTemplate.find(query,Stock.class, STOCKS_COLLECTION);     
     } 
 	
+	public List<Stock> queryAllName4AutoCompletion(){  
+		Query query =new Query();
+		query.fields().include("name");
+		return mongoTemplate.find(query,Stock.class, STOCKS_COLLECTION);     
+    } 
+	
 	public int getStockCount() {
         return (int) mongoTemplate.count( new Query(), STOCKS_COLLECTION);
     }

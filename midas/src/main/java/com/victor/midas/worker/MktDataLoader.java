@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 
 import com.victor.midas.dao.StockDao;
 import com.victor.midas.model.*;
-import com.victor.midas.services.HelloRest;
 
 /**
  * load data from file system

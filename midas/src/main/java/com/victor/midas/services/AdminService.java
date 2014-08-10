@@ -19,7 +19,7 @@ public class AdminService {
 	@Autowired
 	MktDataLoader mktloader;
 	
-	private final Logger logger = Logger.getLogger(HelloRest.class);
+	private final Logger logger = Logger.getLogger(AdminService.class);
 	
 	@PUT
 	@Path("/stocks")
