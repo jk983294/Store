@@ -23,24 +23,7 @@ public class StockDao {
 	
 	@Autowired  
     MongoTemplate mongoTemplate; 
-	
-	public void createCollection(){
-		if (!mongoTemplate.collectionExists(STOCKS_COLLECTION)) {
-			logger.info("mongoTemplate create collection");
-            mongoTemplate.createCollection(STOCKS_COLLECTION);
-            IndexOperations io = mongoTemplate.indexOps(STOCKS_COLLECTION);
-            Index index =new Index();
-            index.on("latest.change", Direction.DESC);
-            io.ensureIndex(index);
-        }
-	}
-	
-	public void dropCollection(){
-		if (mongoTemplate.collectionExists(STOCKS_COLLECTION)) {
-            mongoTemplate.dropCollection(STOCKS_COLLECTION);
-        }
-	}
-	
+
 	public void saveStock(Stock stock){
 		if (stock != null && stock.getRecords()!= null && stock.getRecords().size() > 0) {
 			calculator.calculate(stock);

@@ -26,7 +26,7 @@ public class MktDataLoader {
 	
 	public void saveAllFromStockDirPath() throws Exception{
 		logger.info("load raw stocks to mongodb from dir : " + stockdirpath);
-		stockdao.createCollection();
+//		stockdao.createCollection();
 		fromDirectory(stockdirpath,"SZ");
 		fromDirectory(indexdirpath,"IDX");
 	}

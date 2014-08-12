@@ -3,5 +3,6 @@ function MidasController(){
 		layoutController();
 		indexController();
 		overviewController();
+		adminController();
 	};	
 }

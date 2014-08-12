@@ -7,14 +7,15 @@ import javax.ws.rs.core.Response.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.victor.midas.dao.StockDao;
-import com.victor.midas.model.*;
+import com.victor.midas.dao.*;
 import com.victor.midas.worker.MktDataLoader;
 
 @Path("admin")
 public class AdminService {
 	@Autowired
 	StockDao stockdao;
+	@Autowired
+	AdminDao admindao;
 	
 	@Autowired
 	MktDataLoader mktloader;
@@ -25,6 +26,7 @@ public class AdminService {
 	@Path("/stocks")
 	public Response updateStocks() {		
 		try {
+			admindao.createCollection();
 			mktloader.saveAllFromStockDirPath();
 		} catch (Exception e) {
 			logger.error("update stocks got problems : "+e.toString());
@@ -36,9 +38,10 @@ public class AdminService {
 	@DELETE
 	@Path("/stocks")
 	public Response deleteStocks() {	
-		stockdao.dropCollection();
+		admindao.dropStockCollection();
 		return Response.ok().build();
 	}
+	
 	
 	
 }
