@@ -1,58 +1,53 @@
 package com.victor.midas.worker;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Date;
+import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 
+import com.victor.midas.dao.TaskDao;
 import com.victor.midas.dao.StockDao;
-import com.victor.midas.model.*;
+import com.victor.midas.model.Record;
+import com.victor.midas.model.Stock;
 
-/**
- * load data from file system
- */
-public class MktDataLoader {
-	@Value("${MktDataLoader.TestStockDirPath}")
-	String stockdirpath;
-	@Value("${MktDataLoader.StockIndexDirPath}")
-	String indexdirpath;
+public class MktDataTask extends TaskBase{
 	
-	@Autowired
-	StockDao stockDao;
+	private final Logger logger = Logger.getLogger(MktDataTask.class);
+	private static final String description = "Market Data Load Task";
 	
-	private static final Logger logger = Logger.getLogger(MktDataLoader.class);
+	private ArrayList<String> filepath;
+	private String prefix;
+	private TaskDao admindao;
+	private StockDao stockdao;
 	
-	public void saveAllFromStockDirPath() throws Exception{
-		logger.info("load raw stocks to mongodb from dir : " + stockdirpath);
-//		stockdao.createCollection();
-		fromDirectory(stockdirpath,"SZ");
-		fromDirectory(indexdirpath,"IDX");
+
+	public MktDataTask(ArrayList<String> filepath, String prefix, 
+			TaskDao admindao, StockDao stockdao) {
+		super(prefix + " " + description  , admindao);
+		this.admindao = admindao;
+		this.stockdao = stockdao;
+		this.filepath = filepath;
+		this.prefix = prefix;
 	}
-	
-	
-	public void fromDirectory(String dir,String prefix) throws Exception{
-		File root = new File(dir);
-		File[] files = root.listFiles();
-		for(File file:files){     
-			if(file.isDirectory()){
-				//Recursive call
-				fromDirectory(file.getAbsolutePath(),prefix);
-			}else{
-				String fileName = file.getAbsolutePath();
-				if(fileName.endsWith(".TXT")||fileName.endsWith(".txt")){
-					Stock stock = fromFile(file.getAbsolutePath());
-					stock.setName(prefix + stock.getName());
-//					logger.info(stock.getName());
-					stockDao.saveStock(stock);
-				}				
-			}   
+
+	@Override
+	public void doTask() throws IOException {
+		for (String path : filepath) {
+			Stock stock = fromFile(path);
+			stock.setName(prefix + stock.getName());
+			logger.info(stock.getName());
+			stockdao.saveStock(stock);
 		}
+		logger.info(prefix + " " + description + " complete...");
 	}
 	
 	/**
-	 * read mkdata from file
+	 * read market data from file
 	 * @param path
 	 * @return
 	 * @throws IOException 
@@ -70,7 +65,7 @@ public class MktDataLoader {
 				desp += arr[i];
 			}
 			stock.setDesp(desp);
-			line = br.readLine();			//remove desp line
+			line = br.readLine();			//remove description line
 			while((line = br.readLine()) != null){
 				if(line.length() > 20){
 					Record record = recordFromSingleLine(line);

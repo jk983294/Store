@@ -8,37 +8,36 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.victor.midas.dao.*;
+import com.victor.midas.worker.CreateCollectionTask;
+import com.victor.midas.worker.DeleteStockCollTask;
 import com.victor.midas.worker.MktDataLoader;
+import com.victor.midas.worker.TaskBase;
+import com.victor.midas.worker.TaskMgr;
 
 @Path("admin")
 public class AdminService {
-	@Autowired
-	StockDao stockdao;
-	@Autowired
-	AdminDao admindao;
+	
 	
 	@Autowired
-	MktDataLoader mktloader;
+	private TaskMgr taskMgr;
 	
-	private final Logger logger = Logger.getLogger(AdminService.class);
+	private static final Logger logger = Logger.getLogger(AdminService.class);
 	
 	@PUT
 	@Path("/stocks")
 	public Response updateStocks() {		
-		try {
-			admindao.createCollection();
-			mktloader.saveAllFromStockDirPath();
-		} catch (Exception e) {
-			logger.error("update stocks got problems : "+e.toString());
-			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
-		}
+		taskMgr.cmd( "updateStocks" );
 		return Response.ok().build();
 	}
 	
+	/**
+	 * deliver task to delete all stocks in MongoDB
+	 * @return
+	 */
 	@DELETE
 	@Path("/stocks")
 	public Response deleteStocks() {	
-		admindao.dropStockCollection();
+		taskMgr.cmd( "deleteStocks" );
 		return Response.ok().build();
 	}
 	

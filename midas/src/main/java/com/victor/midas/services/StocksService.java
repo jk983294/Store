@@ -14,7 +14,7 @@ import com.victor.midas.model.*;
 @Path("stocks")
 public class StocksService {
 	@Autowired
-	StockDao stockdao;
+	StockDao stockDao;
 	
 	private final Logger logger = Logger.getLogger(StocksService.class);
 	
@@ -22,7 +22,7 @@ public class StocksService {
 	@Path("/stock/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Stock getStock(@PathParam("name") String name) {
-		Stock stock = stockdao.queryByName(name);		
+		Stock stock = stockDao.queryByName(name);		
 		return stock;
 	}
 	
@@ -30,17 +30,17 @@ public class StocksService {
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Stock> getStockBasicInfo() {
-		return stockdao.queryAllBasicInfo();
+		return stockDao.queryAllBasicInfo();
 	}
 	
 	@GET
 	@Path("/test/")
 	public String test() {
-		logger.info(stockdao.getStockCount());
+		logger.info(stockDao.getStockCount());
 		logger.info("page");
-		logger.info(stockdao.getStockByPaging(4, 1));
+		logger.info(stockDao.getStockByPaging(4, 1));
 		logger.info("basic info");
-		logger.info(stockdao.queryAllBasicInfo());
+		logger.info(stockDao.queryAllBasicInfo());
 		return "OK";
 	}
 	

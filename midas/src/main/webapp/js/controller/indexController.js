@@ -1,8 +1,10 @@
 function indexController(){
 	getIndexChart();
+	$("#Index").click(getIndexChart);	
 }
 
 function getIndexChart() {
+	$("#detailIndex").empty();
 	var url_index = urlWithOutHash(window.location.href) + "rest/stocks/stock/IDX999999";
 //	console.log(url_stockoverview);
 	$.ajax({

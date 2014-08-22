@@ -12,25 +12,29 @@
 	<context:component-scan base-package="com.victor.midas.dao" />
     
     
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-            	<value>classpath:/com/victor/midas/script/local.properties</value>              
-            </list>
-        </property>
-    </bean> 
-    
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:/com/victor/midas/script/local.properties</value>              
+			</list>
+		</property>
+	</bean> 
 
-    
-	
-	 
- 
-	
-	
 	<!-- Loads MongoDB configuraton -->  
-    <import resource="mongo-config.xml"/>
-	<bean id="stockdao" class="com.victor.midas.dao.StockDao" />
+	<import resource="mongo-config.xml"/>
+	<bean id="stockDao" class="com.victor.midas.dao.StockDao" />
+	<bean id="taskDao" class="com.victor.midas.dao.TaskDao" />
 	
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5" />
+		<property name="maxPoolSize" value="10" />
+		<property name="queueCapacity" value="25" />
+	</bean>
+
+	<bean id="taskMgr" class="com.victor.midas.worker.TaskMgr">
+		<constructor-arg ref="taskExecutor" />
+	</bean>
+
 	<!-- worker -->  
 	<bean id="mktloader" class="com.victor.midas.worker.MktDataLoader" />
 	

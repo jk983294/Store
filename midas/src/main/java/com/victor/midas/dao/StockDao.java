@@ -16,7 +16,7 @@ import com.victor.midas.model.*;
 public class StockDao {
 	private final String STOCKS_COLLECTION = "stocks"; 
 	
-	private final Logger logger = Logger.getLogger(StockDao.class);
+	private static final Logger logger = Logger.getLogger(StockDao.class);
 	
 	private final IndexCalculator calculator = new IndexCalculator();
 	
@@ -24,6 +24,10 @@ public class StockDao {
 	@Autowired  
     MongoTemplate mongoTemplate; 
 
+	/**
+	 * save stock, cause its name is Id in MongoDB, so it should have name field first
+	 * @param stock
+	 */
 	public void saveStock(Stock stock){
 		if (stock != null && stock.getRecords()!= null && stock.getRecords().size() > 0) {
 			calculator.calculate(stock);
@@ -32,6 +36,35 @@ public class StockDao {
 		mongoTemplate.save(stock, STOCKS_COLLECTION);
 	}
 	
+	/**
+	 * create stock collection
+	 */
+	public void createCollection(){
+		if (!mongoTemplate.collectionExists(STOCKS_COLLECTION)) {
+			logger.info("mongoTemplate create collection");
+            mongoTemplate.createCollection(STOCKS_COLLECTION);
+            IndexOperations io = mongoTemplate.indexOps(STOCKS_COLLECTION);
+            Index index =new Index();
+            index.on("latest.change", Direction.DESC);
+            io.ensureIndex(index);
+        }
+	}
+	
+	/**
+	 * delete stock collection, means that all stock documents will be deleted
+	 */
+	public void dropStockCollection(){
+		if (mongoTemplate.collectionExists(STOCKS_COLLECTION)) {
+			logger.info("drop Stock Collection");
+            mongoTemplate.dropCollection(STOCKS_COLLECTION);
+        }
+	}
+	
+	/**
+	 * query one stock by its name
+	 * @param name
+	 * @return
+	 */
 	public Stock queryByName(String name){  
 		return mongoTemplate.findOne(new Query(Criteria.where("_id").is(name)), Stock.class, STOCKS_COLLECTION);     
     } 
