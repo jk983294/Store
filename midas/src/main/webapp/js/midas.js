@@ -1,16 +1,19 @@
 $(document).ready(function() {
 	var midasCtl = new MidasController();
-	midasCtl.onRead();			
-	
+	midasCtl.onReady();			
 	
 	$('.typeahead').typeahead({
-				hint : true,
-				highlight : true
-			}, {
-				name : 'states',
-				displayKey : 'value',
-				source : substringMatcher(states)
-			});
+        ajax: '/path/to/typeahead/source'
+	});
+	
+//	$('.typeahead').typeahead({
+//				hint : true,
+//				highlight : true
+//			}, {
+//				name : 'states',
+//				displayKey : 'value',
+//				source : substringMatcher(states)
+//			});
 });
 
 

@@ -11,7 +11,7 @@
 	<context:component-scan base-package="com.victor.midas.worker" />
 	<context:component-scan base-package="com.victor.midas.dao" />
     
-    
+    <!-- static properties , read from property files-->
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
 		<property name="locations">
 			<list>
@@ -25,6 +25,7 @@
 	<bean id="stockDao" class="com.victor.midas.dao.StockDao" />
 	<bean id="taskDao" class="com.victor.midas.dao.TaskDao" />
 	
+	<!-- thread pool for tasks -->  
 	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
 		<property name="corePoolSize" value="5" />
 		<property name="maxPoolSize" value="10" />
@@ -35,10 +36,13 @@
 		<constructor-arg ref="taskExecutor" />
 	</bean>
 
-	<!-- worker -->  
+	<!-- task -->  
 	<bean id="mktloader" class="com.victor.midas.worker.MktDataLoader" />
 	
-	
+	<!-- service provider -->  
+	<bean id="typeAhead" class="com.victor.midas.services.TypeAhead">
+		<constructor-arg ref="stockDao" />
+	</bean>
 	
 	<!--  logger
 		<context-param>

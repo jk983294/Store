@@ -1,7 +1,9 @@
 package com.victor.midas.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
@@ -13,10 +15,12 @@ import com.victor.midas.model.*;
 
 @Path("stocks")
 public class StocksService {
-	@Autowired
-	StockDao stockDao;
-	
 	private final Logger logger = Logger.getLogger(StocksService.class);
+	
+	@Autowired
+	private StockDao stockDao;
+	@Autowired
+	private TypeAhead typeAhead;
 	
 	@GET
 	@Path("/stock/{name}")
@@ -24,6 +28,14 @@ public class StocksService {
 	public Stock getStock(@PathParam("name") String name) {
 		Stock stock = stockDao.queryByName(name);		
 		return stock;
+	}
+	
+	@GET
+	@Path("/typeahead/{query}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<String> getTips(@PathParam("query") String query) {
+		List<String> tips = typeAhead.query(query);		
+		return tips;
 	}
 	
 	@GET

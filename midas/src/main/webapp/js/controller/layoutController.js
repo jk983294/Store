@@ -6,16 +6,16 @@ function layoutController(){
 
 function init_layout(){
 	for(var i =0; i <stateMgr.menu.length; i++ )
-		mediator.publish("hideCmp", stateMgr.menu[i] );
+		msgbus.publish("hideCmp", stateMgr.menu[i] );
 
 	if(window.location.hash && window.location.hash.length > 1) 
 		onHashChange();
 }
 
 function onHashChange(){
-	mediator.publish("hideCmp", stateMgr.targetlocation );
+	msgbus.publish("hideCmp", stateMgr.targetlocation );
 	stateMgr.targetlocation = urlafterHash(window.location.hash);
-	mediator.publish("showCmp", stateMgr.targetlocation );
+	msgbus.publish("showCmp", stateMgr.targetlocation );
 }
 
 function hideCmp(oldcmp){

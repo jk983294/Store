@@ -10,7 +10,7 @@ public class TaskMgr {
 	@Autowired
     private StockDao stockDao;
 	@Autowired
-    private TaskDao adminDao;
+    private TaskDao taskDao;
 	
 	@Autowired
     private MktDataLoader mktloader;
@@ -27,8 +27,8 @@ public class TaskMgr {
      */
     public void cmd(String instruction){
     	switch(instruction){
-    	case "deleteStocks" :  addTask( new DeleteStockCollTask( adminDao , stockDao ) );  break;
-    	case "updateStocks" : addTask( new CreateCollectionTask( adminDao , mktloader ) ); break;
+    	case "deleteStocks" :  addTask( new DeleteStockCollTask( taskDao , stockDao ) );  break;
+    	case "updateStocks" : addTask( new CreateCollectionTask( taskDao , mktloader ) ); break;
     	default : 
     	}
     }

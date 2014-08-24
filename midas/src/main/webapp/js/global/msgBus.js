@@ -1,5 +1,8 @@
-mediator = new Mediator();
+msgbus = new Mediator();
 
 //layoutController
-mediator.subscribe("showCmp", showCmp );
-mediator.subscribe("hideCmp",  hideCmp);
+msgbus.subscribe("showCmp", showCmp );
+msgbus.subscribe("hideCmp",  hideCmp);
+
+//index controller
+msgbus.subscribe("showIndex", onClickIndex );

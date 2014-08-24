@@ -70,7 +70,7 @@ public class StockDao {
     } 
 	
 	/**
-     * ·ÖÒ³²Ù×÷skip(first).limit(end)
+	 * for paginate, skip first records, return only limit records
      */
     public List<Stock> getStockByPaging(int first, int end) {
     	Query query =new Query().skip(first).limit(end);

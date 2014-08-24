@@ -1,11 +1,24 @@
+/**
+ * for Index menu, for index view
+ */
 function indexController(){
-	getIndexChart();
-	$("#Index").click(getIndexChart);	
+	var stockcode = "IDX999999";
+	getIndexChart(stockcode);
+	$("#Index").click(onClickIndex);	
 }
 
-function getIndexChart() {
-	$("#detailIndex").empty();
-	var url_index = urlWithOutHash(window.location.href) + "rest/stocks/stock/IDX999999";
+function onClickIndex(){
+	var stockcode = "IDX999999";
+	getIndexChart(stockcode);
+}
+
+/**
+ * ajax call to get stock data
+ * @param {} stockcode
+ */
+function getIndexChart(stockcode) {
+	$("#detailIndex").empty();			//clear container content
+	var url_index = urlWithOutHash(window.location.href) + "rest/stocks/stock/" + stockcode ;
 //	console.log(url_stockoverview);
 	$.ajax({
 				type : "get",
@@ -14,12 +27,17 @@ function getIndexChart() {
 				error : function() {}
 			});
 }
-
+/**
+ * call back function for getIndexChart, after get stock data,
+ * use that data to draw index chart
+ * @param {} rawdata
+ */
 function drawIndexChart(rawdata){	
 	//change format
+	console.log(rawdata);
 	var times = extractProperty(rawdata.records, 'date');
 	var ends = extractProperty(rawdata.records, 'end');
-//	console.log(rawdata);
+
 //	console.log(times);
 	var d = merge2Array(times,ends);
 	
