@@ -16,13 +16,14 @@ public class WriterUserModel {
 		WriterUserModel wum = new WriterUserModel();
 		wum.method1();
 //		wum.method2();
+		System.out.println("write over...");
 	}
 	
 	public void method1() throws IOException {
 		Workbook wb = new XSSFWorkbook();
         Sheet sheet = wb.createSheet("Sheet 1");
-        final int NUM_OF_ROWS = 3;
-        final int NUM_OF_COLUMNS = 10;
+        final int NUM_OF_ROWS = 30000;
+        final int NUM_OF_COLUMNS = 20;
 
         // Create a row and put some cells in it. Rows are 0 based.
         Row row;
