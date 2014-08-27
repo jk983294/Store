@@ -6,8 +6,8 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.RedBlackTree;
 import com.victor.utilities.datastructures.Utils.*;
+import com.victor.utilities.datastructures.tree.RedBlackTree;
 
 public class RedBlackTreeTests {
 

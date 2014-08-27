@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.RadixTrie;
+import com.victor.utilities.datastructures.Trie.RadixTrie;
 import com.victor.utilities.datastructures.Utils.*;
 
 public class RadixTrieTests {

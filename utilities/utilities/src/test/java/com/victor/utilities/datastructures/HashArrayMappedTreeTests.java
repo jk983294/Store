@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.HashArrayMappedTrie;
+import com.victor.utilities.datastructures.Trie.HashArrayMappedTrie;
 import com.victor.utilities.datastructures.Utils.*;
 
 public class HashArrayMappedTreeTests {

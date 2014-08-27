@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.SegmentTree;
-import com.victor.utilities.datastructures.SegmentTree.DynamicSegmentTree;
-import com.victor.utilities.datastructures.SegmentTree.FlatSegmentTree;
+import com.victor.utilities.datastructures.tree.SegmentTree;
+import com.victor.utilities.datastructures.tree.SegmentTree.DynamicSegmentTree;
+import com.victor.utilities.datastructures.tree.SegmentTree.FlatSegmentTree;
 
 public class SegmentTreeTests {
 

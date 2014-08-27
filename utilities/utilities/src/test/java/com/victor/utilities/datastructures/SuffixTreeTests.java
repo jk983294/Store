@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.SuffixTree;
+import com.victor.utilities.datastructures.tree.SuffixTree;
 
 public class SuffixTreeTests {
 

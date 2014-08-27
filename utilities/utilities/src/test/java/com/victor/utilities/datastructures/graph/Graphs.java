@@ -12,9 +12,6 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.Graph;
-import com.victor.utilities.datastructures.Graph.Edge;
-import com.victor.utilities.datastructures.Graph.Vertex;
 import com.victor.utilities.datastructures.graph.BellmanFord;
 import com.victor.utilities.datastructures.graph.CycleDetection;
 import com.victor.utilities.datastructures.graph.Dijkstra;
@@ -22,6 +19,8 @@ import com.victor.utilities.datastructures.graph.FloydWarshall;
 import com.victor.utilities.datastructures.graph.Johnson;
 import com.victor.utilities.datastructures.graph.Prim;
 import com.victor.utilities.datastructures.graph.TopologicalSort;
+import com.victor.utilities.datastructures.graph.Graph.Edge;
+import com.victor.utilities.datastructures.graph.Graph.Vertex;
 
 public class Graphs {
 

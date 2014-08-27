@@ -6,8 +6,8 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.BinarySearchTree;
 import com.victor.utilities.datastructures.Utils.*;
+import com.victor.utilities.datastructures.tree.BinarySearchTree;
 
 public class BinarySearchTreeTests {
 

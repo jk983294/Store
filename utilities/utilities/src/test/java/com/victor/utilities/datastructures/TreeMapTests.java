@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.TreeMap;
 import com.victor.utilities.datastructures.Utils.*;
+import com.victor.utilities.datastructures.tree.TreeMap;
 
 public class TreeMapTests {
 

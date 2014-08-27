@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.CompactSuffixTrie;
+import com.victor.utilities.datastructures.Trie.CompactSuffixTrie;
 
 public class CompactSuffixTrieTests {
 

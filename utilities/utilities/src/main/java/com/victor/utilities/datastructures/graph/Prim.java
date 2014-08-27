@@ -7,8 +7,6 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
-import com.victor.utilities.datastructures.Graph;
-
 /**
  * Prim's minimum spanning tree. Only works on undirected graphs. It finds a
  * subset of the edges that forms a tree that includes every vertex, where the

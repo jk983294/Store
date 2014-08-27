@@ -7,7 +7,7 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.KdTree;
+import com.victor.utilities.datastructures.tree.KdTree;
 
 public class KdTreeTests {
 

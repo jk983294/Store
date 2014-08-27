@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.TrieMap;
+import com.victor.utilities.datastructures.Trie.TrieMap;
 import com.victor.utilities.datastructures.Utils.*;
 
 public class TrieMapTests {

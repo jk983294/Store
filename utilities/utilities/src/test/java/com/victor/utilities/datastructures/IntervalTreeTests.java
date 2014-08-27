@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.IntervalTree;
+import com.victor.utilities.datastructures.tree.IntervalTree;
 
 public class IntervalTreeTests {
 

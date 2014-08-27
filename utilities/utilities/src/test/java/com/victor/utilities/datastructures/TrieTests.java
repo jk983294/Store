@@ -6,7 +6,7 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.Trie;
+import com.victor.utilities.datastructures.Trie.Trie;
 import com.victor.utilities.datastructures.Utils.*;
 
 public class TrieTests {

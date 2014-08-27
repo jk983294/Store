@@ -8,7 +8,7 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import com.victor.utilities.datastructures.QuadTree;
+import com.victor.utilities.datastructures.tree.QuadTree;
 
 public class QuadTreeTests {
 

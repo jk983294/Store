@@ -4,8 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.victor.utilities.datastructures.Graph;
-
 /**
  * Cycle detection in an undirected graph using depth first search.
  * 
