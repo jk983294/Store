@@ -2,13 +2,13 @@ package com.victor.midas.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
 import com.victor.midas.dao.StockDao;
 import com.victor.midas.model.Stock;
-import com.victor.midas.util.algo.TernaryTree;
+import com.victor.utilities.datastructures.tree.TernaryTree;
+
 
 public class TypeAhead {
 	

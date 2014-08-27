@@ -129,6 +129,12 @@
 			<version>1.5.2.RELEASE</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.victor</groupId>
+			<artifactId>utilities</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+
 
 	</dependencies>
 

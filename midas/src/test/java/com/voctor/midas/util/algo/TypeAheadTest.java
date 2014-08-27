@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.victor.midas.services.TypeAhead;
-import com.victor.midas.util.algo.TernaryTree;
 
 public class TypeAheadTest {
 
