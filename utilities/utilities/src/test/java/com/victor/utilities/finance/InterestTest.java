@@ -10,6 +10,6 @@ public class InterestTest {
 
 	@Test
 	public void calcRealRateReturnTest(){
-		assertEquals(0.02857142, Interest.calcRealRateReturn(0.08, 0.05), epsilon);
+		assertEquals(0.02857142, InterestRate.calcRealRateReturn(0.08, 0.05), epsilon);
 	}
 }

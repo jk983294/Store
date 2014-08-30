@@ -13,7 +13,7 @@ import org.apache.commons.math3.stat.regression.SimpleRegression;
 
 import com.victor.utilities.visual.VisualAssist;
 
-public class statistics {
+public class StatisticsDemo {
 	
 	/**
 	 * min, max, mean, geometric mean, n, sum, sum of squares, standard deviation, variance, 

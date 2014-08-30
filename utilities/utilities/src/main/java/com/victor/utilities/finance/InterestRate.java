@@ -1,6 +1,6 @@
 package com.victor.utilities.finance;
 
-public class Interest {
+public class InterestRate {
 
 	/**
 	 * calculate Real Rate of Return, could derived from TIPS (treasury inflation protected securities)
