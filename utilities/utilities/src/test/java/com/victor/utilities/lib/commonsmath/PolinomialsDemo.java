@@ -3,7 +3,7 @@ package com.victor.utilities.lib.commonsmath;
 import org.apache.commons.math3.analysis.polynomials.PolynomialFunction;
 import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
 
-public class PolinomialsFunction {
+public class PolinomialsDemo {
 
 	public static void main(String[] args) {
 		polynomialsSpline();
@@ -11,15 +11,14 @@ public class PolinomialsFunction {
 		polynomials();
 	}
 	
-	private static void polynomialsSpline() {
+	public static void polynomialsSpline() {
 		//分段函数
 		PolynomialFunction[] polynomials = {
 				new PolynomialFunction(new double[] { 0d, 1d, 1d }),
 				new PolynomialFunction(new double[] { 2d, 1d, 1d }),
 				new PolynomialFunction(new double[] { 4d, 1d, 1d }) };
 		double[] knots = { -1, 0, 1, 2 };
-		PolynomialSplineFunction spline = new PolynomialSplineFunction(knots,
-				polynomials);
+		PolynomialSplineFunction spline = new PolynomialSplineFunction(knots, polynomials);
 		// output directly
 		System.out.println("poly spline func is " + spline);
 		// get the value when x = 0.5
@@ -28,8 +27,7 @@ public class PolinomialsFunction {
 		System.out.println("spline segments number is " + spline.getN());
 		// the polynomials functions
 		for (int i = 0; i < spline.getN(); i++) {
-			System.out.println("spline:f" + i + "(x) = "
-					+ spline.getPolynomials()[i]);
+			System.out.println("spline:f" + i + "(x) = " + spline.getPolynomials()[i]);
 		}
 		// function derivative
 		System.out.println("spline func derivative is " + spline.derivative());
@@ -56,8 +54,7 @@ public class PolinomialsFunction {
 		System.out.println("f1(x)*f2(x) = " + f1.multiply(f2));
 		// function derivative
 		System.out.println("f1'(x) = " + f1.derivative());
-		System.out.println("f2''(x) = "
-				+ ((PolynomialFunction) f2.derivative()).derivative());
+		System.out.println("f2''(x) = " + ((PolynomialFunction) f2.derivative()).derivative());
 
 	}
 }
