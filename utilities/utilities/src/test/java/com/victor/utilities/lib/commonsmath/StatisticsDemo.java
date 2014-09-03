@@ -205,6 +205,7 @@ public class StatisticsDemo {
 	 * could be used by calculate stock with index correlation, index divide to period, stock with same period
 	 */
 	public static void correlationDemo() {
+		System.out.println("---------------------correlation---------------------------");
 		double[] x = { 20, 17, 30, 42.3, 17, 50 };
 		double[] y = { 20, 17, 30, 42.3, 17, 50 };
 		System.out.println(new Covariance().covariance(x, y));				// unbiased covariance
@@ -216,6 +217,7 @@ public class StatisticsDemo {
 	}
 	
 	public static void testDemo() {
+		System.out.println("---------------------stats test---------------------------");
 		double[] observed = {1d, 2d, 3d};
 		double mu = 2.5d;
 		double alpha = 0.05;

@@ -13,6 +13,15 @@ public class VisualAssist {
 		print(a);
 	}
 	
+	public static <T> void print(T a) {
+		System.out.println(a);
+	}
+	
+	public static <T> void print(String description, T a) {
+		System.out.println(description);
+		print(a);
+	}
+	
 	public static <T> void print(T[][] a) {
 		System.out.println(ArrayUtils.toString(a));
 	}
@@ -32,6 +41,15 @@ public class VisualAssist {
 	}
 	
 	public static void print(String description, double[] a) {
+		System.out.println(description);
+		print(a);
+	}
+	
+	public static void print(int[] a) {
+		System.out.println(ArrayUtils.toString(a));
+	}
+	
+	public static void print(String description, int[] a) {
 		System.out.println(description);
 		print(a);
 	}

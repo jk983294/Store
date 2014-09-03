@@ -1,4 +1,4 @@
-package com.victor.utilities.finance.equity;
+package com.victor.utilities.finance.fundamental;
 
 public class FundamentalAnalysis {
 
