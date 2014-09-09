@@ -133,16 +133,6 @@ public class JavaCollectionTest {
             return false;
         }
 
-        if (collection instanceof java.util.List && 
-            (!ListIteratorTest.testListIterator(((java.util.List<T>)collection).listIterator(), 
-                                                data, 
-                                                data.length))
-        ) {
-            System.err.println(name+" addAndRemoveInOrder list iterator failed.");
-            Utils.handleError(collection);
-            return false;
-        }
-
         return true;
     }
 
@@ -302,16 +292,6 @@ public class JavaCollectionTest {
         }
         if (collection.size()!=0) {
             System.err.println(name+" addInOrderRemoveInReverseOrder size() failed.");
-            Utils.handleError(collection);
-            return false;
-        }
-
-        if (collection instanceof java.util.List && 
-           (!ListIteratorTest.testListIterator(((java.util.List<T>)collection).listIterator(),
-                                               data,
-                                               data.length))
-        ) {
-            System.err.println(name+" addInOrderRemoveInReverseOrder list iterator failed.");
             Utils.handleError(collection);
             return false;
         }

@@ -16,7 +16,6 @@ import org.junit.runners.Suite.SuiteClasses;
                 HashMapTests.class,
                 IntervalTreeTests.class,
                 KdTreeTests.class,
-                ListTests.class,
                 MatrixTests.class,
                 PatriciaTreeTests.class,
                 QuadTreeTests.class,

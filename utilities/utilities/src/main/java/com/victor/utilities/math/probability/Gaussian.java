@@ -1,7 +1,5 @@
 package com.victor.utilities.math.probability;
 
-import java.io.Writer;
-
 /*************************************************************************
  *  Compilation:  javac Gaussian.java
  *  Execution:    java Gaussian x mu sigma
