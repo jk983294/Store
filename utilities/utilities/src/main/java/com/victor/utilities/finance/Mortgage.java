@@ -11,12 +11,24 @@ public class Mortgage {
 	 * payment for each term
 	 * @param pv - present value
 	 * @param i - interest rate
-	 * @param n - term, years
-	 * @return coupon payment for each term
+	 * @param n - periods, years
+	 * @return coupon payment for each period
 	 */
-	public static double payment(double pv, double i, int n) {
+	public static double paymentByPv(double pv, double i, double n) {
 		double factor = 1 / ( 1 + i );
 		return pv / ( factor * ( 1- Math.pow( factor, n)) / ( 1 - factor) );
+	}
+	
+	/**
+	 * payment for each term
+	 * @param fv - future value
+	 * @param i - interest rate
+	 * @param n - periods, years
+	 * @return coupon payment for each period
+	 */
+	public static double paymentByFv(double fv, double i, double n) {
+		double factor = ( 1 + i );
+		return fv / ( ( 1- Math.pow( factor, n)) / ( 1 - factor) );
 	}
 	
 	/**
@@ -28,7 +40,7 @@ public class Mortgage {
 	 * @return
 	 */
 	public static List<double[]> mortgageReturnProcess(double pv, double i, int n) {
-		double payment = payment(pv, i, n);
+		double payment = paymentByPv(pv, i, n);
 		double[] principalPay = new double[n];
 		double[] interestPay = new double[n];
 		for (int j = 0; j < n; j++) {

@@ -9,11 +9,11 @@ import org.junit.Test;
 import com.victor.utilities.visual.VisualAssist;
 
 public class MortgageTest {
-private final static double epsilon = 1e-4;
+	private final static double epsilon = 1e-4;
 	
 	@Test
 	public void paymentTest(){
-		assertEquals(0.3950548, Mortgage.payment(1, 0.09, 3), epsilon);
+		assertEquals(0.3950548, Mortgage.paymentByPv(1, 0.09, 3), epsilon);
 	}
 	
 	@Test
