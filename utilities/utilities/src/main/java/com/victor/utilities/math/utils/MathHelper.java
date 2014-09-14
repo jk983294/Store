@@ -2,6 +2,7 @@ package com.victor.utilities.math.utils;
 
 import org.apache.commons.math3.util.MathArrays;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,13 +13,10 @@ import java.util.Random;
  */
 public class MathHelper {
 
-    private final static Random r = new Random();
+    private final static Random random = new Random();
 
     /**
      * generate uniform random variables in given bounds
-     * @param low
-     * @param up
-     * @return
      */
     public static double[] randomRange(double[] low, double[] up){
         int len = up.length;
@@ -30,7 +28,7 @@ public class MathHelper {
     }
 
     public static double randomRange(double low, double up){
-        return (up - low) * r.nextDouble() + low;
+        return (up - low) * random.nextDouble() + low;
     }
 
     public static List<double[]> randomRangeList(int size, double[] low, double[] up){
@@ -43,10 +41,6 @@ public class MathHelper {
 
     /**
      * swap elements in array
-     * @param parentIndex
-     * @param childIndex
-     * @param array
-     * @param <T>
      */
     public static <T> void swap(int parentIndex, int childIndex, T[] array) {
         T parent = array[parentIndex];
@@ -62,8 +56,6 @@ public class MathHelper {
 
     /**
      * copy double array
-     * @param original
-     * @return
      */
     public static double[] copy(double[] original){
         return MathArrays.copyOf(original);
@@ -75,6 +67,25 @@ public class MathHelper {
 
     public static double[] copy(double[] original, int from, int len){
         return Arrays.copyOfRange(original, from, from + len);
+    }
+
+    /**
+     * transform between list and array
+     */
+    public static <T> T[] list2array(List<T> original){
+        T[] array = (T[]) Array.newInstance(original.get(0).getClass(), original.size());
+        for (int i = 0; i < array.length; i++) {
+            array[i] = original.get(i);
+        }
+        return array;
+    }
+
+    public static <T> List<T> array2list(T[] original){
+        List<T> list = new ArrayList<>();
+        for (int i = 0; i < original.length; i++) {
+            list.add(original[i]);
+        }
+        return list;
     }
 
 

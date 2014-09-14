@@ -589,8 +589,6 @@ public class CollectionUtilsTest  {
         final int size = collectionA.size();
         collectionB = CollectionUtils.collect((Collection<Integer>) null, transformer, collectionB);
         assertTrue(collectionA.size() == size && collectionA.contains(1));
-        CollectionUtils.collect(collectionB, null, collectionA);
-        assertTrue(collectionA.size() == size && collectionA.contains(1));
     }
 
     Transformer<Object, Integer> TRANSFORM_TO_INTEGER = new Transformer<Object, Integer>() {

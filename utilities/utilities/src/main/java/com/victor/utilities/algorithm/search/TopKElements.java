@@ -4,11 +4,17 @@ import com.victor.utilities.math.utils.MathHelper;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * find first k biggest elements
  */
 public class TopKElements  {
+
+    public static <T extends Comparable<T>> T[] getFirstK(List<T> unsorted, int k){
+        T[] array = MathHelper.list2array(unsorted);
+        return getFirstK(array, k);
+    }
 
     public static <T extends Comparable<T>> T[] getFirstK(T[] unsorted, int k){
         if ( k > unsorted.length){
