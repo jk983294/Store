@@ -11,12 +11,12 @@ import java.util.List;
  */
 public class TopKElements  {
 
-    public static <T extends Comparable<T>> T[] getFirstK(List<T> unsorted, int k){
+    public static <T extends Comparable> T[] getFirstK(List<T> unsorted, int k){
         T[] array = MathHelper.list2array(unsorted);
         return getFirstK(array, k);
     }
 
-    public static <T extends Comparable<T>> T[] getFirstK(T[] unsorted, int k){
+    public static <T extends Comparable> T[] getFirstK(T[] unsorted, int k){
         if ( k > unsorted.length){
             return unsorted;
         } else if ( (double) k / unsorted.length < 0.4 ){
@@ -26,9 +26,8 @@ public class TopKElements  {
         }
     }
 
-    public static <T extends Comparable<T>> T[] getFirstKUsingHeap(T[] unsorted, int k) {
+    public static <T extends Comparable> T[] getFirstKUsingHeap(T[] unsorted, int k) {
         T[] sorted = (T[]) Array.newInstance(unsorted[0].getClass(), k);
-        int size = 0;
         int length = unsorted.length;
         for (int i = 0; i < k; i++) {
             add(i, unsorted[i], sorted);
@@ -150,7 +149,7 @@ public class TopKElements  {
         }
     }
 
-    public static <T extends Comparable<T>> T[] getFirstKUsingQuickSort(T[] unsorted, int k) {
+    public static <T extends Comparable> T[] getFirstKUsingQuickSort(T[] unsorted, int k) {
         quickSort(unsorted, 0, unsorted.length - 1, k);
         return Arrays.copyOfRange(unsorted, 0, k);
     }

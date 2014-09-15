@@ -40,6 +40,50 @@ public class MathHelper {
     }
 
     /**
+     * max and min
+     */
+    public static <T extends Comparable> T max(T[] array) {
+        T maxvalue = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (maxvalue.compareTo(array[i]) < 0){
+                maxvalue = array[i];
+            }
+        }
+        return maxvalue;
+    }
+
+    public static <T extends Comparable> T max(List<T> array) {
+        T maxvalue = array.get(0);
+        for (int i = 0; i < array.size(); i++) {
+            if (maxvalue.compareTo(array.get(i)) < 0){
+                maxvalue = array.get(i);
+            }
+        }
+        return maxvalue;
+    }
+
+    public static <T extends Comparable> T min(T[] array) {
+        T minvalue = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (minvalue.compareTo(array[i]) > 0){
+                minvalue = array[i];
+            }
+        }
+        return minvalue;
+    }
+
+    public static <T extends Comparable> T min(List<T> array) {
+        T minvalue = array.get(0);
+        for (int i = 0; i < array.size(); i++) {
+            if (minvalue.compareTo(array.get(i)) > 0){
+                minvalue = array.get(i);
+            }
+        }
+        return minvalue;
+    }
+
+
+    /**
      * swap elements in array
      */
     public static <T> void swap(int parentIndex, int childIndex, T[] array) {
