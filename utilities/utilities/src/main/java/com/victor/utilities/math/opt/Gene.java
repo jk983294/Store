@@ -3,6 +3,7 @@ package com.victor.utilities.math.opt;
 import com.victor.utilities.math.utils.MathHelper;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * gene, used to represent something could be optimized
@@ -14,6 +15,9 @@ public abstract class Gene <E extends Gene> implements Comparable<E> , Cloneable
     protected double fitness;
     protected double[] upbounds;
     protected double[] lowbounds;
+
+    private final static Random random = new Random();
+    private final static double MUTATE_THRESHOLD = 0.2;
 
     protected Gene(double[] param, double[] upbounds, double[] lowbounds) {
         this.param = param;
@@ -27,16 +31,14 @@ public abstract class Gene <E extends Gene> implements Comparable<E> , Cloneable
      */
     public abstract void objective();
 
-    /**
-     * mutate at index position
-     */
-    public void mutate(int index){
-        param[index] = MathHelper.randomRange(lowbounds[index], upbounds[index]);
-    }
+
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+        // upbounds and lowbounds are shallow copied shared by all genes, but param should be deep copy
+        Gene cloned = (Gene) super.clone();
+        cloned.setParam(MathHelper.copy(param));
+        return cloned;
     }
 
     @Override
@@ -50,6 +52,17 @@ public abstract class Gene <E extends Gene> implements Comparable<E> , Cloneable
 
     public double[] getParam() {
         return param;
+    }
+
+    public void setParam(int index, double value ){
+        param[index] = value;
+    }
+
+    public void setParamDelta(int index, double delta ){
+        param[index] += delta;
+        // keep new param within range
+        param[index] = Math.max(param[index], lowbounds[index]);
+        param[index] = Math.min(param[index], upbounds[index]);
     }
 
     public void setParam(double[] param) {

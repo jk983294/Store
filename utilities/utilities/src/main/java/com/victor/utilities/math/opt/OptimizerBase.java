@@ -1,5 +1,9 @@
 package com.victor.utilities.math.opt;
 
+import com.victor.utilities.math.utils.MathHelper;
+
+import java.util.Random;
+
 /**
  * base calss for max optimizer, fitness bigger is better
  */
@@ -9,13 +13,21 @@ public abstract class OptimizerBase <T extends Gene> {
     protected T best_params;
     protected double[] upbounds;
     protected double[] lowbounds;
+    protected double[] delta;
     protected int dimenision;
+
+    protected final Random random = new Random();
+    public final static double MUTATE_THRESHOLD = 0.2;
 
     public OptimizerBase(T current_params, double[] upbounds, double[] lowbounds) {
         this.current_params = current_params;
         this.upbounds = upbounds;
         this.lowbounds = lowbounds;
         dimenision = upbounds.length;
+        delta = new double[dimenision];
+        for (int i = 0; i < dimenision; i++) {
+            delta[i] = ( upbounds[i] - lowbounds[i] ) / 50;
+        }
     }
 
 
@@ -29,7 +41,18 @@ public abstract class OptimizerBase <T extends Gene> {
         processAfterTrain();
     }
 
-    public abstract void trainIteration();
+    /**
+     * mutate at index position
+     */
+    public void mutate(T gene, int index){
+        if (random.nextDouble() < MUTATE_THRESHOLD){
+            gene.setParam( index, MathHelper.randomRange(lowbounds[index], upbounds[index]) );
+        } else {
+            gene.setParamDelta( index, delta[index] * ( random.nextDouble() - 0.5 ) );
+        }
+    }
+
+    public abstract void trainIteration() throws CloneNotSupportedException;
 
     public abstract void initBeforeTrain() throws CloneNotSupportedException;
 

@@ -4,9 +4,7 @@ import com.victor.utilities.algorithm.search.TopKElements;
 import com.victor.utilities.math.utils.MathHelper;
 import org.apache.commons.math3.util.FastMath;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Genetic Algorithm
@@ -14,21 +12,17 @@ import java.util.Random;
 public class GA <T extends Gene> extends OptimizerBase<T>  {
 
     /** the rate of crossover for the algorithm. */
-    private final static double crossoverRate = 0.1;
+    private final static double crossoverRate = 0.4;
     /** the rate of mutation for the algorithm. */
-    private final static double mutationRate = 0.1;
-    private final static double elitismRate = 0.2;
+    private final static double mutationRate = 0.4;
+    private final static double elitismRate = 0.4;
     private final static int TOURNAMENT_SELECT_NUM = 2;
     /** max iteration for generation */
-    private final static int generationsMax = 5;
+    private final static int generationsMax = 150;
     /** the number of generations evolved to reach StoppingCondition in the last run. */
     private int generationsEvolved = 0;
     /** population size  */
-    private final static int POPULATION_SIZE = 20;
-
-
-
-    private final Random random = new Random();
+    private final static int POPULATION_SIZE = 100;
 
 
     private List<T> population;
@@ -40,14 +34,19 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
 
 
     @Override
-    public void trainIteration() {
-        population = nextGenerations();
+    public void trainIteration() throws CloneNotSupportedException {
+        population = evolve();
+//        System.out.println("current population after nextGenerations : "+population.toString());
         calculateFitness();
-        System.out.println(getBest_params().toString());
+//        System.out.println("current population after calculateFitness : "+population.toString());
+//        System.out.println("current best : " + getBest_params().toString());
         generationsEvolved++;
     }
 
 
+    /**
+     * calculate Fitness, record best gene
+     */
     private void calculateFitness(){
         for( T gene : population){
             gene.objective();
@@ -55,19 +54,20 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
         best_params = MathHelper.max(population);
     }
 
-    private List<T> nextGenerations() {
+    private List<T> evolve() throws CloneNotSupportedException {
         //pick Good Genes
         int topK = (int) FastMath.ceil( elitismRate * POPULATION_SIZE);
         T[] topKlist = TopKElements.getFirstK(population, topK);
         List<T> nextGeneration = MathHelper.array2list(topKlist);
-        System.out.println(nextGeneration.toString());
- //       System.out.println(nextGeneration().toString());
+//        System.out.println("up round population : "+population.toString());
+//        System.out.println("top list : " + nextGeneration.toString());
 
 
         while (nextGeneration.size() < POPULATION_SIZE) {
             // select parent chromosomes
-            T gene1 = tournament();
-            T gene2 = tournament();
+
+            T gene1 = (T) tournament().clone();
+            T gene2 = (T) tournament().clone();
 
             // crossover?
             if (random.nextDouble() < crossoverRate) {
@@ -78,8 +78,8 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
             // mutation?
             if (random.nextDouble() < mutationRate) {
                 // apply mutation policy to the chromosomes
-                gene1.mutate(random.nextInt(dimenision));
-                gene2.mutate(random.nextInt(dimenision));
+                mutate(gene1, random.nextInt(dimenision));
+                mutate(gene2, random.nextInt(dimenision));
             }
 
             // add the first chromosome to the population
@@ -90,6 +90,7 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
                 nextGeneration.add(gene2);
             }
         }
+//        System.out.println("exit before nextGenerations : "+nextGeneration.toString());
         return nextGeneration;
     }
 
@@ -130,13 +131,12 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
     private T tournament(){
         List<T> choices = new ArrayList<T> ();
         // create a copy of the chromosome list
-        List<T> chromosomes = new ArrayList<T> (population);
-        for (int i=0; i< TOURNAMENT_SELECT_NUM; i++) {
-            // select a random individual and add it to the tournament
-            int rind = random.nextInt(chromosomes.size());
-            choices.add(population.get(rind));
-            // do not select it again
-            chromosomes.remove(rind);
+        Set<Integer> choose = new HashSet<>();
+        while ( choose.size() < TOURNAMENT_SELECT_NUM) {
+            choose.add( random.nextInt( POPULATION_SIZE ));
+        }
+        for(Integer i : choose){
+            choices.add(population.get(i));
         }
         // the winner takes it all
         return MathHelper.max(choices);
