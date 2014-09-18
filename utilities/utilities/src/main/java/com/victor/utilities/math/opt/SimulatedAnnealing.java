@@ -22,6 +22,8 @@ public class SimulatedAnnealing <T extends Gene> extends OptimizerBase<T> {
 
     private double temperature;
 
+    private int iterateCount;
+
     public SimulatedAnnealing(T current_params, double[] upbounds, double[] lowbounds) {
         super(current_params, upbounds, lowbounds);
     }
@@ -48,6 +50,7 @@ public class SimulatedAnnealing <T extends Gene> extends OptimizerBase<T> {
             if (current_params.getFitness() > best_params.getFitness()){
                 best_params = (T) current_params.clone();
             }
+            ++iterateCount;
         }
         // decrease temperature
         temperature *= PHI;
@@ -58,6 +61,7 @@ public class SimulatedAnnealing <T extends Gene> extends OptimizerBase<T> {
         current_params.objective();
         best_params = (T) current_params.clone();
         temperature = INITIAL_TEMPERATURE;
+        iterateCount = 0;
     }
 
     @Override
@@ -68,5 +72,9 @@ public class SimulatedAnnealing <T extends Gene> extends OptimizerBase<T> {
     @Override
     public boolean isStopSatisfied() {
         return temperature < FREEZING_TEMPERATURE;
+    }
+
+    public int getIterateCount() {
+        return iterateCount;
     }
 }

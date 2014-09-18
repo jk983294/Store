@@ -12,6 +12,7 @@ public class SimulatedAnnealingTest {
         PolyGene initparam = new PolyGene(initParams,upbounds,lowbounds);
         SimulatedAnnealing<PolyGene> sa = new SimulatedAnnealing<>(initparam, upbounds, lowbounds);
         sa.train();
+        System.out.println("iterate count : " + sa.getIterateCount());
         System.out.println(sa.getBest_params().toString());
     }
 
