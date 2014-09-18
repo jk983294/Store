@@ -78,8 +78,8 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
             // mutation?
             if (random.nextDouble() < mutationRate) {
                 // apply mutation policy to the chromosomes
-                mutate(gene1, random.nextInt(dimenision));
-                mutate(gene2, random.nextInt(dimenision));
+                mutate(gene1, random.nextInt(dimension));
+                mutate(gene2, random.nextInt(dimension));
             }
 
             // add the first chromosome to the population
@@ -105,11 +105,11 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
         double[] parent2Rep = b.getParam();
 
         // and of the children
-        double[] child1Rep = new double[dimenision];
-        double[] child2Rep = new double[dimenision];
+        double[] child1Rep = new double[dimension];
+        double[] child2Rep = new double[dimension];
 
         // select a crossover point at random (0 and length makes no sense)
-        final int crossoverIndex = random.nextInt(dimenision);
+        final int crossoverIndex = random.nextInt(dimension);
 
         // copy the first part
         for (int i = 0; i < crossoverIndex; i++) {
@@ -117,7 +117,7 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
             child2Rep[i] = parent2Rep[i];
         }
         // and switch the second part
-        for (int i = crossoverIndex; i < dimenision; i++) {
+        for (int i = crossoverIndex; i < dimension; i++) {
             child1Rep[i] = parent2Rep[i];
             child2Rep[i] = parent1Rep[i];
         }

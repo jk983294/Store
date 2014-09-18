@@ -5,15 +5,19 @@ package com.victor.utilities.math.opt;
  */
 public class PolyGene extends Gene {
 
+    private double[] testdata;
+
     protected PolyGene(double[] param, double[] upbounds, double[] lowbounds) {
         super(param, upbounds, lowbounds);
+        testdata = new double[]{1.0, 2.0};
     }
 
     @Override
     public void objective() {
         double x = param[0];
         double y = param[1];
-        fitness = x * x + y * y - 3;
+        double offset = testdata[0] + testdata[1];
+        fitness = x * x + y * y - 3 + offset;
 
         fitness = -fitness;     // max
     }

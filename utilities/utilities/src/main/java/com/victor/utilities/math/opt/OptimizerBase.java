@@ -6,6 +6,7 @@ import java.util.Random;
 
 /**
  * base calss for max optimizer, fitness bigger is better
+ * you want to minimize, your fitness should multiply by -1.0
  */
 public abstract class OptimizerBase <T extends Gene> {
 
@@ -14,18 +15,18 @@ public abstract class OptimizerBase <T extends Gene> {
     protected double[] upbounds;
     protected double[] lowbounds;
     protected double[] delta;
-    protected int dimenision;
+    protected int dimension;
 
     protected final Random random = new Random();
     public final static double MUTATE_THRESHOLD = 0.2;
 
-    public OptimizerBase(T current_params, double[] upbounds, double[] lowbounds) {
-        this.current_params = current_params;
+    public OptimizerBase(T init_params, double[] upbounds, double[] lowbounds) {
+        this.current_params = init_params;
         this.upbounds = upbounds;
         this.lowbounds = lowbounds;
-        dimenision = upbounds.length;
-        delta = new double[dimenision];
-        for (int i = 0; i < dimenision; i++) {
+        dimension = upbounds.length;
+        delta = new double[dimension];
+        for (int i = 0; i < dimension; i++) {
             delta[i] = ( upbounds[i] - lowbounds[i] ) / 50;
         }
     }
