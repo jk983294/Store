@@ -50,6 +50,7 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
     private void calculateFitness(){
         for( T gene : population){
             gene.objective();
+            ++iterateCount;
         }
         best_params = MathHelper.max(population);
     }
@@ -153,6 +154,7 @@ public class GA <T extends Gene> extends OptimizerBase<T>  {
         }
         calculateFitness();
         generationsEvolved = 0;
+        iterateCount = 0;
     }
 
     @Override

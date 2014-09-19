@@ -22,7 +22,7 @@ public class SimulatedAnnealing <T extends Gene> extends OptimizerBase<T> {
 
     private double temperature;
 
-    private int iterateCount;
+
 
     public SimulatedAnnealing(T current_params, double[] upbounds, double[] lowbounds) {
         super(current_params, upbounds, lowbounds);
@@ -36,6 +36,7 @@ public class SimulatedAnnealing <T extends Gene> extends OptimizerBase<T> {
             // mutate
             mutate(perturbed, random.nextInt(dimension));
             perturbed.objective();
+            ++iterateCount;
             // delta OF1
             double change = perturbed.getFitness() - current_params.getFitness();
             // if better, accept
@@ -59,6 +60,7 @@ public class SimulatedAnnealing <T extends Gene> extends OptimizerBase<T> {
     @Override
     public void initBeforeTrain() throws CloneNotSupportedException {
         current_params.objective();
+        ++iterateCount;
         best_params = (T) current_params.clone();
         temperature = INITIAL_TEMPERATURE;
         iterateCount = 0;
@@ -74,7 +76,5 @@ public class SimulatedAnnealing <T extends Gene> extends OptimizerBase<T> {
         return temperature < FREEZING_TEMPERATURE;
     }
 
-    public int getIterateCount() {
-        return iterateCount;
-    }
+
 }

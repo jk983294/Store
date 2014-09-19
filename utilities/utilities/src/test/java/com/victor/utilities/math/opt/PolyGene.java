@@ -7,8 +7,8 @@ public class PolyGene extends Gene {
 
     private double[] testdata;
 
-    protected PolyGene(double[] param, double[] upbounds, double[] lowbounds) {
-        super(param, upbounds, lowbounds);
+    protected PolyGene(double[] param) {
+        super(param);
         testdata = new double[]{1.0, 2.0};
     }
 

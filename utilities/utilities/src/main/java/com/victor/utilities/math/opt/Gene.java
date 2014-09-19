@@ -13,16 +13,9 @@ public abstract class Gene <E extends Gene> implements Comparable<E> , Cloneable
 
     protected double[] param;
     protected double fitness;
-    protected double[] upbounds;
-    protected double[] lowbounds;
 
-    private final static Random random = new Random();
-    private final static double MUTATE_THRESHOLD = 0.2;
-
-    protected Gene(double[] param, double[] upbounds, double[] lowbounds) {
+    protected Gene(double[] param) {
         this.param = param;
-        this.upbounds = upbounds;
-        this.lowbounds = lowbounds;
     }
 
     /**
@@ -54,35 +47,16 @@ public abstract class Gene <E extends Gene> implements Comparable<E> , Cloneable
         return param;
     }
 
+    public double getParam(int index) {
+        return param[index];
+    }
+
     public void setParam(int index, double value ){
         param[index] = value;
     }
 
-    public void setParamDelta(int index, double delta ){
-        param[index] += delta;
-        // keep new param within range
-        param[index] = Math.max(param[index], lowbounds[index]);
-        param[index] = Math.min(param[index], upbounds[index]);
-    }
-
     public void setParam(double[] param) {
         this.param = param;
-    }
-
-    public double[] getUpbounds() {
-        return upbounds;
-    }
-
-    public void setUpbounds(double[] upbounds) {
-        this.upbounds = upbounds;
-    }
-
-    public double[] getLowbounds() {
-        return lowbounds;
-    }
-
-    public void setLowbounds(double[] lowbounds) {
-        this.lowbounds = lowbounds;
     }
 
     @Override

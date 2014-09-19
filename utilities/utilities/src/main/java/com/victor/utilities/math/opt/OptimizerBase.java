@@ -5,17 +5,24 @@ import com.victor.utilities.math.utils.MathHelper;
 import java.util.Random;
 
 /**
- * base calss for max optimizer, fitness bigger is better
+ * base class for max optimizer, fitness bigger is better
  * you want to minimize, your fitness should multiply by -1.0
  */
 public abstract class OptimizerBase <T extends Gene> {
 
     protected T current_params;
     protected T best_params;
+    /**
+     * parameter bound
+     */
     protected double[] upbounds;
     protected double[] lowbounds;
+    /*** gap between upbound and lowbound */
     protected double[] delta;
+    /*** parameter count */
     protected int dimension;
+
+    protected int iterateCount;
 
     protected final Random random = new Random();
     public final static double MUTATE_THRESHOLD = 0.2;
@@ -49,7 +56,11 @@ public abstract class OptimizerBase <T extends Gene> {
         if (random.nextDouble() < MUTATE_THRESHOLD){
             gene.setParam( index, MathHelper.randomRange(lowbounds[index], upbounds[index]) );
         } else {
-            gene.setParamDelta( index, delta[index] * ( random.nextDouble() - 0.5 ) );
+            double newParam = delta[index] * ( random.nextDouble() - 0.5 ) + gene.getParam(index);
+            // keep new param within range
+            newParam = Math.max(newParam, lowbounds[index]);
+            newParam = Math.min(newParam, upbounds[index]);
+            gene.setParam( index,  newParam);
         }
     }
 
@@ -83,5 +94,9 @@ public abstract class OptimizerBase <T extends Gene> {
 
     public void setLowbounds(double[] lowbounds) {
         this.lowbounds = lowbounds;
+    }
+
+    public int getIterateCount() {
+        return iterateCount;
     }
 }

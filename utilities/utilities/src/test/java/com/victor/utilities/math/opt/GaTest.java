@@ -9,9 +9,10 @@ public class GaTest {
         double[] initParams = new double[]{ 5, 5};
         double[] upbounds = new double[]{ 100, 100};
         double[] lowbounds = new double[]{ -100, -100};
-        PolyGene initparam = new PolyGene(initParams,upbounds,lowbounds);
-        GA<PolyGene> ga = new GA<>(initparam, upbounds, lowbounds);
+        PolyGene initparam = new PolyGene(initParams);
+        OptimizerBase<PolyGene> ga = new GA<>(initparam, upbounds, lowbounds);
         ga.train();
+        System.out.println("iterate count : " + ga.getIterateCount());
         System.out.println(ga.getBest_params().toString());
     }
 }
