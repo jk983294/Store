@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.victor.midas.dao.TaskDao;
-import com.victor.midas.model.Task;
+import com.victor.midas.model.db.TaskDb;
 
 @Path("task")
 public class TaskService {
@@ -26,7 +26,7 @@ public class TaskService {
 	@GET
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Task> getLastestTask() {		
+	public List<TaskDb> getLastestTask() {
 		return taskDao.lastTasks(2);
 	}
 

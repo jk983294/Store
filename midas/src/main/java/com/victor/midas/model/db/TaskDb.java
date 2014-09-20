@@ -1,13 +1,13 @@
-package com.victor.midas.model;
+package com.victor.midas.model.db;
 
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 
-import com.victor.midas.worker.TaskStatus;
+import com.victor.midas.worker.common.TaskStatus;
 
 //task view object
-public class Task {
+public class TaskDb {
 	@Id
 	private String id;
 	private String desc;					//worker description
@@ -15,7 +15,7 @@ public class Task {
 	private Date finish;
 	private TaskStatus status;
 	
-	public Task(String desc) {
+	public TaskDb(String desc) {
 		this.desc = desc;
 		submit = new Date(System.currentTimeMillis());
 		status = TaskStatus.Submit;

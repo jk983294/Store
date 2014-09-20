@@ -7,9 +7,7 @@
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	 
 	<context:annotation-config />
-	<context:component-scan base-package="com.victor.midas.services" />
-	<context:component-scan base-package="com.victor.midas.worker" />
-	<context:component-scan base-package="com.victor.midas.dao" />
+	<context:component-scan base-package="com.victor.midas" />
     
     <!-- static properties , read from property files-->
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
@@ -22,7 +20,9 @@
 
 	<!-- Loads MongoDB configuraton -->  
 	<import resource="mongo-config.xml"/>
-	<bean id="stockDao" class="com.victor.midas.dao.StockDao" />
+
+    <!-- DAO for collection in MongoDB  -->
+    <bean id="stockDao" class="com.victor.midas.dao.StockDao" />
 	<bean id="taskDao" class="com.victor.midas.dao.TaskDao" />
 	
 	<!-- thread pool for tasks -->  
@@ -32,12 +32,12 @@
 		<property name="queueCapacity" value="25" />
 	</bean>
 
-	<bean id="taskMgr" class="com.victor.midas.worker.TaskMgr">
+	<bean id="taskMgr" class="com.victor.midas.worker.common.TaskMgr">
 		<constructor-arg ref="taskExecutor" />
 	</bean>
 
 	<!-- task -->  
-	<bean id="mktloader" class="com.victor.midas.worker.MktDataLoader" />
+	<bean id="mktloader" class="com.victor.midas.services.MktDataLoadService" />
 	
 	<!-- service provider -->  
 	<bean id="typeAhead" class="com.victor.midas.services.TypeAhead">

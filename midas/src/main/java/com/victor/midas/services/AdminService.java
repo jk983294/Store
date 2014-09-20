@@ -2,17 +2,11 @@ package com.victor.midas.services;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import javax.ws.rs.core.Response.*;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.victor.midas.dao.*;
-import com.victor.midas.worker.CreateCollectionTask;
-import com.victor.midas.worker.DeleteStockCollTask;
-import com.victor.midas.worker.MktDataLoader;
-import com.victor.midas.worker.TaskBase;
-import com.victor.midas.worker.TaskMgr;
+import com.victor.midas.worker.common.TaskMgr;
 
 @Path("admin")
 public class AdminService {

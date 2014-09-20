@@ -1,4 +1,4 @@
-package com.victor.midas.worker;
+package com.victor.midas.services;
 
 import java.io.*;
 import java.sql.Date;
@@ -13,7 +13,7 @@ import com.victor.midas.model.*;
 /**
  * load data from file system
  */
-public class MktDataLoader {
+public class MktDataLoadService {
 	@Value("${MktDataLoader.TestStockDirPath}")
 	String stockdirpath;
 	@Value("${MktDataLoader.StockIndexDirPath}")
@@ -22,7 +22,7 @@ public class MktDataLoader {
 	@Autowired
 	StockDao stockDao;
 	
-	private static final Logger logger = Logger.getLogger(MktDataLoader.class);
+	private static final Logger logger = Logger.getLogger(MktDataLoadService.class);
 	
 	public void saveAllFromStockDirPath() throws Exception{
 		logger.info("load raw stocks to mongodb from dir : " + stockdirpath);

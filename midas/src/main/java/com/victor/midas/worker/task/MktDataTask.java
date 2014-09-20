@@ -1,4 +1,4 @@
-package com.victor.midas.worker;
+package com.victor.midas.worker.task;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import com.victor.midas.worker.common.TaskBase;
 import org.apache.log4j.Logger;
 
 import com.victor.midas.dao.TaskDao;
@@ -15,7 +16,7 @@ import com.victor.midas.dao.StockDao;
 import com.victor.midas.model.Record;
 import com.victor.midas.model.Stock;
 
-public class MktDataTask extends TaskBase{
+public class MktDataTask extends TaskBase {
 	
 	private final Logger logger = Logger.getLogger(MktDataTask.class);
 	private static final String description = "Market Data Load Task";

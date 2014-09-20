@@ -1,11 +1,12 @@
-package com.victor.midas.worker;
+package com.victor.midas.worker.task;
 
+import com.victor.midas.worker.common.TaskBase;
 import org.apache.log4j.Logger;
 
 import com.victor.midas.dao.StockDao;
 import com.victor.midas.dao.TaskDao;
 
-public class DeleteStockCollTask extends TaskBase{
+public class DeleteStockCollTask extends TaskBase {
 	private StockDao stockDao;
 	private static final Logger logger = Logger.getLogger(DeleteStockCollTask.class);
 	private static final String description = "Delete Collection Task";

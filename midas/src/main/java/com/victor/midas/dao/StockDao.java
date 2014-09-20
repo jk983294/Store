@@ -3,7 +3,6 @@ package com.victor.midas.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.*;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.mongodb.core.*;
 import org.springframework.data.mongodb.core.index.Index;

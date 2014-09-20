@@ -1,4 +1,4 @@
-package com.victor.midas.worker;
+package com.victor.midas.worker.common;
 
 public enum TaskStatus {
 	Submit,
