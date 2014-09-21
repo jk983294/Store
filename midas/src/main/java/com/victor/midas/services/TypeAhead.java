@@ -8,8 +8,10 @@ import org.apache.log4j.Logger;
 import com.victor.midas.dao.StockDao;
 import com.victor.midas.model.Stock;
 import com.victor.utilities.datastructures.tree.TernaryTree;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class TypeAhead {
 	
 	private static final Logger logger = Logger.getLogger(TypeAhead.class);
@@ -24,7 +26,7 @@ public class TypeAhead {
 	private static final String[] PREFIX = {"IDX","SZ","SH"};	
 //	private static final Pattern QUERY_PATTERN = Pattern.compile("[a-zA-Z]{0,3}[0-9]{0,6}");
 	
-	
+	@Autowired
 	public TypeAhead(StockDao stockDao ){
 		List<Stock> stocks = stockDao.queryAllBasicInfo();
 		List<String> data = new ArrayList<String>();

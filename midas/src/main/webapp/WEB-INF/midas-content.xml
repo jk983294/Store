@@ -21,10 +21,6 @@
 	<!-- Loads MongoDB configuraton -->  
 	<import resource="mongo-config.xml"/>
 
-    <!-- DAO for collection in MongoDB  -->
-    <bean id="stockDao" class="com.victor.midas.dao.StockDao" />
-	<bean id="taskDao" class="com.victor.midas.dao.TaskDao" />
-	
 	<!-- thread pool for tasks -->  
 	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
 		<property name="corePoolSize" value="5" />
@@ -32,31 +28,5 @@
 		<property name="queueCapacity" value="25" />
 	</bean>
 
-	<bean id="taskMgr" class="com.victor.midas.worker.common.TaskMgr">
-		<constructor-arg ref="taskExecutor" />
-	</bean>
-
-	<!-- task -->  
-	<bean id="mktloader" class="com.victor.midas.services.MktDataLoadService" />
-	
-	<!-- service provider -->  
-	<bean id="typeAhead" class="com.victor.midas.services.TypeAhead">
-		<constructor-arg ref="stockDao" />
-	</bean>
-	
-	<!--  logger
-		<context-param>
-			<param-name>log4jConfigLocation</param-name>
-			<param-value>/WEB-INF/props/log4j.properties</param-value>
-		</context-param>
-		<context-param>
-			<param-name>log4jRefreshInterval</param-name>
-			<param-value>6000</param-value>
-		</context-param>
-		<listener>
-			<listener-class>
-			org.springframework.web.util.Log4jConfigListener
-			</listener-class>
-		</listener>  -->
  
 </beans>

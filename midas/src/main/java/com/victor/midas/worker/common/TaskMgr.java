@@ -9,7 +9,9 @@ import org.springframework.core.task.TaskExecutor;
 
 import com.victor.midas.dao.TaskDao;
 import com.victor.midas.dao.StockDao;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TaskMgr {
 
     private static final Logger logger = Logger.getLogger(TaskMgr.class);
@@ -23,6 +25,7 @@ public class TaskMgr {
 
     private TaskExecutor taskExecutor;
 
+    @Autowired
     public TaskMgr(TaskExecutor taskExecutor) {
         this.taskExecutor = taskExecutor;
     }

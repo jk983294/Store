@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Value;
 
 import com.victor.midas.dao.StockDao;
 import com.victor.midas.model.*;
+import org.springframework.stereotype.Component;
 
 /**
  * load data from file system
  */
+@Component
 public class MktDataLoadService {
 	@Value("${MktDataLoader.TestStockDirPath}")
 	String stockdirpath;

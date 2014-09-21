@@ -11,7 +11,9 @@ import org.apache.log4j.Logger;
 
 import com.victor.midas.calculator.IndexCalculator;
 import com.victor.midas.model.*;
+import org.springframework.stereotype.Component;
 
+@Component
 public class StockDao {
 	private final String STOCKS_COLLECTION = "stocks"; 
 	

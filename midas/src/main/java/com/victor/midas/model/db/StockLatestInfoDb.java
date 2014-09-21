@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 /**
  * basic info for a stock
  */
-public class StockBasicInfoDb {
+public class StockLatestInfoDb {
 
     @Id
     private String name;

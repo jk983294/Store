@@ -10,9 +10,12 @@ import org.springframework.data.mongodb.core.IndexOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.index.Index;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class TaskDao {
-	private final String TASKS_COLLECTION = "tasks"; 
+	private final String TASKS_COLLECTION = "stockTasks";
 	
 	private final Logger logger = Logger.getLogger(TaskDao.class);
 	

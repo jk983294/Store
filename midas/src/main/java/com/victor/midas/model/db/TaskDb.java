@@ -10,6 +10,7 @@ import com.victor.midas.worker.common.TaskStatus;
 public class TaskDb {
 	@Id
 	private String id;
+
 	private String desc;					//worker description
 	private Date submit;					//in MongoDB it stores no time zone information
 	private Date finish;

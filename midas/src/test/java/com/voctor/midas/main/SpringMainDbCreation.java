@@ -1,7 +1,10 @@
 package com.voctor.midas.main;
 
+import com.victor.midas.worker.common.TaskMgr;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * create db
@@ -9,10 +12,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class SpringMainDbCreation {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/WEB-INF/midas-content.xml");
+        //ApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
+        //ApplicationContext context = new FileSystemXmlApplicationContext("D:/GitHub/Store/midas/src/main/webapp/WEB-INF/midas-content.xml");
 
-//        HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
-//
-//        obj.getMessage();
+        //D:\GitHub\Store\midas\src\main\webapp\WEB-INF\midas-content.xml
+        ApplicationContext context = new ClassPathXmlApplicationContext("/WEB-INF/midas-content.xml");
+        TaskMgr taskMgr = (TaskMgr) context.getBean("taskMgr");
+        taskMgr.cmd("bad cmd");
     }
 }
