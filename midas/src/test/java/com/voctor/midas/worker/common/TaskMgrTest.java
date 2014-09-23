@@ -1,6 +1,7 @@
 package com.voctor.midas.worker.common;
 
 import com.victor.midas.worker.common.TaskMgr;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

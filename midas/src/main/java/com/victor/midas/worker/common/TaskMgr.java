@@ -39,7 +39,7 @@ public class TaskMgr {
     	case "deleteStocks" :  addTask( new DeleteStockCollTask( taskDao , stockDao ) );  break;
     	case "updateStocks" : addTask( new CreateCollectionTask( taskDao , mktloader ) ); break;
     	default : logger.error("no such cmd in task manager.");
-    	}
+    }
     }
 
     public void addTask(TaskBase task) {

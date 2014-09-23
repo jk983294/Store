@@ -40,6 +40,8 @@ function drawIndexChart(rawdata){
 
 //	console.log(times);
 	var d = merge2Array(times,ends);
+    console.log("here");
+    console.log(d);
 	
 	var plot = $.plot("#detailIndex", [d], {
 			xaxis: {
@@ -49,10 +51,10 @@ function drawIndexChart(rawdata){
 			selection: {
 				mode: "x"
 			}
-//			,
-//			grid: {
-//				markings: weekendAreas
-//			}
+			,
+			grid: {
+				markings: weekendAreas
+			}
 		});
 	var overview = $.plot("#overviewIndex", [d], {
 			series: {
