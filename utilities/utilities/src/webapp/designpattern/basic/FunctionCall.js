@@ -61,3 +61,16 @@ var person = {
 }
 // also pass person as this, that trick used in callback to maintain the scope this
 $("#some-div").click(person.hello.bind(person));
+
+//another trick to deal with callback
+function  a(){
+    this.x = 0;
+    var that = this;
+    function y(){
+        that.x = 3;
+        console.log(that.x);
+    }
+    y();
+    return this.x;
+}
+console.log(a());
