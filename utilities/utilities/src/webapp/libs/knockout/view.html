@@ -1,0 +1,28 @@
+<div id="todoapp">
+    <header>
+        <h1>Todos</h1>
+        <input id="new-todo" type="text" data-bind="value: current, valueUpdate: 'afterkeydown', enterKey: add"
+               placeholder="What needs to be done?"/>
+    </header>
+    <section id="main" data-bind="block: todos().length">
+
+        <input id="toggle-all" type="checkbox" data-bind="checked: allCompleted">
+        <label for="toggle-all">Mark all as complete</label>
+
+        <ul id="todo-list" data-bind="foreach: todos">
+
+            <!-- item -->
+            <li data-bind="css: { done: done, editing: editing }">
+                <div class="view" data-bind="event: { dblclick: $root.editItem }">
+                    <input class="toggle" type="checkbox" data-bind="checked: done">
+                    <label data-bind="text: content"></label>
+                    <a class="destroy" href="#" data-bind="click: $root.remove"></a>
+                </div>
+                <input class="edit' type="text"
+                data-bind="value: content, valueUpdate: 'afterkeydown', enterKey: $root.stopEditing, selectAndFocus: editing, event: { blur: $root.stopEditing }"/>
+            </li>
+
+        </ul>
+
+    </section>
+</div>
