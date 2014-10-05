@@ -12,7 +12,7 @@ public class StatisticsCalc {
 	 * @param interval
 	 * @return
 	 */
-	public double[] mean(double[] data, int interval) {
+	public static double[] mean(double[] data, int interval) {
 		double[] result = new double[data.length];
 		double total = 0;
 		for (int i = 0; i < interval; ++i) {
@@ -27,7 +27,7 @@ public class StatisticsCalc {
 		return result;
 	}
 	
-	public double[] mean1(double[] data, int interval) {
+	public static double[] mean1(double[] data, int interval) {
 		double[] result = new double[data.length];
 		DescriptiveStatistics descriptivestats = new DescriptiveStatistics();
 		descriptivestats.setWindowSize(interval);

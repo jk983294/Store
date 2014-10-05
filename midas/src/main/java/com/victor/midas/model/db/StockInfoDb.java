@@ -3,12 +3,14 @@ package com.victor.midas.model.db;
 import org.springframework.data.annotation.Id;
 
 /**
- * basic info for a stock
+ * basic Latest info for a stock
  */
-public class StockLatestInfoDb {
+public class StockInfoDb {
 
     @Id
     private String name;
+
+    private String desp;
 
     private double start;			// start price
     private double end;				// end price
@@ -89,5 +91,13 @@ public class StockLatestInfoDb {
 
     public void setDate(int date) {
         this.date = date;
+    }
+
+    public String getDesp() {
+        return desp;
+    }
+
+    public void setDesp(String desp) {
+        this.desp = desp;
     }
 }

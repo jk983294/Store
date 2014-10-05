@@ -1,10 +1,8 @@
 package com.voctor.midas.main;
 
-import com.victor.midas.worker.common.TaskMgr;
+import com.victor.midas.services.TaskMgr;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * create db

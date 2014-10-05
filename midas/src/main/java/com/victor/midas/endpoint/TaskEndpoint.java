@@ -1,4 +1,4 @@
-package com.victor.midas.services;
+package com.victor.midas.endpoint;
 
 import java.util.List;
 
@@ -17,8 +17,8 @@ import com.victor.midas.dao.TaskDao;
 import com.victor.midas.model.db.TaskDb;
 
 @Path("task")
-public class TaskService {
-	private static final Logger logger = Logger.getLogger(TaskService.class);
+public class TaskEndpoint {
+	private static final Logger logger = Logger.getLogger(TaskEndpoint.class);
 	
 	@Autowired
     private TaskDao taskDao;
@@ -27,7 +27,7 @@ public class TaskService {
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<TaskDb> getLastestTask() {
-		return taskDao.lastTasks(2);
+		return taskDao.queryLastTasks(2);
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class TaskService {
 	@DELETE
 	@Path("/")
 	public Response deleteTasks() {	
-		taskDao.dropTaskCollection();
+		taskDao.deleteCollection();
 		return Response.ok().build();
 	}
 	

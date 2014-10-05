@@ -1,4 +1,4 @@
-package com.victor.midas.worker.common;
+package com.victor.midas.services.worker.common;
 
 import java.sql.Timestamp;
 
@@ -32,6 +32,7 @@ public abstract class TaskBase implements Runnable{
 			doTask();							
 		} catch (Exception e) {
 			logger.error(e);
+            taskDb.setFailInfo(e.toString());
 			taskDb.setStatus(TaskStatus.Error);
 		}finally{
 			taskDb.setFinish(new Timestamp(System.currentTimeMillis()));

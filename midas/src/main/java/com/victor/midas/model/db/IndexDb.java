@@ -1,27 +1,45 @@
 package com.victor.midas.model.db;
 
+import com.victor.midas.util.MidasConstants;
 import org.springframework.data.annotation.Id;
+
+import java.util.Arrays;
 
 /**
  * index for a stock
  */
 public class IndexDb {
     @Id
-    private String name;
+    private String id;  // id = "stockName_indexName"
 
+    private String stockName;
     private String indexName;
 
-    private int startDate;
-    private int endDate;
-    private double[] index;
-    private int[] date;
+    private double[] indexDouble;
+    private int[] indexInt;
 
-    public String getName() {
-        return name;
+    public IndexDb(String stockName, String indexName, double[] indexDouble, int[] indexInt) {
+        this.stockName = stockName;
+        this.indexName = indexName;
+        this.indexDouble = indexDouble;
+        this.indexInt = indexInt;
+        this.id = MidasConstants.getIndexId(stockName, indexName);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getStockName() {
+        return stockName;
+    }
+
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
     }
 
     public String getIndexName() {
@@ -32,35 +50,30 @@ public class IndexDb {
         this.indexName = indexName;
     }
 
-    public int getStartDate() {
-        return startDate;
+    public double[] getIndexDouble() {
+        return indexDouble;
     }
 
-    public void setStartDate(int startDate) {
-        this.startDate = startDate;
+    public void setIndexDouble(double[] indexDouble) {
+        this.indexDouble = indexDouble;
     }
 
-    public int getEndDate() {
-        return endDate;
+    public int[] getIndexInt() {
+        return indexInt;
     }
 
-    public void setEndDate(int endDate) {
-        this.endDate = endDate;
+    public void setIndexInt(int[] indexInt) {
+        this.indexInt = indexInt;
     }
 
-    public double[] getIndex() {
-        return index;
-    }
-
-    public void setIndex(double[] index) {
-        this.index = index;
-    }
-
-    public int[] getDate() {
-        return date;
-    }
-
-    public void setDate(int[] date) {
-        this.date = date;
+    @Override
+    public String toString() {
+        return "IndexDb{" +
+                "id='" + id + '\'' +
+                ", stockName='" + stockName + '\'' +
+                ", indexName='" + indexName + '\'' +
+                ", indexDouble=" + Arrays.toString(indexDouble) +
+                ", indexInt=" + Arrays.toString(indexInt) +
+                '}';
     }
 }

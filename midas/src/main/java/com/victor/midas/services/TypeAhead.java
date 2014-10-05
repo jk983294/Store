@@ -5,8 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.victor.midas.dao.StockDao;
-import com.victor.midas.model.Stock;
+import com.victor.midas.dao.StockInfoDao;
 import com.victor.utilities.datastructures.tree.TernaryTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,15 +26,15 @@ public class TypeAhead {
 //	private static final Pattern QUERY_PATTERN = Pattern.compile("[a-zA-Z]{0,3}[0-9]{0,6}");
 	
 	@Autowired
-	public TypeAhead(StockDao stockDao ){
-		List<Stock> stocks = stockDao.queryAllBasicInfo();
-		List<String> data = new ArrayList<String>();
-		if (stocks != null) {
-			for (Stock stock : stocks) {
-				data.add(stock.getName());
-			}
-			init(data);
-		}
+	public TypeAhead(StockInfoDao stockInfoDao){
+//		List<Stock> stocks = stockInfoDao.queryAllBasicInfo();
+//		List<String> data = new ArrayList<String>();
+//		if (stocks != null) {
+//			for (Stock stock : stocks) {
+//				data.add(stock.getName());
+//			}
+//			init(data);
+//		}
 	}
 	
 	public TypeAhead(List<String> names){

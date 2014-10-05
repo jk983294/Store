@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 
-import com.victor.midas.worker.common.TaskStatus;
+import com.victor.midas.services.worker.common.TaskStatus;
 
 //task view object
 public class TaskDb {
@@ -15,6 +15,7 @@ public class TaskDb {
 	private Date submit;					//in MongoDB it stores no time zone information
 	private Date finish;
 	private TaskStatus status;
+    private String failInfo;
 	
 	public TaskDb(String desc) {
 		this.desc = desc;
@@ -53,7 +54,15 @@ public class TaskDb {
 		this.id = id;
 	}
 
-	@Override
+    public String getFailInfo() {
+        return failInfo;
+    }
+
+    public void setFailInfo(String failInfo) {
+        this.failInfo = failInfo;
+    }
+
+    @Override
 	public String toString() {
 		return "Task [desc=" + desc + ", submit=" + submit + ", finish="
 				+ finish + ", status=" + status + "]";
