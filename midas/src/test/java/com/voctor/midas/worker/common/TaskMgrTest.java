@@ -3,6 +3,7 @@ package com.voctor.midas.worker.common;
 import com.victor.midas.services.TaskMgr;
 
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * unit test for TaskMgr
  */
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/WEB-INF/midas-content.xml")
 public class TaskMgrTest {

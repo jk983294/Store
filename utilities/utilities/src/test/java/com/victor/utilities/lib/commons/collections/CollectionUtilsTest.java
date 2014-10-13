@@ -873,41 +873,4 @@ public class CollectionUtilsTest  {
         assertTrue(CollectionUtils.matchesAll(null, lessThanFour));
         assertTrue(CollectionUtils.matchesAll(emptyCollection, lessThanFour));
     }
-
-    @Test
-    public void testRemoveAllWithEquator() {
-        final List<String> base = new ArrayList<String>();
-        base.add("AC");
-        base.add("BB");
-        base.add("CA");
-
-        final List<String> remove = new ArrayList<String>();
-        remove.add("AA");
-        remove.add("CX");
-        remove.add("XZ");
-
-        try {
-            CollectionUtils.removeAll(base, remove);
-            fail("expecting NullPointerException");
-        } catch (final NullPointerException npe) {
-        } // this is what we want
-    }
-
-    @Test
-    public void testRetainAllWithEquator() {
-        final List<String> base = new ArrayList<String>();
-        base.add("AC");
-        base.add("BB");
-        base.add("CA");
-
-        final List<String> retain = new ArrayList<String>();
-        retain.add("AA");
-        retain.add("CX");
-        retain.add("XZ");
-        try {
-            CollectionUtils.retainAll(base, retain);
-            fail("expecting NullPointerException");
-        } catch (final NullPointerException npe) {
-        } // this is what we want
-    }
 }

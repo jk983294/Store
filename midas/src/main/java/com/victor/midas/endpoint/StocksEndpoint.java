@@ -14,6 +14,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("stocks")
@@ -33,6 +34,16 @@ public class StocksEndpoint {
 	public StockVo getStock(@PathParam("name") String name) {
 		return stocksService.getStockWithAllIndex(name);
 	}
+
+    @GET
+    @Path("/stock/{name1}/{name2}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<StockVo> getTwoStocks(@PathParam("name1") String name1, @PathParam("name2") String name2) {
+        List<StockVo> array = new ArrayList<>();
+        array.add(stocksService.getStockWithAllIndex(name1));
+        array.add(stocksService.getStockWithAllIndex(name2));
+        return array;
+    }
 
     @GET
     @Path("/")
