@@ -8,6 +8,9 @@ import com.victor.midas.services.StocksService;
 import com.victor.midas.services.TypeAhead;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -17,7 +20,9 @@ import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
-@Path("stocks")
+
+@RestController
+@RequestMapping("/stocks")
 public class StocksEndpoint {
 	private final Logger logger = Logger.getLogger(StocksEndpoint.class);
 	
@@ -29,16 +34,16 @@ public class StocksEndpoint {
     private StocksService stocksService;
 	
 	@GET
-	@Path("/stock/{name}")
+    @RequestMapping("/stock/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public StockVo getStock(@PathParam("name") String name) {
+	public StockVo getStock(@PathVariable("name") String name) {
 		return stocksService.getStockWithAllIndex(name);
 	}
 
     @GET
-    @Path("/stock/{name1}/{name2}")
+    @RequestMapping("/stock/{name1}/{name2}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<StockVo> getTwoStocks(@PathParam("name1") String name1, @PathParam("name2") String name2) {
+    public List<StockVo> getTwoStocks(@PathVariable("name1") String name1, @PathVariable("name2") String name2) {
         List<StockVo> array = new ArrayList<>();
         array.add(stocksService.getStockWithAllIndex(name1));
         array.add(stocksService.getStockWithAllIndex(name2));
@@ -46,16 +51,16 @@ public class StocksEndpoint {
     }
 
     @GET
-    @Path("/")
+    @RequestMapping("/")
     @Produces(MediaType.APPLICATION_JSON)
     public List<StockInfoDb> getStockBasicInfo() {
         return stockInfoDao.queryAllBasicInfo();
     }
 	
 	@GET
-	@Path("/typeahead/{query}")
+	@RequestMapping("/typeahead/{query}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<String> getTips(@PathParam("query") String query) {
+	public List<String> getTips(@PathVariable("query") String query) {
 		List<String> tips = typeAhead.query(query);		
 		return tips;
 	}
@@ -63,7 +68,7 @@ public class StocksEndpoint {
 
 	
 	@GET
-	@Path("/test/")
+	@RequestMapping("/test/")
 	public String test() {
 		logger.info(stockInfoDao.getStockCount());
 		logger.info("page");
