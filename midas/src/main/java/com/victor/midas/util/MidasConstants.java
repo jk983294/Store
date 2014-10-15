@@ -1,5 +1,10 @@
 package com.victor.midas.util;
 
+import com.victor.utilities.math.utils.MathHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * constant variable lives here
  */
@@ -36,5 +41,13 @@ public class MidasConstants {
         return sb.toString();
     }
 
+    /**
+     * typeahead actions
+     */
+    public static List<String> actions;
 
+    static {
+        String[] actionArray={"cmp","task"};
+        actions = MathHelper.array2list(actionArray);
+    }
 }

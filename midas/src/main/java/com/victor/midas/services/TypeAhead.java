@@ -3,6 +3,8 @@ package com.victor.midas.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.victor.midas.model.db.StockInfoDb;
+import com.victor.midas.util.MidasConstants;
 import org.apache.log4j.Logger;
 
 import com.victor.midas.dao.StockInfoDao;
@@ -27,14 +29,15 @@ public class TypeAhead {
 	
 	@Autowired
 	public TypeAhead(StockInfoDao stockInfoDao){
-//		List<Stock> stocks = stockInfoDao.queryAllBasicInfo();
-//		List<String> data = new ArrayList<String>();
-//		if (stocks != null) {
-//			for (Stock stock : stocks) {
-//				data.add(stock.getName());
-//			}
-//			init(data);
-//		}
+        init(MidasConstants.actions);
+		List<StockInfoDb> stocks = stockInfoDao.queryAllBasicInfo();
+		List<String> data = new ArrayList<String>();
+		if (stocks != null) {
+			for (StockInfoDb stock : stocks) {
+				data.add(stock.getName());
+			}
+			init(data);
+		}
 	}
 	
 	public TypeAhead(List<String> names){

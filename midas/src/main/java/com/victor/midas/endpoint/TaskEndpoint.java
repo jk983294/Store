@@ -26,7 +26,7 @@ public class TaskEndpoint {
 	@RequestMapping(value="/", method= RequestMethod.GET)
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<TaskDb> getLastestTask() {
-		return taskDao.queryLastTasks(2);
+		return taskDao.queryLastTasks(5);
 	}
 
 	/**

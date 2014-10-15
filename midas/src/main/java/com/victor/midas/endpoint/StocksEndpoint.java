@@ -28,20 +28,18 @@ public class StocksEndpoint {
 	
 	@Autowired
 	private StockInfoDao stockInfoDao;
-	@Autowired
-	private TypeAhead typeAhead;
     @Autowired
     private StocksService stocksService;
 	
 	@GET
-    @RequestMapping("/stock/{name}")
+    @RequestMapping("/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public StockVo getStock(@PathVariable("name") String name) {
 		return stocksService.getStockWithAllIndex(name);
 	}
 
     @GET
-    @RequestMapping("/stock/{name1}/{name2}")
+    @RequestMapping("/{name1}/{name2}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<StockVo> getTwoStocks(@PathVariable("name1") String name1, @PathVariable("name2") String name2) {
         List<StockVo> array = new ArrayList<>();
@@ -57,13 +55,7 @@ public class StocksEndpoint {
         return stockInfoDao.queryAllBasicInfo();
     }
 	
-	@GET
-	@RequestMapping("/typeahead/{query}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<String> getTips(@PathVariable("query") String query) {
-		List<String> tips = typeAhead.query(query);		
-		return tips;
-	}
+
 	
 
 	
