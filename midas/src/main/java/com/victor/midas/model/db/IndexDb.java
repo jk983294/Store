@@ -14,15 +14,25 @@ public class IndexDb {
 
     private String stockName;
     private String indexName;
+    private MidasConstants.IndexType indexType;
 
     private double[] indexDouble;
     private int[] indexInt;
 
-    public IndexDb(String stockName, String indexName, double[] indexDouble, int[] indexInt) {
+    public IndexDb(String stockName, String indexName, double[] indexDouble) {
         this.stockName = stockName;
         this.indexName = indexName;
         this.indexDouble = indexDouble;
+        indexType = MidasConstants.IndexType.DOUBLE;
+        this.id = MidasConstants.getIndexId(stockName, indexName);
+    }
+
+
+    public IndexDb(String stockName, String indexName, int[] indexInt) {
+        this.stockName = stockName;
+        this.indexName = indexName;
         this.indexInt = indexInt;
+        indexType = MidasConstants.IndexType.INT;
         this.id = MidasConstants.getIndexId(stockName, indexName);
     }
 
@@ -64,6 +74,14 @@ public class IndexDb {
 
     public void setIndexInt(int[] indexInt) {
         this.indexInt = indexInt;
+    }
+
+    public MidasConstants.IndexType getIndexType() {
+        return indexType;
+    }
+
+    public void setIndexType(MidasConstants.IndexType indexType) {
+        this.indexType = indexType;
     }
 
     @Override

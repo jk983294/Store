@@ -24,7 +24,7 @@ public class MidasConstants {
     public static final String TASK_COLLECTION_NAME = "StockTask";
 
     /**
-     * index name
+     * basic index name
      */
     public static final String INDEX_NAME_DATE = "date";
     public static final String INDEX_NAME_START = "start";
@@ -49,5 +49,9 @@ public class MidasConstants {
     static {
         String[] actionArray={"cmp","task"};
         actions = MathHelper.array2list(actionArray);
+    }
+
+    public enum IndexType{
+        DOUBLE, INT, BOOLEAN, UNKNOWN
     }
 }
