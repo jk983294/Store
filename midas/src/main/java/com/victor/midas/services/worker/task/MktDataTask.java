@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.victor.midas.calculator.IndexCalcException;
 import com.victor.midas.calculator.IndexCalculator;
 import com.victor.midas.model.vo.StockVo;
 import com.victor.midas.services.StocksService;
@@ -36,7 +37,7 @@ public class MktDataTask extends TaskBase {
 	}
 
 	@Override
-	public void doTask() throws IOException {
+	public void doTask() throws IOException, IndexCalcException {
         for (Map.Entry<String, String> entry : filepath2prefix.entrySet()) {
             String filePath = entry.getKey().toString();
             String prefix = entry.getValue().toString();
@@ -53,7 +54,6 @@ public class MktDataTask extends TaskBase {
         File[] files = root.listFiles();
         for(File file:files){
             if(file.isDirectory()){
-                //Recursive call
                 fromDirectory(file.getAbsolutePath(),prefix);
             }else{
                 String fileName = file.getAbsolutePath();
@@ -61,14 +61,13 @@ public class MktDataTask extends TaskBase {
                     StockVo stock = fromFile(file.getAbsolutePath(), prefix);
 					logger.info(stock.getStockName());
                     stocks.add(stock);
-                    //stockdao.saveStock(stock);
                 }
             }
         }
     }
 
-    private void calcIndex(){
-        IndexCalculator indexCalculator = new IndexCalculator(stocks);
+    private void calcIndex() throws IndexCalcException {
+        IndexCalculator indexCalculator = new IndexCalculator(stocks, stocksService.getIndexDao());
         indexCalculator.calculate();
     }
 	
@@ -109,13 +108,13 @@ public class MktDataTask extends TaskBase {
         }
 
         StockVo stock = new StockVo(stockName, sb.toString());
-        stock.addIndex(MidasConstants.INDEX_NAME_DATE, date);
-        stock.addIndex(MidasConstants.INDEX_NAME_START, start);
-        stock.addIndex(MidasConstants.INDEX_NAME_MAX, max);
-        stock.addIndex(MidasConstants.INDEX_NAME_MIN, min);
-        stock.addIndex(MidasConstants.INDEX_NAME_END, end);
-        stock.addIndex(MidasConstants.INDEX_NAME_VOLUME, volume);
-        stock.addIndex(MidasConstants.INDEX_NAME_TOTAL, total);
+        stock.addIndex(MidasConstants.INDEX_NAME_DATE, date, date);
+        stock.addIndex(MidasConstants.INDEX_NAME_START, start, date);
+        stock.addIndex(MidasConstants.INDEX_NAME_MAX, max, date);
+        stock.addIndex(MidasConstants.INDEX_NAME_MIN, min, date);
+        stock.addIndex(MidasConstants.INDEX_NAME_END, end, date);
+        stock.addIndex(MidasConstants.INDEX_NAME_VOLUME, volume, date);
+        stock.addIndex(MidasConstants.INDEX_NAME_TOTAL, total, date);
 		return stock;
 	}
 	

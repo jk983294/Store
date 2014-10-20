@@ -32,13 +32,23 @@ public class StockVo {
         indexes.put(indexDb.getIndexName(), indexDb);
     }
 
-    public void addIndex(String indexName, double data[]){
-        IndexDb indexDb = new IndexDb(stockName, indexName, data, null);
+    public void addIndex(String indexName, double data[], int startDate, int endDate){
+        IndexDb indexDb = new IndexDb(stockName, indexName, data, startDate, endDate);
         indexes.put(indexName, indexDb);
     }
 
-    public void addIndex(String indexName, int data[]){
-        IndexDb indexDb = new IndexDb(stockName, indexName, null, data);
+    public void addIndex(String indexName, int data[], int startDate, int endDate){
+        IndexDb indexDb = new IndexDb(stockName, indexName, data, startDate, endDate);
+        indexes.put(indexName, indexDb);
+    }
+
+    public void addIndex(String indexName, double data[], int[] date){
+        IndexDb indexDb = new IndexDb(stockName, indexName, data, date);
+        indexes.put(indexName, indexDb);
+    }
+
+    public void addIndex(String indexName, int data[], int[] date){
+        IndexDb indexDb = new IndexDb(stockName, indexName, data, date);
         indexes.put(indexName, indexDb);
     }
 
@@ -85,7 +95,7 @@ public class StockVo {
         return "StockVo{" +
                 "stockName='" + stockName + '\'' +
                 ", desp='" + desp + '\'' +
-                ", indexes=" + indexes +
+                ", indicator=" + indexes +
                 '}';
     }
 }

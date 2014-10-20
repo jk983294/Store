@@ -101,8 +101,8 @@ db.users.remove(
    { status: "D" }
 )
 db.inventory.remove( { type : "food" }, 1 )		//remove only one doc
-db.inventory.remove({})		//remove all docs but not indexes
-db.inventory.drop()				//remove all include indexes
+db.inventory.remove({})		//remove all docs but not indicator
+db.inventory.drop()				//remove all include indicator
 db.people.findAndModify(	//query then modify
    {
      query: { state: "active" },

@@ -32,6 +32,10 @@ public class IndexDao {
         return mongoTemplate.find(new Query(Criteria.where("_id").regex(stockName)), IndexDb.class, COLLECTION_NAME);
     }
 
+    public IndexDb queryIndex(String indexName){
+        return mongoTemplate.findOne(new Query(Criteria.where("_id").is(indexName)), IndexDb.class, COLLECTION_NAME);
+    }
+
     /**
      * save the task to DB, the task Id will be populated automatically
      * next time, if save again, it will saved by that Id

@@ -19,21 +19,53 @@ public class IndexDb {
     private double[] indexDouble;
     private int[] indexInt;
 
-    public IndexDb(String stockName, String indexName, double[] indexDouble) {
+    private int startDate;
+    private int endDate;
+
+    public IndexDb(String stockName, String indexName, double[] indexDouble, int[] date) {
         this.stockName = stockName;
         this.indexName = indexName;
         this.indexDouble = indexDouble;
         indexType = MidasConstants.IndexType.DOUBLE;
         this.id = MidasConstants.getIndexId(stockName, indexName);
+        if(date != null && date.length > 0){
+            startDate = date[0];
+            endDate = date[date.length - 1];
+        }
     }
 
 
-    public IndexDb(String stockName, String indexName, int[] indexInt) {
+    public IndexDb(String stockName, String indexName, int[] indexInt, int[] date) {
         this.stockName = stockName;
         this.indexName = indexName;
         this.indexInt = indexInt;
         indexType = MidasConstants.IndexType.INT;
         this.id = MidasConstants.getIndexId(stockName, indexName);
+        if(date != null && date.length > 0){
+            startDate = date[0];
+            endDate = date[date.length - 1];
+        }
+    }
+
+    public IndexDb(String stockName, String indexName, double[] indexDouble, int startDate, int endDate) {
+        this.stockName = stockName;
+        this.indexName = indexName;
+        this.indexDouble = indexDouble;
+        indexType = MidasConstants.IndexType.DOUBLE;
+        this.id = MidasConstants.getIndexId(stockName, indexName);
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
+
+    public IndexDb(String stockName, String indexName, int[] indexInt, int startDate, int endDate) {
+        this.stockName = stockName;
+        this.indexName = indexName;
+        this.indexInt = indexInt;
+        indexType = MidasConstants.IndexType.INT;
+        this.id = MidasConstants.getIndexId(stockName, indexName);
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public String getId() {
@@ -82,6 +114,22 @@ public class IndexDb {
 
     public void setIndexType(MidasConstants.IndexType indexType) {
         this.indexType = indexType;
+    }
+
+    public int getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(int startDate) {
+        this.startDate = startDate;
+    }
+
+    public int getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(int endDate) {
+        this.endDate = endDate;
     }
 
     @Override

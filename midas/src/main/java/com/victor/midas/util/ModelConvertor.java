@@ -43,11 +43,7 @@ public class ModelConvertor {
     public static StockVo convert2StockVo(StockInfoDb stockInfo, List<IndexDb> indexDbs){
         StockVo stock = new StockVo(stockInfo.getName(), stockInfo.getDesp());
         for (IndexDb indexDb : indexDbs) {
-            if( indexDb.getIndexDouble() != null ) {
-                stock.addIndex(indexDb.getIndexName(), indexDb.getIndexDouble());
-            } else {
-                stock.addIndex(indexDb.getIndexName(), indexDb.getIndexInt());
-            }
+            stock.addIndex(indexDb);
         }
         return stock;
     }

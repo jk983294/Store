@@ -51,8 +51,25 @@ public class StocksService {
         List<IndexDb> indexDbs = indexDao.queryAllIndex(stockName);
         return ModelConvertor.convert2StockVo(stockInfo, indexDbs);
     }
-	
 
-	
-	
+
+    public StockInfoDao getStockInfoDao() {
+        return stockInfoDao;
+    }
+
+    public TaskDao getTaskDao() {
+        return taskDao;
+    }
+
+    public IndexDao getIndexDao() {
+        return indexDao;
+    }
+
+    public MiscDao getMiscDao() {
+        return miscDao;
+    }
+
+    public TypeAhead getTypeAhead() {
+        return typeAhead;
+    }
 }
