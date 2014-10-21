@@ -1,5 +1,6 @@
 package com.victor.midas.model.db;
 
+import com.victor.midas.calculator.IndexType;
 import com.victor.midas.util.MidasConstants;
 import org.springframework.data.annotation.Id;
 
@@ -14,7 +15,7 @@ public class IndexDb {
 
     private String stockName;
     private String indexName;
-    private MidasConstants.IndexType indexType;
+    private IndexType indexType;
 
     private double[] indexDouble;
     private int[] indexInt;
@@ -26,7 +27,7 @@ public class IndexDb {
         this.stockName = stockName;
         this.indexName = indexName;
         this.indexDouble = indexDouble;
-        indexType = MidasConstants.IndexType.DOUBLE;
+        indexType = IndexType.DOUBLE;
         this.id = MidasConstants.getIndexId(stockName, indexName);
         if(date != null && date.length > 0){
             startDate = date[0];
@@ -39,7 +40,7 @@ public class IndexDb {
         this.stockName = stockName;
         this.indexName = indexName;
         this.indexInt = indexInt;
-        indexType = MidasConstants.IndexType.INT;
+        indexType = IndexType.INT;
         this.id = MidasConstants.getIndexId(stockName, indexName);
         if(date != null && date.length > 0){
             startDate = date[0];
@@ -51,7 +52,7 @@ public class IndexDb {
         this.stockName = stockName;
         this.indexName = indexName;
         this.indexDouble = indexDouble;
-        indexType = MidasConstants.IndexType.DOUBLE;
+        indexType = IndexType.DOUBLE;
         this.id = MidasConstants.getIndexId(stockName, indexName);
         this.startDate = startDate;
         this.endDate = endDate;
@@ -62,7 +63,7 @@ public class IndexDb {
         this.stockName = stockName;
         this.indexName = indexName;
         this.indexInt = indexInt;
-        indexType = MidasConstants.IndexType.INT;
+        indexType = IndexType.INT;
         this.id = MidasConstants.getIndexId(stockName, indexName);
         this.startDate = startDate;
         this.endDate = endDate;
@@ -108,11 +109,11 @@ public class IndexDb {
         this.indexInt = indexInt;
     }
 
-    public MidasConstants.IndexType getIndexType() {
+    public IndexType getIndexType() {
         return indexType;
     }
 
-    public void setIndexType(MidasConstants.IndexType indexType) {
+    public void setIndexType(IndexType indexType) {
         this.indexType = indexType;
     }
 
