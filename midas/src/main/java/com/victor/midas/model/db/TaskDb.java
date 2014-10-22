@@ -16,6 +16,8 @@ public class TaskDb {
 	private Date finish;
 	private TaskStatus status;
     private String failInfo;
+
+    public TaskDb(){}
 	
 	public TaskDb(String desc) {
 		this.desc = desc;

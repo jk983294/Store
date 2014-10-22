@@ -9,7 +9,9 @@ public abstract class MiscBase {
     @Id
     protected String MiscName;
 
-    protected MiscBase(String miscName) {
+    public MiscBase(){}
+
+    public MiscBase(String miscName) {
         MiscName = miscName;
     }
 

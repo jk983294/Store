@@ -23,6 +23,8 @@ public class IndexDb {
     private int startDate;
     private int endDate;
 
+    public IndexDb(){}
+
     public IndexDb(String stockName, String indexName, double[] indexDouble, int[] date) {
         this.stockName = stockName;
         this.indexName = indexName;

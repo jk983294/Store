@@ -1,5 +1,6 @@
 package com.victor.midas.util;
 
+import com.victor.utilities.math.utils.ArrayHelper;
 import com.victor.utilities.math.utils.MathHelper;
 
 import java.util.ArrayList;
@@ -47,11 +48,13 @@ public class MidasConstants {
     public static List<String> actions;
 
     static {
-        String[] actionArray={"cmp","task"};
-        actions = MathHelper.array2list(actionArray);
+        String[] actionArray={"load", "delete", "create", "task", "train", "test"};
+        actions = ArrayHelper.array2list(actionArray);
     }
 
-    public enum IndexType{
-        DOUBLE, INT, BOOLEAN, UNKNOWN
-    }
+    /**
+     * response status
+     */
+    public static final String RESPONSE_SUCCESS = "SUCCESS";
+    public static final String RESPONSE_FAIL = "FAIL";
 }

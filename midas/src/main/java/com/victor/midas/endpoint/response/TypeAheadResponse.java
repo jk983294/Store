@@ -7,20 +7,25 @@ import java.util.List;
  */
 public class TypeAheadResponse {
 
+
+
     private String action;
     private List<String> tips;
     private String status;
+    private String description;
 
     public TypeAheadResponse() { }
 
-    public TypeAheadResponse(List<String> tips, String status) {
+    public TypeAheadResponse(List<String> tips, String status, String description) {
         this.tips = tips;
         this.status = status;
+        this.description = description;
     }
 
-    public TypeAheadResponse(String action, String status) {
+    public TypeAheadResponse(String action, String status, String description) {
         this.action = action;
         this.status = status;
+        this.description = description;
     }
 
     public String getAction() {
@@ -47,12 +52,21 @@ public class TypeAheadResponse {
         this.status = status;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return "TypeAheadResponse{" +
                 "action='" + action + '\'' +
                 ", tips=" + tips +
                 ", status='" + status + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

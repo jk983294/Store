@@ -20,9 +20,7 @@ public class IndexCalculator {
     private static List<String> indexNames = new ArrayList<>();
 
     static {
-        /**
-         * prepare all index calculator
-         */
+        /*** prepare all index calculator*/
         indexCalcbases.add(new IndexChangePct());
 
         int[] PRICE_MA_INTERVALS = new int[]{ 5, 15, 30};
@@ -30,7 +28,7 @@ public class IndexCalculator {
             indexCalcbases.add(new IndexPriceMA(interval));
         }
 
-        // store all index names
+        /*** store all index names*/
         for (IndexCalcbase indexCalcbase : indexCalcbases){
             indexNames.add(indexCalcbase.getIndexName());
         }
@@ -46,6 +44,7 @@ public class IndexCalculator {
     }
 
     public void calculate() throws IndexCalcException {
+        logger.info("calculation use incremental mode : " + IndexCalcbase.useExistingData);
 		for(StockVo stock : stocks){
             try {
                 List<IndexDb> oldIndexes = indexDao.queryAllIndex(stock.getStockName());

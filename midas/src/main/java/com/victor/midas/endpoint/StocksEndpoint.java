@@ -49,7 +49,7 @@ public class StocksEndpoint {
     }
 
     @GET
-    @RequestMapping("/")
+    @RequestMapping("/stockinfos")
     @Produces(MediaType.APPLICATION_JSON)
     public List<StockInfoDb> getStockBasicInfo() {
         return stockInfoDao.queryAllBasicInfo();

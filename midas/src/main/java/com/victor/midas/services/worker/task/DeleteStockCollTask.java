@@ -29,8 +29,8 @@ public class DeleteStockCollTask extends TaskBase {
 	@Override
 	public void doTask() {
         // clear all documents in task collection
-        taskDao.deleteCollection();
-        taskDao.createCollection();
+//        taskDao.deleteCollection();
+//        taskDao.createCollection();
 
         stockInfoDao.deleteCollection();
         indexDao.deleteCollection();

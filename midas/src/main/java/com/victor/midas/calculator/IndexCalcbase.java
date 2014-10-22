@@ -12,7 +12,7 @@ public abstract class IndexCalcbase {
 
     private static final Logger logger = Logger.getLogger(IndexCalcbase.class);
 
-    private static final boolean useExistingData = false;
+    public static final boolean useExistingData = false;
 
     public String getIndexNameOfStock(String stockName){
         return stockName +"_"+ getIndexName();

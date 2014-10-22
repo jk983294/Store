@@ -50,6 +50,10 @@ public class TaskMgr {
     public TaskMgr(TaskExecutor taskExecutor) {
         this.taskExecutor = taskExecutor;
     }
+
+    public static final String CMD_DELETE_DATE = "deleteAllData";
+    public static final String CMD_LOAD_DATA = "loadMarketData";
+    public static final String CMD_CREATE_DB = "createDB";
     
     /**
      * take the instruction for different command
@@ -57,9 +61,9 @@ public class TaskMgr {
      */
     public void cmd(String instruction){
     	switch(instruction){
-            case "deleteAllData" :  addTask( new DeleteStockCollTask( taskDao , stockInfoDao, indexDao, miscDao ) );  break;
-            case "createDB" : addTask( new CreateCollectionTask( taskDao , stockInfoDao, indexDao, miscDao ) ); break;
-            case "loadMarketData" : addTask(new MktDataTask(filepath2prefix, taskDao, stocksService)); break;
+            case CMD_DELETE_DATE :  addTask( new DeleteStockCollTask( taskDao , stockInfoDao, indexDao, miscDao ) );  break;
+            case CMD_CREATE_DB : addTask( new CreateCollectionTask( taskDao , stockInfoDao, indexDao, miscDao ) ); break;
+            case CMD_LOAD_DATA : addTask(new MktDataTask(filepath2prefix, taskDao, stocksService)); break;
             default : logger.error("no such cmd in task manager.");
         }
     }

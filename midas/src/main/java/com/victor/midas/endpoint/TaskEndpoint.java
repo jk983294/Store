@@ -19,33 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("task")
 public class TaskEndpoint {
 	private static final Logger logger = Logger.getLogger(TaskEndpoint.class);
+
+    private static final int QUERY_MAX_TASK_CNT = 10;
 	
 	@Autowired
     private TaskDao taskDao;
 
-	@RequestMapping(value="/", method= RequestMethod.GET)
+	@RequestMapping(value="/alltasks", method= RequestMethod.GET)
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<TaskDb> getLastestTask() {
-		return taskDao.queryLastTasks(5);
-	}
-
-	/**
-	 * deliver task to delete all stocks in MongoDB
-	 * @return
-	 */
-	@RequestMapping(value="/", method= RequestMethod.DELETE)
-	public Response deleteTasks() {	
-		taskDao.deleteCollection();
-		return Response.ok().build();
-	}
-	
-	/**
-	 * create task collection
-	 * @return
-	 */
-	@RequestMapping(value="/", method= RequestMethod.PUT)
-	public Response updateTasks() {		
-		taskDao.createCollection();
-		return Response.ok().build();
+        logger.info("query last " + QUERY_MAX_TASK_CNT + " tasks.");
+		return taskDao.queryLastTasks(QUERY_MAX_TASK_CNT);
 	}
 }

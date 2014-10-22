@@ -21,8 +21,7 @@ public class TypeAhead {
 	/**
 	 * characters that we don't bother to concern
 	 */
-	private static final String NOT_UNDER_CONCERN = "[^0-9a-zA-Z]";		
-	private static final String QUERY_PATTERN = "([a-zA-Z]){0,3}([0-9]){0,6}";	
+	private static final String NOT_UNDER_CONCERN = "[^0-9a-zA-Z]";
 	private static final String ONLY_NUMBER = "[0-9]{1,6}";	
 	private static final String[] PREFIX = {"IDX","SZ","SH"};	
 //	private static final Pattern QUERY_PATTERN = Pattern.compile("[a-zA-Z]{0,3}[0-9]{0,6}");
@@ -45,7 +44,7 @@ public class TypeAhead {
 	}
 	
 	public void init(List<String> names){
-		data = new TernaryTree();
+        if(data == null) data = new TernaryTree();
 		if(names != null){
 			for (String string : names) {
 				data.add(string);
@@ -63,9 +62,7 @@ public class TypeAhead {
 		tofinds.replaceAll(NOT_UNDER_CONCERN, " ");	
 		String[] subquerys = tofinds.split(" ");
 		for (String subquery : subquerys) {
-			if (subquery.matches(QUERY_PATTERN)) {
-				results.addAll(querySingle(subquery));
-			}
+            results.addAll(querySingle(subquery));
 		}
 		return results;
 	}
