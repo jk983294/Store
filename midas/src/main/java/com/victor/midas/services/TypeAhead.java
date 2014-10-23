@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.victor.midas.model.db.StockInfoDb;
 import com.victor.midas.util.MidasConstants;
+import com.victor.midas.util.StringPatternAware;
 import org.apache.log4j.Logger;
 
 import com.victor.midas.dao.StockInfoDao;
@@ -21,10 +22,6 @@ public class TypeAhead {
 	/**
 	 * characters that we don't bother to concern
 	 */
-	private static final String NOT_UNDER_CONCERN = "[^0-9a-zA-Z]";
-	private static final String ONLY_NUMBER = "[0-9]{1,6}";	
-	private static final String[] PREFIX = {"IDX","SZ","SH"};	
-//	private static final Pattern QUERY_PATTERN = Pattern.compile("[a-zA-Z]{0,3}[0-9]{0,6}");
 	
 	@Autowired
 	public TypeAhead(StockInfoDao stockInfoDao){
@@ -59,7 +56,7 @@ public class TypeAhead {
 	 */
 	public List<String> query(String tofinds){
 		ArrayList<String> results = new ArrayList<String>();		
-		tofinds.replaceAll(NOT_UNDER_CONCERN, " ");	
+		tofinds.replaceAll(StringPatternAware.NOT_UNDER_CONCERN, " ");
 		String[] subquerys = tofinds.split(" ");
 		for (String subquery : subquerys) {
             results.addAll(querySingle(subquery));
@@ -74,7 +71,7 @@ public class TypeAhead {
 	 */
 	private List<String> querySingle(String tofind){
 		ArrayList<String> results = new ArrayList<String>();		
-		if (tofind.matches(ONLY_NUMBER)) {
+		if (StringPatternAware.isOnlyNumber(tofind)) {
 			results.addAll(autoAddPrefix(tofind)); 
 		} else {
 			List<String> finds = data.getCompletionsFor(tofind);
@@ -92,7 +89,7 @@ public class TypeAhead {
 	 */
 	private List<String> autoAddPrefix(String numbers){
 		ArrayList<String> results = new ArrayList<String>();		
-		for (String prefix : PREFIX) {
+		for (String prefix : StringPatternAware.STOCK_PREFIX) {
 			List<String> finds = data.getCompletionsFor(prefix + numbers);
 			if (finds != null) {
 				results.addAll(finds);

@@ -6,6 +6,7 @@ import com.victor.midas.services.StocksService;
 import com.victor.midas.services.TaskMgr;
 import com.victor.midas.services.TypeAhead;
 import com.victor.midas.util.MidasConstants;
+import com.victor.midas.util.StringPatternAware;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,58 +49,85 @@ public class TypeAheadEndpoint {
     }
 
 
+    /**
+     * process query, always get first auto-complete string for sub-query,
+     * if could not find matched auto-complete string, use original string
+     */
     @GET
     @RequestMapping("/action/{query}")
     @Produces(MediaType.APPLICATION_JSON)
     public TypeAheadResponse getAction(@PathVariable("query") String query) {
-        List<String> tips = getTipList(query);
         TypeAheadResponse response = new TypeAheadResponse();
-        logger.info(query + " " + tips);
-        if(tips.size() > 0){
-            response.setAction(tips.get(0));
-        }
-        if(tips.size() == 1){
-            try {
-                response.setDescription( dealWithAction(tips.get(0)) );
-                response.setStatus(MidasConstants.RESPONSE_SUCCESS);
-            } catch (Exception e){
+        StringBuilder tip = new StringBuilder("");
+        try {
+            if(query != null){
+                String[] stringlets = query.split(" ");
+                for (int i = 0; i < stringlets.length; i++) {
+                    List<String> subtips = typeAhead.query(stringlets[i]);
+                    if(subtips.size() > 0) {
+                        tip.append(subtips.get(0)).append(" ");
+                    } else {
+                        tip.append(stringlets[i]).append(" ");
+                    }
+                }
+
+                String tipStr = tip.toString().trim();
+                //logger.info(query + " " + tipStr);
+                response.setAction(tipStr);
+                dealWithAction(tipStr, response);
+
+            } else {
                 response.setStatus(MidasConstants.RESPONSE_FAIL);
-                response.setDescription("error caused by : " + e);
+                response.setDescription("No query string");
             }
-        } else {
+        } catch (Exception e){
             response.setStatus(MidasConstants.RESPONSE_FAIL);
-            response.setDescription("No Action tip");
+            response.setDescription("error caused by : " + e);
         }
         return response;
     }
 
     /**
-     * deal with
+     * deal with action string
      */
-    private String dealWithAction(String action){
+    private void dealWithAction(String action, TypeAheadResponse response ){
         String[] actions = action.split(" ");
-        StringBuilder response = new StringBuilder();
+        StringBuilder responseStr = new StringBuilder();
         switch (actions.length){
             case 1 : {
                 switch (actions[0].toLowerCase()){
                     case "load" : {
                         taskMgr.cmd(TaskMgr.CMD_LOAD_DATA);
-                        response.append("load task is submitted.");
+                        responseStr.append("load task is submitted.");
                     }break;
                     case "delete" : {
                         taskMgr.cmd(TaskMgr.CMD_DELETE_DATE);
-                        response.append("delete task is submitted.");
+                        responseStr.append("delete task is submitted.");
                     }break;
                     case "create" : {
                         taskMgr.cmd(TaskMgr.CMD_CREATE_DB);
-                        response.append("delete task is submitted.");
+                        responseStr.append("delete task is submitted.");
                     }break;
-                    default: response.append("no matched cmd is found");
+                    default: {
+                        if(StringPatternAware.isStockCode(actions[0])){
+                            responseStr.append("jump to stock detail.");
+                        } else {
+                            responseStr.append("no matched cmd is found");
+                            response.setStatus(MidasConstants.RESPONSE_FAIL);
+                        }
+                    }
+
+                    break;    // deal with 1 sub tip ends
                 }
+            } break;    // action array has 1 sub tip ends
+            default: {
+                responseStr.append("no action recognized");
             } break;
-            default: response.append("no action recognized"); break;
         }
-        return response.toString();
+        response.setDescription(responseStr.toString());
+        if(response.getStatus() == null ){
+            response.setStatus(MidasConstants.RESPONSE_SUCCESS);
+        }
     }
 
     /**

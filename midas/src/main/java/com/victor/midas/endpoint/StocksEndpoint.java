@@ -6,6 +6,7 @@ import com.victor.midas.model.db.StockInfoDb;
 import com.victor.midas.model.vo.StockVo;
 import com.victor.midas.services.StocksService;
 import com.victor.midas.services.TypeAhead;
+import com.victor.midas.util.StringPatternAware;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,12 +40,19 @@ public class StocksEndpoint {
 	}
 
     @GET
-    @RequestMapping("/{name1}/{name2}")
+    @RequestMapping("/multiply/{names}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<StockVo> getTwoStocks(@PathVariable("name1") String name1, @PathVariable("name2") String name2) {
+    public List<StockVo> getTwoStocks(@PathVariable("names") String names) {
         List<StockVo> array = new ArrayList<>();
-        array.add(stocksService.getStockWithAllIndex(name1));
-        array.add(stocksService.getStockWithAllIndex(name2));
+        if(names != null) {
+            String[] stringlets = names.split(" ");
+            for (int i = 0; i < stringlets.length; i++) {
+                if(StringPatternAware.isStockCode(stringlets[i])){
+                    array.add(stocksService.getStockWithAllIndex(stringlets[i]));
+                }
+            }
+        }
+
         return array;
     }
 
