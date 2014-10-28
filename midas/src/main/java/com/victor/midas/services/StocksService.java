@@ -2,15 +2,15 @@ package com.victor.midas.services;
 
 import java.util.List;
 
-import com.victor.midas.dao.IndexDao;
+import com.victor.midas.dao.StockDao;
 import com.victor.midas.dao.MiscDao;
 import com.victor.midas.dao.StockInfoDao;
 import com.victor.midas.dao.TaskDao;
-import com.victor.midas.model.db.IndexDb;
 import com.victor.midas.model.db.StockInfoDb;
 import com.victor.midas.model.db.misc.StockNamesDb;
 import com.victor.midas.model.vo.StockVo;
 
+import com.victor.midas.util.MidasException;
 import com.victor.midas.util.ModelConvertor;
 import org.apache.log4j.Logger;
 
@@ -26,7 +26,7 @@ public class StocksService {
     @Autowired
     private TaskDao taskDao;
     @Autowired
-    private IndexDao indexDao;
+    private StockDao stockDao;
     @Autowired
     private MiscDao miscDao;
 
@@ -34,22 +34,17 @@ public class StocksService {
 	private TypeAhead typeAhead;
 
 
-    public void saveStocks(List<StockVo> stocks){
+    public void saveStocks(List<StockVo> stocks) throws MidasException {
         StockNamesDb stockNames = ModelConvertor.convert2StockNames(stocks);
         miscDao.saveMisc(stockNames);
 
         List<StockInfoDb> stockInfoDbs = ModelConvertor.convert2StockInfo(stocks);
         stockInfoDao.saveStockInfo(stockInfoDbs);
-
-        for (StockVo stockVo : stocks){
-            indexDao.saveIndex(stockVo.getIndexes().values());
-        }
+        stockDao.saveStock(stocks);
     }
 
     public StockVo getStockWithAllIndex(String stockName){
-        StockInfoDb stockInfo = stockInfoDao.queryByName(stockName);
-        List<IndexDb> indexDbs = indexDao.queryAllIndex(stockName);
-        return ModelConvertor.convert2StockVo(stockInfo, indexDbs);
+        return stockDao.queryStock(stockName);
     }
 
 
@@ -61,8 +56,8 @@ public class StocksService {
         return taskDao;
     }
 
-    public IndexDao getIndexDao() {
-        return indexDao;
+    public StockDao getStockDao() {
+        return stockDao;
     }
 
     public MiscDao getMiscDao() {

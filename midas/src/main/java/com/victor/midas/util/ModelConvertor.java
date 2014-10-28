@@ -5,6 +5,7 @@ import com.victor.midas.model.db.misc.StockNamesDb;
 import com.victor.midas.model.vo.StockVo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,14 +21,14 @@ public class ModelConvertor {
         return new StockNamesDb(MidasConstants.MISC_ALL_STOCK_NAMES, stockNames);
     }
 
-    public static List<StockInfoDb> convert2StockInfo(List<StockVo> stocks){
+    public static List<StockInfoDb> convert2StockInfo(List<StockVo> stocks) throws MidasException {
         List<StockInfoDb> stockInfoDbs = new ArrayList<>();
         for (StockVo stock : stocks){
             StockInfoDb stockInfo = new StockInfoDb();
             stockInfo.setName(stock.getStockName());
             stockInfo.setDesp(stock.getDesp());
-            stockInfo.setDate(stock.queryLastIndexInt(MidasConstants.INDEX_NAME_DATE));
-            stockInfo.setStart(stock.queryLastIndexDouble(MidasConstants.INDEX_NAME_START));
+            stockInfo.setDate(stock.getEnd());
+            stockInfo.setStart(stock.getStart());
             stockInfo.setMax(stock.queryLastIndexDouble(MidasConstants.INDEX_NAME_MAX));
             stockInfo.setMin(stock.queryLastIndexDouble(MidasConstants.INDEX_NAME_MIN));
             stockInfo.setEnd(stock.queryLastIndexDouble(MidasConstants.INDEX_NAME_END));
@@ -40,11 +41,4 @@ public class ModelConvertor {
         return stockInfoDbs;
     }
 
-    public static StockVo convert2StockVo(StockInfoDb stockInfo, List<IndexDb> indexDbs){
-        StockVo stock = new StockVo(stockInfo.getName(), stockInfo.getDesp());
-        for (IndexDb indexDb : indexDbs) {
-            stock.addIndex(indexDb);
-        }
-        return stock;
-    }
 }

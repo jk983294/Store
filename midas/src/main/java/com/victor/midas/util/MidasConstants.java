@@ -1,9 +1,7 @@
 package com.victor.midas.util;
 
-import com.victor.utilities.math.utils.ArrayHelper;
-import com.victor.utilities.math.utils.MathHelper;
+import com.victor.utilities.utils.ArrayHelper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +17,7 @@ public class MidasConstants {
     /**
      * collection name
      */
-    public static final String INDEX_COLLECTION_NAME = "StockIndex";
+    public static final String STOCK_COLLECTION_NAME = "Stock";
     public static final String MISC_COLLECTION_NAME = "StockMisc";
     public static final String STOCKINFO_COLLECTION_NAME = "StockInfo";
     public static final String TASK_COLLECTION_NAME = "StockTask";

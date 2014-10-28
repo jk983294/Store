@@ -1,7 +1,6 @@
 package com.victor.midas.dao;
 
 import com.victor.midas.model.db.misc.StockNamesDb;
-import com.victor.midas.model.vo.StockVo;
 import com.victor.midas.util.MidasConstants;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class MiscDao {
     private final String COLLECTION_NAME = MidasConstants.MISC_COLLECTION_NAME;
 
-    private static final Logger logger = Logger.getLogger(IndexDao.class);
+    private static final Logger logger = Logger.getLogger(StockDao.class);
 
     private static Query allStockNamesQuery = null;
 

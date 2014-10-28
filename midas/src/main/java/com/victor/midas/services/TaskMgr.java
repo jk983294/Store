@@ -1,7 +1,7 @@
 package com.victor.midas.services;
 
 
-import com.victor.midas.dao.IndexDao;
+import com.victor.midas.dao.StockDao;
 import com.victor.midas.dao.MiscDao;
 import com.victor.midas.services.worker.common.TaskBase;
 import com.victor.midas.services.worker.task.CreateCollectionTask;
@@ -34,7 +34,7 @@ public class TaskMgr {
 	@Autowired
     private TaskDao taskDao;
     @Autowired
-    private IndexDao indexDao;
+    private StockDao stockDao;
     @Autowired
     private MiscDao miscDao;
 
@@ -61,8 +61,8 @@ public class TaskMgr {
      */
     public void cmd(String instruction){
     	switch(instruction){
-            case CMD_DELETE_DATE :  addTask( new DeleteStockCollTask( taskDao , stockInfoDao, indexDao, miscDao ) );  break;
-            case CMD_CREATE_DB : addTask( new CreateCollectionTask( taskDao , stockInfoDao, indexDao, miscDao ) ); break;
+            case CMD_DELETE_DATE :  addTask( new DeleteStockCollTask( taskDao , stockInfoDao, stockDao, miscDao ) );  break;
+            case CMD_CREATE_DB : addTask( new CreateCollectionTask( taskDao , stockInfoDao, stockDao, miscDao ) ); break;
             case CMD_LOAD_DATA : addTask(new MktDataTask(filepath2prefix, taskDao, stocksService)); break;
             default : logger.error("no such cmd in task manager.");
         }

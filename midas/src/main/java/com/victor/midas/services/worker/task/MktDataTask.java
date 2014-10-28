@@ -2,11 +2,12 @@ package com.victor.midas.services.worker.task;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.victor.midas.calculator.IndexCalcException;
+import com.victor.midas.util.MidasException;
 import com.victor.midas.calculator.IndexCalculator;
 import com.victor.midas.model.vo.StockVo;
 import com.victor.midas.services.StocksService;
@@ -37,7 +38,7 @@ public class MktDataTask extends TaskBase {
 	}
 
 	@Override
-	public void doTask() throws IOException, IndexCalcException {
+	public void doTask() throws Exception {
         for (Map.Entry<String, String> entry : filepath2prefix.entrySet()) {
             String filePath = entry.getKey().toString();
             String prefix = entry.getValue().toString();
@@ -49,7 +50,7 @@ public class MktDataTask extends TaskBase {
 		logger.info( description + " complete...");
 	}
 
-    public void fromDirectory(String dir,String prefix) throws IOException{
+    public void fromDirectory(String dir,String prefix) throws IOException, ParseException {
         File root = new File(dir);
         File[] files = root.listFiles();
         for(File file:files){
@@ -66,8 +67,8 @@ public class MktDataTask extends TaskBase {
         }
     }
 
-    private void calcIndex() throws IndexCalcException {
-        IndexCalculator indexCalculator = new IndexCalculator(stocks, stocksService.getIndexDao());
+    private void calcIndex() throws MidasException {
+        IndexCalculator indexCalculator = new IndexCalculator(stocks, stocksService.getStockDao());
         indexCalculator.calculate();
     }
 	
@@ -77,7 +78,7 @@ public class MktDataTask extends TaskBase {
 	 * @return
 	 * @throws IOException 
 	 */
-	public StockVo fromFile(String path, String prefix) throws IOException{
+	public StockVo fromFile(String path, String prefix) throws IOException, ParseException {
         File file = new File(path);
         List<String> contents = FileUtils.readLines(file, "GBK");
         int cnt = contents.size() - 3;
@@ -108,13 +109,13 @@ public class MktDataTask extends TaskBase {
         }
 
         StockVo stock = new StockVo(stockName, sb.toString());
-        stock.addIndex(MidasConstants.INDEX_NAME_DATE, date, date);
-        stock.addIndex(MidasConstants.INDEX_NAME_START, start, date);
-        stock.addIndex(MidasConstants.INDEX_NAME_MAX, max, date);
-        stock.addIndex(MidasConstants.INDEX_NAME_MIN, min, date);
-        stock.addIndex(MidasConstants.INDEX_NAME_END, end, date);
-        stock.addIndex(MidasConstants.INDEX_NAME_VOLUME, volume, date);
-        stock.addIndex(MidasConstants.INDEX_NAME_TOTAL, total, date);
+        stock.addTimeSeries(date);
+        stock.addIndex(MidasConstants.INDEX_NAME_START, start);
+        stock.addIndex(MidasConstants.INDEX_NAME_MAX, max);
+        stock.addIndex(MidasConstants.INDEX_NAME_MIN, min);
+        stock.addIndex(MidasConstants.INDEX_NAME_END, end);
+        stock.addIndex(MidasConstants.INDEX_NAME_VOLUME, volume);
+        stock.addIndex(MidasConstants.INDEX_NAME_TOTAL, total);
 		return stock;
 	}
 	

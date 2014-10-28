@@ -1,6 +1,6 @@
 package com.victor.midas.services.worker.task;
 
-import com.victor.midas.dao.IndexDao;
+import com.victor.midas.dao.StockDao;
 import com.victor.midas.dao.MiscDao;
 import com.victor.midas.services.worker.common.TaskBase;
 import org.apache.log4j.Logger;
@@ -13,15 +13,15 @@ public class DeleteStockCollTask extends TaskBase {
 	private static final String description = "Delete Collection Task";
 
     private StockInfoDao stockInfoDao;
-    private IndexDao indexDao;
+    private StockDao stockDao;
     private MiscDao miscDao;
     private TaskDao taskDao;
 	
 
-	public DeleteStockCollTask( TaskDao taskDao , StockInfoDao stockInfoDao, IndexDao indexDao, MiscDao miscDao) {
+	public DeleteStockCollTask( TaskDao taskDao , StockInfoDao stockInfoDao, StockDao stockDao, MiscDao miscDao) {
         super(description, taskDao);
         this.stockInfoDao = stockInfoDao;
-        this.indexDao = indexDao;
+        this.stockDao = stockDao;
         this.miscDao = miscDao;
         this.taskDao = taskDao;
 	}
@@ -33,7 +33,7 @@ public class DeleteStockCollTask extends TaskBase {
 //        taskDao.createCollection();
 
         stockInfoDao.deleteCollection();
-        indexDao.deleteCollection();
+        stockDao.deleteCollection();
         miscDao.deleteCollection();
 		logger.info(description + " complete...");
 	}

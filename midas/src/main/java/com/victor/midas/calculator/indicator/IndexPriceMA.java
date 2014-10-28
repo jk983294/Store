@@ -1,11 +1,12 @@
 package com.victor.midas.calculator.indicator;
 
 import com.victor.midas.calculator.IndexCalcbase;
-import com.victor.midas.model.db.IndexDb;
 import com.victor.midas.model.vo.StockVo;
 import com.victor.midas.util.MidasConstants;
+import com.victor.midas.util.MidasException;
 import com.victor.utilities.math.stats.StatisticsCalc;
-import com.victor.utilities.math.utils.ArrayHelper;
+
+import java.util.Map;
 
 /**
  * calculate Price Moving Average
@@ -29,21 +30,18 @@ public class IndexPriceMA extends IndexCalcbase {
     }
 
     @Override
-    protected IndexDb calculateFromScratch(StockVo stock) {
-        double[] end = stock.getIndex(MidasConstants.INDEX_NAME_END).getIndexDouble();
+    protected Map<String, Object> calculateFromScratch(StockVo stock) throws MidasException {
+        double[] end = (double[])stock.queryCmpIndex(MidasConstants.INDEX_NAME_END);
         double[] ma = StatisticsCalc.mean1(end, interval);
-
-        int[] date = stock.getIndex(MidasConstants.INDEX_NAME_DATE).getIndexInt();
-        return new IndexDb(stock.getStockName(), getIndexName(), ma, date);
+        return generateCmpName2IndexData( getIndexName(), ma);
     }
 
     @Override
-    protected IndexDb calculateFromExisting(StockVo stock, IndexDb oldIndex) {
-        double[] end = stock.getIndex(MidasConstants.INDEX_NAME_END).getIndexDouble();
-        double[] oldIndexValue = oldIndex.getIndexDouble();
+    protected Map<String, Object> calculateFromExisting(StockVo stock, StockVo oldStock) throws MidasException {
+        double[] end = (double[])stock.queryCmpIndex(MidasConstants.INDEX_NAME_END);
+        double[] oldIndexValue = (double[])oldStock.queryCmpIndex(getIndexName());
         double[] ma = StatisticsCalc.meanFromExisting(end, oldIndexValue, interval);
 
-        int[] date = stock.getIndex(MidasConstants.INDEX_NAME_DATE).getIndexInt();
-        return new IndexDb(stock.getStockName(), getIndexName(), ma, date);
+        return generateCmpName2IndexData( getIndexName(), ma);
     }
 }

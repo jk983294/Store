@@ -10,15 +10,15 @@ public class CreateCollectionTask extends TaskBase {
 	private static final String description = "Create Collection Task";
 
     private StockInfoDao stockInfoDao;
-    private IndexDao indexDao;
+    private StockDao stockDao;
     private MiscDao miscDao;
     private TaskDao taskDao;
 
 
-	public CreateCollectionTask(TaskDao taskDao, StockInfoDao stockInfoDao, IndexDao indexDao, MiscDao miscDao) {
+	public CreateCollectionTask(TaskDao taskDao, StockInfoDao stockInfoDao, StockDao stockDao, MiscDao miscDao) {
 		super(description, taskDao);
         this.stockInfoDao = stockInfoDao;
-        this.indexDao = indexDao;
+        this.stockDao = stockDao;
         this.miscDao = miscDao;
         this.taskDao = taskDao;
 	}
@@ -27,7 +27,7 @@ public class CreateCollectionTask extends TaskBase {
 	public void doTask() throws Exception {
 		taskDao.createCollection();
         stockInfoDao.createCollection();
-        indexDao.createCollection();
+        stockDao.createCollection();
         miscDao.createCollection();
 		logger.info(description + " complete...");
 	}
